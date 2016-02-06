@@ -1,0 +1,203 @@
+Eyas Sharaiha
+=============
+
+Education
+---------
+
+## Massachusetts Institute of Technology
+Cambridge, MA
+
+### Bachelor of Science in Computer Science & Engineering
+August 2009 – June 2013
+**Major GPA**: 5.0/5.0; **GPA**: 4.9/5.0
+
+#### Highlighted Coursework
+* Artificial Intelligence
+* Automata, Computability, and Complexity
+* Computation Structures
+* Computer Systems Engineering
+* Computer Language Engineering
+* Digital Communication Systems
+* Distributed Systems
+* Design & Analysis of Algorithms
+* Elements of Software Construction
+* Making Video Games
+* Multicore Programming
+* Operating System Engineering
+* User Interface Design
+
+#### Activities/Membership
+* St. Anthony Hall (Delta Psi Co-Ed Fraternity; locally known as The Number Six Club)
+* National Society of Collegiate Scholars
+* Phi Beta Kappa Society
+* Tau Beta Pi Engineering Society
+* Eta Kappa Nu ECE Society
+* MIT Mobile Apps Competition
+
+### Master of Engineering in Electrical Engineering & Computer Science
+June 2013 – June 2014
+**Thesis**: Enhancing the Classroom Experience with Faculty Curated Discussions; **Concentration**: Computer Systems; **GPA**: 5.0/5.0
+
+## Amman National School
+Amman, Jordan
+
+### International Baccalaureate Bilingual Diploma (IBDP)
+June 2009
+**Senior Thesis in Physics**: Study of the Experimental Methods of the Determination of the Coefficient of Viscosity of Glycerin; **IBDP Score**: 44/45
+
+Experience
+----------
+
+## Broadway Technology
+New York, NY
+
+### Software Engineer
+July 2014 – Present
+* Developing high-performance distributed systems with applications in finance and trading
+* Created high performance time-series analysis component to monitor health of financial systems; producing analytics for incoming data throughputs of up to 100K events/sec
+
+## MIT CSAIL Laboratory: Haystack Group
+Cambridge, MA
+
+### Graduate Researcher
+January 2014 – May 2014
+* Created tools and interactions to allow course staff to search for student course discussions along a number of “success” axes being evaluated
+* Introduced interaction schemes to allow course staff to import and transfer successful student discussions between documents of different offerings
+
+### MIT EECS Google Research and Innovation Fellow
+September 2012 – July 2013
+* Redesigned NB, a social annotation tool, to support annotating static HTML documents, in addition to existing functionality to annotate PDF documents.
+
+## MIT 6.170: Software Studio
+Cambridge, MA
+
+### Graduate Teaching Assistant
+August 2013 – January 2014
+* One of 5 graduate teaching assistants for a class of 125 students, where students learn web development, with a focus on JavaScript and Rails.
+* Lead planning and logistics, which involved managing scheduling, locations, office hours, and recitations.
+* Taught recitation sections, tutored students in lab hours, and mentored student teams in final project consultations.
+
+## Microsoft Corporation
+Redmond, WA
+
+### Software Engineering Intern
+June 2013 – August 2013
+* Assisted in adding support for real-time collaborative editing scenarios in Word Online by developing inter-paragraph text merge strategies.
+
+### Software Engineering Intern
+June 2012 – August 2012
+* Extended OneNote Online to support editing, viewing, and collaborating across securely encrypted, password-protected sections.
+
+## Google, Inc
+New York, NY
+
+### Software Engineering Intern
+June 2011 – August 2011
+* Built tools to facilitate event-driven programming for internal software; built load-testing framework for internal message bus; ran performance trials.
+
+## The Number Six Club
+Cambridge, MA
+
+### Webmaster
+February 2010 – December 2013
+* Rewrote the website for an MIT student group of 50 Active Members to adapt to the modern web.
+* Created Member Directory database and interface, which now powers site contact page, alumni information, mass event invitations for alumni, and automates officer tasks.
+
+## GAMBIT: MIT-Singapore Game Development Lab
+Cambridge, MA
+
+### Developer
+September 2009 – December 2009
+* Built online database and applicant management interface to handle Summer Applicants for GAMBIT, transitioning from manual data management to web-based database.
+
+Volunteer
+---------
+
+## Massachusetts Institute of Technology
+### Educational Counselor
+June 2013 – Present
+Recruiting, acting as a community resource, and interviewing candidates for the MIT freshman class.
+
+## St. Anthony Association of Boston (Number Six Club Alumni Organization)
+### Alumni Board House Manager
+April 2013 – Present
+Serving on the board of the house-owning alumni organization for the Number Six Club, an independent living group and co-ed literary fraternity at MIT. Alumni House Manager in that capacity.
+
+## Seeds of Peace
+International, U.S.-based non-profit organization aimed to promote peace coexistence in the Middle East through a dialogue program.
+
+### Camper
+2005
+
+### Peer Support Leader
+2007
+
+### Regional Contributor
+2007 – 2010
+* Assisted in organizing, scheduling, and preparing materials for annual camper orientation
+* Assisted in preparing and conducting talks and presentations to local membership
+
+University Leadership
+---------------------
+
+## The Living Group Council, MIT
+Cambridge, MA
+
+### Speaker
+March 2012 – December 2012
+* Served as the representative of MIT's six Independent Living Groups to the MIT Administration, the Undergraduate Association, and the Alumni Association for Fraternities, Sororities, and Independent Living Groups. Organized and ran meetings of LGC representatives, increase LGC recognition and visibility on campus, and participated in the revitalization of the council in 2012.
+
+## The Number Six Club
+Cambridge, MA
+
+### Co-President/House Manager
+January 2011 – August 2012
+* Elected to this post in a Co-ed Fraternity at MIT. Organized residential duties, represented members to MIT, managed contracts, oversaw maintenance and reparations, and other projects.
+
+### Lead Undergraduate Organizer for National Convention
+September 2012 – January 2013
+* Was one of three lead organizing undergraduates, along with two alumni members to plan and execute the 2013 Grand Chapter Convention of the St. Anthony Hall National Fraternity. The event took place on January 18-20, 2013 in Cambridge, MA where we hosted 250 guests from around the country.
+
+## 6.570 MIT Mobile Apps Competition
+Cambridge, MA
+
+### Organizer, Co-Founder
+January 2012
+* Took part in the organization and founding of MIT's inaugural Mobile Apps Competition, held in January 2012. Forty-two students competed in 16 teams to create Android Mobile Applications in one month. The competition was a success, attracting 14 sponsors, with awards given out by industry professionals.
+
+## MIT Model United Nations Conference (MITMUNC)
+Cambridge, MA
+
+### Committee Chair and Secretariat
+2010 – 2012
+* Contributed to the MITMUNC in 2010 as an Assistant Committee Chair; in 2011 as a Head Chair; in 2012 as a Crisis Director. MITMUNC is annually attended by 250-500 students from around the world.
+
+## MIT Arab Student Organization: College Admissions Arab Mentorship Program
+Amman, Jordan
+
+### Regional Mentor & Speaker
+January 2010
+* Organized workshops and presentations at 10 schools in Amman, Jordan on applying for universities in the United States, with special emphasis on MIT, targeted at Arab students.
+
+Highlighted Side Projects
+-------------------------
+
+## MarkUp Game Development Magazine
+Amman, Jordan
+
+### Founder & Sr. Editor
+February 2007 – July 2008
+* Started, wrote in, and edited a game development magazine aimed at the more technical members of the Game Maker community.
+* The project peaked towards its end to include ~15 regular writers, other individual contributors, 300 regular subscribers, and a monthly readership of more than 3,000.
+
+Other Experiences
+-----------------
+
+## GMPedia.org (Later YoYo Games Wiki)
+Initially an independent Game Development Wiki serving different online development communities. Merged with YoYo Games Ltd. to become the primary resources for Independent Developers using YoYo Games' GameMaker software.
+
+### Founder, Administrator, and Senior Editor of GMPedia.org
+2007 – 2008
+
+### Administrator at YoYo Games Wiki
+2008 – 2009

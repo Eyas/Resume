@@ -1,0 +1,30 @@
+{
+    "name": "Resume",
+    "authors": [ "Eyas Sharaiha" ],
+    "homepage": "https://github.com/Eyas/Resume/",
+    "version": "1.0.0",
+    "license": "MIT",
+    "description": "My Resume in JSON, HTML, and Markdown",
+    "keywords": [
+        "TypeScript",
+        "javascript",
+        "resume",
+        "json",
+        "html"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Eyas/Resume.git"
+    },
+    "devDependencies": {
+        "typescript": "latest",
+        "typings": "latest",
+        "gulp": "latest",
+        "gulp-file": "latest",
+        "del": "latest",
+        "gulp-typescript": "latest",
+        "react": "^0.14.0",
+        "react-dom": "^0.14.0",
+        "fs-extra": "^0.24.0"
+    }
+}

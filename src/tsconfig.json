@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "target": "es6",
+        "declaration": true,
+        "moduleResolution": "node",
+        "module": "commonjs",
+        "jsx": "react",
+        "outDir": "../built/ide/"
+    },
+    "files": [
+        "../typings/main.d.ts",
+        "data/EyasResume.ts",
+        "core/extensions.ts",
+        "core/resume.ts",
+        "core/transform.ts",
+        "render/render.ts",
+        "markdown/generator.ts",
+        "react-html/cv_render.tsx",
+        "react-html/twocolumn_render.tsx"
+    ]
+}

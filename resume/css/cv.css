@@ -1,0 +1,108 @@
+.resume {
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+  font-family: 'Open Sans';
+}
+@media print {
+  .resume {
+    width: 100%;
+  }
+  body { font-size: 10pt; }
+}
+
+.involvement .listings {
+  display: flex;
+  flex-wrap: wrap;
+}
+.involvement .listings .listing {
+  flex: 0 0 50%;
+}
+
+.resume header .title {
+  font-size: 1.5em;
+  font-weight: 100;
+  font-style: italic;
+  text-align: center;
+}
+
+.resume header .name {
+  font-size: 3.5em;
+  font-weight: 100;
+  text-align: center;
+}
+
+.resume header .contact {
+  line-height: 1.5em;
+  font-size: 1.1em;
+  font-weight: 100;
+  text-align: center;
+}
+
+.resume h1 {
+  font-weight: 100;
+  font-size: 2em;
+  margin-bottom: 0;
+}
+
+.resume h2 {
+  font-weight: 500;
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.resume h3 {
+  font-weight: 400;
+  font-size: 1.2em;
+  font-style: italic;
+  margin-top: 0;
+  margin-bottom: 0.3em;
+}
+
+.resume .entity .properties {
+  margin-top: 0.5em;
+}
+
+.resume .entity .properties>span {
+  margin-right: 0.5em;
+}
+
+.resume .entity .involvementDate {
+  text-align: right;
+  height: 0;
+}
+
+.resume .entity .involvementDate>span {
+  font-style: italic;
+  position: relative;
+  top: -1.8em;
+}
+
+.resume .entity .info .location {
+  text-align: right;
+  height: 0;
+}
+
+.resume .entity .info .location>span {
+  position: relative;
+  top: -1.5em;
+  font-style: italic;
+}
+
+.resume span.skill {
+  margin-right: 0.5em;
+}
+.resume span.skill::after {
+  content: ', ';
+}
+.resume span.skill:last-child::after {
+  content: '.';
+}
+
+.resume table.biography th {
+  text-align: left;
+}
+
+.resume table.biography td {
+  white-space: pre;
+}
