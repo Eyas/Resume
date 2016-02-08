@@ -11,6 +11,7 @@
     "files": [
         "../typings/main.d.ts",
         "data/EyasResume.ts",
+        "data/EyasResumeTransform.ts",
         "core/extensions.ts",
         "core/resume.ts",
         "core/transform.ts",

@@ -1,8 +1,9 @@
 "use strict";
 
-import { ApproximateDate, DateRange, DatesAreEqual, Resume, Category, EntityInvolvements, CompareDatesDescending, CompareDateRangeDescending } from "../core/resume";
+import { ApproximateDate, DateRange, DatesAreEqual, Resume, Category, EntityInvolvements, SortEntitiesDescending } from "../core/resume";
 import { TransformCategories, All, None } from "../core/transform";
 import { RenderApproxDate, RenderDateRange } from "../render/render";
+import { Transform } from "../data/EyasResumeTransform"
 import React = require("react");
 
   // credit: stackoverflow.com/a/10073788/864313
@@ -37,22 +38,9 @@ import React = require("react");
     constructor (resume: Resume) {
       super();
       var self = this;
-      resume.categories.forEach(category => self.SortEntities(category.entities));
+      resume.categories.forEach(category => SortEntitiesDescending(category.entities));
 
       this.resume = resume;
-    }
-    private SortEntities(entities: EntityInvolvements[]) {
-      entities.forEach(e => {
-          e.involvements.sort((f, s) => CompareDateRangeDescending(f.dates, s.dates));
-      });
-
-      entities.sort((a, b) => {
-        if (a.involvements.length === 0 && b.involvements.length === 0) return 0;
-        if (a.involvements.length === 0) return +1; // always put at the end
-        if (b.involvements.length === 0) return -1; // always put at the end
-
-        return CompareDateRangeDescending(a.involvements[0].dates, b.involvements[0].dates);
-      });
     }
     render() {
       var self = this;
@@ -78,81 +66,7 @@ import React = require("react");
 
       var main_categories = TransformCategories(
         this.resume.categories,
-        {
-          sequence: [
-            {
-              item: "Education",
-              entities: {
-                filter: "MIT",
-                involvements: {
-                  filter: All,
-                  dates: { start: false, end: true },
-                  lists: {
-                    sequence: [
-                      {
-                        item: /Coursework/g,
-                        list: {
-                          sequence: [
-                            {item: /Automata/g },
-                            {item: /Computer Language/g },
-                            {item: /Computer Systems/g },
-                            {item: /Algorithms/g },
-                            {item: /Distributed Systems/g },
-                            {item: /Multicore/g },
-                            {item: /Operating System/g },
-                            {item: /Interface/g }
-                          ]
-                        }
-                      },
-                      {
-                        item: /Membership/g,
-                        list: {
-                          sequence: [
-                            {item: /Phi Beta Kappa/g },
-                            {item: /Tau Beta Pi/g },
-                            {item: /Eta Kappa Nu/g },
-                            {item: /Number Six Club/g, xform: "St. Anthony Hall (Delta Psi Co-Ed Fraternity; The Number Six Club)" }
-                          ]
-                        }
-                      }
-                    ]
-                  }
-                }
-              }
-            },
-            {
-              item: "Experience",
-              entities: {
-                sequence: [
-                  { item: /Broadway/g },
-                  { item: /Microsoft/g },
-                  {
-                    item: /CSAIL/g,
-                    involvements: {
-                      sequence: [ {item: /Fellow/g} ]
-                    }
-                  },
-                  { item: /Google/g }
-                ]
-              }
-            },
-            {
-              item: "Volunteer",
-              entities: {
-                sequence: [
-                  {
-                    item: /Number Six/g,
-                    involvements: {
-                      filter: All,
-                      accomplishments: { filter: None },
-                      description: false
-                    }
-                  }
-                ]
-              }
-            },
-          ]
-        }
+        Transform.categories
       );
 
       var listing_obj = main_categories.flatMap(cat => cat.entities).flatMap(ent => ent.involvements).flatMap(inv => inv.lists).groupByFlatMap((g => g.name), (l => l.list));

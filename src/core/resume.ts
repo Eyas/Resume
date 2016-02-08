@@ -162,3 +162,17 @@ export function CompareDateRangeDescending(first: DateRange, second: DateRange):
     if (!first.end && !second.end) { return CompareDatesDescending(first.start, second.start) }
     return CompareDatesDescending(first.end, second.end);
 }
+
+export function SortEntitiesDescending(entities: EntityInvolvements[]): void {
+    entities.forEach(e => {
+        e.involvements.sort((f, s) => CompareDateRangeDescending(f.dates, s.dates));
+    });
+
+    entities.sort((a, b) => {
+    if (a.involvements.length === 0 && b.involvements.length === 0) return 0;
+    if (a.involvements.length === 0) return +1; // always put at the end
+    if (b.involvements.length === 0) return -1; // always put at the end
+
+    return CompareDateRangeDescending(a.involvements[0].dates, b.involvements[0].dates);
+    });
+}

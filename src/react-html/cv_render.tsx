@@ -1,6 +1,6 @@
 "use strict";
 
-import { ApproximateDate, DateRange, DatesAreEqual, Resume, Category, EntityInvolvements, CompareDatesDescending, CompareDateRangeDescending } from "../core/resume";
+import { ApproximateDate, DateRange, DatesAreEqual, Resume, Category, EntityInvolvements, SortEntitiesDescending } from "../core/resume";
 import { RenderApproxDate, RenderDateRange } from "../render/render";
 import React = require("react");
 
@@ -29,22 +29,9 @@ export class CurriculumVitae extends React.Component<Resume, any> {
   constructor (resume: Resume) {
     super();
     var self = this;
-    resume.categories.forEach(category => self.SortEntities(category.entities));
+    resume.categories.forEach(category => SortEntitiesDescending(category.entities));
 
     this.resume = resume;
-  }
-  private SortEntities(entities: EntityInvolvements[]) {
-    entities.forEach(e => {
-        e.involvements.sort((f, s) => CompareDateRangeDescending(f.dates, s.dates));
-    });
-
-    entities.sort((a, b) => {
-      if (a.involvements.length === 0 && b.involvements.length === 0) return 0;
-      if (a.involvements.length === 0) return +1; // always put at the end
-      if (b.involvements.length === 0) return -1; // always put at the end
-
-      return CompareDateRangeDescending(a.involvements[0].dates, b.involvements[0].dates);
-    });
   }
   render() {
     var self = this;

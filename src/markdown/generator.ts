@@ -3,6 +3,8 @@ import { RenderApproxDate, RenderDateRange } from "../render/render";
 import fs = require('fs');
 
 export function toMarkdown(resume: r.Resume): string {
+    resume.categories.forEach(category => r.SortEntitiesDescending(category.entities));
+
     var file: string = "";
     file += resume.person.name + "\n" + Array(resume.person.name.length + 1).join('=') + "\n\n";
     file += resume.categories.map(categoryToMarkdown).join("\n\n");

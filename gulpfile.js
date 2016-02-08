@@ -28,9 +28,13 @@ gulp.task('resume-json', ['build'], function() {
 
 gulp.task('resume-md', ['build'], function() {
     var r = require("./built/data/EyasResume.js");
+    var t = require("./built/data/EyasResumeTransform.js");
+    var x = require("./built/core/transform.js");
     var md = require("./built/markdown/generator.js");
-    var str = md.toMarkdown(r.EyasResume);
-    return file('cv.md', str, {src: true })
+    var str_cv = md.toMarkdown(r.EyasResume);
+    var str_resume = md.toMarkdown(x.TransformResume(r.EyasResume, t.Transform));
+    return file('cv.md', str_cv, {src: true })
+        .pipe(file('resume.md', str_resume))
         .pipe(gulp.dest('resume/'));
 });
 

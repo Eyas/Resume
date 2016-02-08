@@ -99,53 +99,17 @@ export var EyasResume: Resume = {
         }
       ]
     },
-    { name: "Experience", entities: [
+    { name: "Industry Experience", entities: [
       {
         entity: "Broadway Technology",
         location: "New York, NY",
         involvements: [
           {
             dates: { start: MakeDate(2014, 7) },
-            title: "Software Engineer",
+            title: "Software Developer",
             accomplishments: [
-              "Developing high-performance distributed systems with applications in finance and trading",
-              "Created high performance time-series analysis component to monitor health of financial systems; producing analytics for incoming data throughputs of up to 100K events/sec"
-            ]
-          }
-        ]
-      },
-      {
-        entity: "MIT CSAIL Laboratory: Haystack Group",
-        location: "Cambridge, MA",
-        involvements: [
-          {
-            dates: { start: MakeDate(2014, 1), end: MakeDate(2014, 5) },
-            title: "Graduate Researcher",
-            accomplishments: [
-              "Created tools and interactions to allow course staff to search for student course discussions along a number of \u201Csuccess\u201D axes being evaluated",
-              "Introduced interaction schemes to allow course staff to import and transfer successful student discussions between documents of different offerings"
-            ]
-          },
-          {
-            dates: { start: MakeDate(2012, 9), end: MakeDate(2013, 7) },
-            title: "MIT EECS Google Research and Innovation Fellow",
-            accomplishments: [
-              "Redesigned NB, a social annotation tool, to support annotating static HTML documents, in addition to existing functionality to annotate PDF documents."
-            ]
-          }
-        ]
-      },
-      {
-        entity: "MIT 6.170: Software Studio",
-        location: "Cambridge, MA",
-        involvements: [
-          {
-            dates: { start: MakeDate(2013, 8), end: MakeDate(2014, 1) },
-            title: "Graduate Teaching Assistant",
-            accomplishments: [
-              "One of 5 graduate teaching assistants for a class of 125 students, where students learn web development, with a focus on JavaScript and Rails.",
-              "Lead planning and logistics, which involved managing scheduling, locations, office hours, and recitations.",
-              "Taught recitation sections, tutored students in lab hours, and mentored student teams in final project consultations."
+              "Built high-performance loosely-coupled distributed systems with uses in trading.",
+              "Created time-series analysis component to monitor health of financial systems; processing throughputs up to 100K incoming events/sec"
             ]
           }
         ]
@@ -156,14 +120,14 @@ export var EyasResume: Resume = {
         involvements: [
           {
             dates: { start: MakeDate(2013, 6), end: MakeDate(2013, 8) },
-            title: "Software Engineering Intern",
+            title: "Software Development Engineer Intern",
             accomplishments: [
-              "Assisted in adding support for real-time collaborative editing scenarios in Word Online by developing inter-paragraph text merge strategies."
+              "Built support for real-time collaborative editing in Word Online by developing inter-paragraph text merge strategies."
             ]
           },
           {
             dates: { start: MakeDate(2012, 6), end: MakeDate(2012, 8) },
-            title: "Software Engineering Intern",
+            title: "Software Development Engineer Intern",
             accomplishments: [
               "Extended OneNote Online to support editing, viewing, and collaborating across securely encrypted, password-protected sections."
             ]
@@ -176,40 +140,79 @@ export var EyasResume: Resume = {
         involvements: [
           {
             dates: { start: MakeDate(2011, 6), end: MakeDate(2011, 8) },
-            title: "Software Engineering Intern",
+            title: "Software Engineer Intern",
             accomplishments: [
               "Built tools to facilitate event-driven programming for internal software; built load-testing framework for internal message bus; ran performance trials."
             ]
           }
         ]
-      },
+      }
+    ]},
+    { name: "Education Experience", entities: [
       {
-        entity: "The Number Six Club",
+        entity: "MIT 6.170: Software Studio",
         location: "Cambridge, MA",
         involvements: [
           {
-            dates: { start: MakeDate(2010, 2), end: MakeDate(2013, 12) },
-            title: "Webmaster",
+            dates: { start: MakeDate(2013, 8), end: MakeDate(2014, 1) },
+            title: "Graduate Teaching Assistant",
             accomplishments: [
-              "Rewrote the website for an MIT student group of 50 Active Members to adapt to the modern web.",
-              "Created Member Directory database and interface, which now powers site contact page, alumni information, mass event invitations for alumni, and automates officer tasks."
+              "One of 5 graduate teaching assistants for a class of 125 students, where students learn web development, with a focus on JavaScript and Rails.",
+              "Lead planning and logistics, which involved managing scheduling, locations, office hours, and recitations.",
+              "Taught recitation sections, tutored students in lab hours, and mentored student teams of 3-4 students in final project consultations."
             ]
           }
         ]
       },
       {
-        entity: "GAMBIT: MIT-Singapore Game Development Lab",
+        entity: "MIT CSAIL Laboratory: Haystack Group",
         location: "Cambridge, MA",
         involvements: [
           {
-            dates: { start: MakeDate(2009, 9), end: MakeDate(2009, 12) },
-            title: "Developer",
+            dates: { start: MakeDate(2014, 1), end: MakeDate(2014, 5) },
+            title: "Graduate Researcher",
             accomplishments: [
-              "Built online database and applicant management interface to handle Summer Applicants for GAMBIT, transitioning from manual data management to web-based database.",
+              "Studied effect of annotation and online discussions on online materials in achieving interactive or collaborative learning.",
+              "Created interactions to allow instructors to find student course discussions along a number of \u201Csuccess\u201D metics studied.",
+              "Introduced tools allowing instructors to reuse successful discussions between documents of different class offerings."
+            ]
+          },
+          {
+            dates: { start: MakeDate(2012, 9), end: MakeDate(2013, 7) },
+            title: "MIT EECS Google Research and Innovation Fellow",
+            accomplishments: [
+              "Added support for adding annotations and discussions static HTML documents to NB, an online social annotation tool for education."
             ]
           }
         ]
       },
+      {
+        entity: "6.570 MIT Mobile Apps Competition",
+        location: "Cambridge, MA",
+        involvements: [
+          {
+            dates: {start: MakeDate(2012, 1), end: MakeDate(2012, 1)},
+            title: "Co-Organizer, Co-Founder",
+            accomplishments: [
+              "Organized MIT's inaugural Mobile Apps Competition during MIT's IAP period in January.",
+              "Forty-two students competed in 16 teams to create Android Mobile Applications, and competed for awards judged by professionals from 14 industry sponsors."
+            ]
+          }
+        ]
+      },
+      {
+        entity: "MIT Arab Student Organization: College Admissions Arab Mentorship Program",
+        location: "Amman, Jordan",
+        involvements: [
+          {
+            dates: {start: MakeDate(2010, 1), end: MakeDate(2010, 1)},
+            title: "Regional Mentor & Speaker",
+            accomplishments: [
+              "Organized workshops and presentations at 10 schools in Amman, Jordan on applying for universities in the United States, with special emphasis on MIT, targeted at Arab students."
+            ]
+          }
+        ]
+      }
     ]},
     { name: "Volunteer", entities: [
       {
@@ -258,84 +261,6 @@ export var EyasResume: Resume = {
         ]
       }
     ]},
-    { name: "University Leadership", entities: [
-      {
-        entity: "The Living Group Council, MIT",
-        location: "Cambridge, MA",
-        involvements: [
-          {
-            dates: {start: MakeDate(2012, 3), end: MakeDate(2012, 12)},
-            title: "Speaker",
-            accomplishments: [
-              "Served as the representative of MIT's six Independent Living Groups to the MIT Administration, the Undergraduate Association, and the Alumni Association for Fraternities, Sororities, and Independent Living Groups. Organized and ran meetings of LGC representatives, increase LGC recognition and visibility on campus, and participated in the revitalization of the council in 2012."
-            ]
-          }
-        ]
-      },
-
-      {
-        entity: "The Number Six Club",
-        location: "Cambridge, MA",
-        involvements: [
-          {
-            dates: {start: MakeDate(2011, 1), end: MakeDate(2012, 8)},
-            title: "Co-President/House Manager",
-            accomplishments: [
-              "Elected to this post in a Co-ed Fraternity at MIT. Organized residential duties, represented members to MIT, managed contracts, oversaw maintenance and reparations, and other projects."
-            ]
-          },
-          {
-            dates: {start: MakeDate(2012, 9), end: MakeDate(2013, 1)},
-            title: "Lead Undergraduate Organizer for National Convention",
-            accomplishments: [
-              "Was one of three lead organizing undergraduates, along with two alumni members to plan and execute the 2013 Grand Chapter Convention of the St. Anthony Hall National Fraternity. The event took place on January 18-20, 2013 in Cambridge, MA where we hosted 250 guests from around the country."
-            ]
-          }
-        ]
-      },
-
-      {
-        entity: "6.570 MIT Mobile Apps Competition",
-        location: "Cambridge, MA",
-        involvements: [
-          {
-            dates: {start: MakeDate(2012, 1), end: MakeDate(2012, 1)},
-            title: "Organizer, Co-Founder",
-            accomplishments: [
-              "Took part in the organization and founding of MIT's inaugural Mobile Apps Competition, held in January 2012. Forty-two students competed in 16 teams to create Android Mobile Applications in one month. The competition was a success, attracting 14 sponsors, with awards given out by industry professionals."
-            ]
-          }
-        ]
-      },
-
-      {
-        entity: "MIT Model United Nations Conference (MITMUNC)",
-        location: "Cambridge, MA",
-        involvements: [
-          {
-            dates: {start: MakeDate(2010), end: MakeDate(2012)},
-            title: "Committee Chair and Secretariat",
-            accomplishments: [
-              "Contributed to the MITMUNC in 2010 as an Assistant Committee Chair; in 2011 as a Head Chair; in 2012 as a Crisis Director. MITMUNC is annually attended by 250-500 students from around the world."
-            ]
-          }
-        ]
-      },
-
-      {
-        entity: "MIT Arab Student Organization: College Admissions Arab Mentorship Program",
-        location: "Amman, Jordan",
-        involvements: [
-          {
-            dates: {start: MakeDate(2010, 1), end: MakeDate(2010, 1)},
-            title: "Regional Mentor & Speaker",
-            accomplishments: [
-              "Organized workshops and presentations at 10 schools in Amman, Jordan on applying for universities in the United States, with special emphasis on MIT, targeted at Arab students."
-            ]
-          }
-        ]
-      }
-    ]},
     { name: "Highlighted Side Projects", entities: [
       {
         entity: "MarkUp Game Development Magazine",
@@ -353,6 +278,68 @@ export var EyasResume: Resume = {
       }
     ]},
     { name: "Other Experiences", entities: [
+      {
+        entity: "The Number Six Club",
+        location: "Cambridge, MA",
+        involvements: [
+          {
+            dates: {start: MakeDate(2011, 1), end: MakeDate(2012, 8)},
+            title: "Co-President/House Manager",
+            accomplishments: [
+              "Elected to this post in a Co-ed Fraternity at MIT. Organized residential duties, represented members to MIT, managed contracts, oversaw maintenance and reparations, and other projects."
+            ]
+          },
+          {
+            dates: {start: MakeDate(2012, 9), end: MakeDate(2013, 1)},
+            title: "Lead Undergraduate Organizer for National Convention",
+            accomplishments: [
+              "Was one of three lead organizing undergraduates, along with two alumni members to plan and execute the 2013 Grand Chapter Convention of the St. Anthony Hall National Fraternity. The event took place on January 18-20, 2013 in Cambridge, MA where we hosted 250 guests from around the country."
+            ]
+          },
+          {
+            dates: { start: MakeDate(2010, 2), end: MakeDate(2013, 12) },
+            title: "Webmaster",
+            accomplishments: [
+              "Rewrote the website for an MIT student group of 50 Active Members to adapt to the modern web.",
+              "Created Member Directory database and interface, which now powers site contact page, alumni information, mass event invitations for alumni, and automates officer tasks."
+            ]
+          }
+        ]
+      },
+      {
+        entity: "GAMBIT: MIT-Singapore Game Development Lab",
+        location: "Cambridge, MA",
+        involvements: [
+          {
+            dates: { start: MakeDate(2009, 9), end: MakeDate(2009, 12) },
+            title: "Developer",
+            accomplishments: [
+              "Built online database and applicant management interface to handle Summer Applicants for GAMBIT, transitioning from manual data management to web-based database.",
+            ]
+          }
+        ]
+      },
+      {
+        entity: "Massachusetts Institute of Technology Student Activities",
+        location: "Cambridge, MA",
+        involvements: [
+          {
+            dates: {start: MakeDate(2012, 3), end: MakeDate(2012, 12)},
+            title: "Living Group Council (LGC) Speaker",
+            accomplishments: [
+              "Served as the representative of MIT's six Independent Living Groups to the MIT Administration, the Undergraduate Association, and the Alumni Association for Fraternities, Sororities, and Independent Living Groups. Organized and ran meetings of LGC representatives, increase LGC recognition and visibility on campus, and participated in the revitalization of the council in 2012."
+            ]
+          },
+          {
+            dates: {start: MakeDate(2010), end: MakeDate(2012)},
+            title: "MIT Model United Nations Conference Chair & Secretariat",
+            accomplishments: [
+              "Contributed to the MITMUNC in 2010 as an Assistant Committee Chair; in 2011 as a Head Chair; in 2012 as a Crisis Director.",
+              "MITMUNC is annually attended by 250-500 students from around the world."
+            ]
+          }
+        ]
+      },
       {
         entity: "GMPedia.org (Later YoYo Games Wiki)",
         entityDescription: "Initially an independent Game Development Wiki serving different online development communities. Merged with YoYo Games Ltd. to become the primary resources for Independent Developers using YoYo Games' GameMaker software.",

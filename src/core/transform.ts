@@ -19,6 +19,12 @@ function isIntersectTransform<Type, XForm>(xform: ListTransform<Type, XForm>): x
 export function All(x: Category|EntityInvolvements|Involvement|InvolvementProperty|InvolvementSublisting|string) { return true; }
 export function None(x: Category|EntityInvolvements|Involvement|InvolvementProperty|InvolvementSublisting|string) { return false; }
 
+export interface ResumeTransform {
+    categories?: ListTransform<Category, CategoryTransform>;
+    // person
+    // skill
+    // recognitions
+}
 export interface CategoryTransform {
     // Not present === { filter: All }, with no transform present
     entities?: ListTransform<EntityInvolvements, EntityTransform>;
@@ -195,6 +201,20 @@ export function TransformStrings(
         TransformString,
         TestString
     );
+}
+
+export function TransformResume(
+    resume: Resume,
+    filter: ResumeTransform) : Resume {
+    var ret: Resume = {
+        person: resume.person,
+        categories: filter.categories === undefined ?
+            resume.categories :
+            TransformCategories(resume.categories, filter.categories),
+        skills: resume.skills,
+        recognitions: resume.recognitions
+    };
+    return ret;
 }
 
 export function TransformCategory(
