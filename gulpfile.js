@@ -22,7 +22,7 @@ gulp.task('build', function() {
 
 gulp.task('resume-json', ['build'], function() {
     var r = require("./built/data/EyasResume.js");
-    return file('cv.json', JSON.stringify(r.EyasResume), { src: true })
+    return file('cv.json', JSON.stringify(r.EyasResume, null, 4), { src: true })
         .pipe(gulp.dest('resume/'));
 });
 

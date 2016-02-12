@@ -117,15 +117,20 @@ January 2010
 Volunteer
 ---------
 
+## Girls Who Code
+### Clubs Instructor
+January 2016 – Present
+Teaching novice middle school girls programming using Scratch and Python at a local school.
+
 ## Massachusetts Institute of Technology
 ### Educational Counselor
 June 2013 – Present
 Recruiting, acting as a community resource, and interviewing candidates for the MIT freshman class.
 
-## St. Anthony Association of Boston (Number Six Club Alumni Organization)
-### Alumni Board House Manager
+## The Number Six Club
+### Director & Alumni Board House Manager
 April 2013 – Present
-Serving on the board of the house-owning alumni organization for the Number Six Club, an independent living group and co-ed literary fraternity at MIT. Alumni House Manager in that capacity.
+Serving on the board of the house-owning alumni organization for the Number Six Club, an independent living group and co-ed literary fraternity at MIT.
 
 ## Seeds of Peace
 International, U.S.-based non-profit organization aimed to promote peace coexistence in the Middle East through a dialogue program.

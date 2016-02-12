@@ -55,7 +55,7 @@ export var Transform: ResumeTransform = { categories: {
             item: /CSAIL/g,
             involvements: {
                 filter: All,
-                accomplishments: { filter: None }
+                accomplishments: { filter: All }
             }
             }
         ]
@@ -67,6 +67,6 @@ export var Transform: ResumeTransform = { categories: {
             filter: (entity) => entity.involvements.some(involvement => involvement.dates.start.year > 2012),
             involvements: { filter: All, accomplishments: { filter: None }, description: false }
         }
-    },
+    }
     ]
 } };

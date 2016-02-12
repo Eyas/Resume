@@ -30,6 +30,10 @@ export interface Contact {
     address: {
         mailing?: string;
     };
+    links: {
+        github?: string;
+        stackOverflow?: [number, string];
+    };
     biography: Biography;
 }
 
@@ -89,6 +93,7 @@ export interface RecognitionCategory {
 export interface Recognition {
     date: ApproximateDate;
     description: string;
+    more?: string;
 }
 
 export interface ApproximateDate {

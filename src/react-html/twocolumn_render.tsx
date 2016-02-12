@@ -6,67 +6,68 @@ import { RenderApproxDate, RenderDateRange } from "../render/render";
 import { Transform } from "../data/EyasResumeTransform"
 import React = require("react");
 
-  // credit: stackoverflow.com/a/10073788/864313
-  function Pad(n: number, width: number, char?: string): string {
+// credit: stackoverflow.com/a/10073788/864313
+function Pad(n: number, width: number, char?: string): string {
     char = (char && char[0]) || '0';
     var strn = '' + n;
     return strn.length > width ? strn : (new Array(width - strn.length + 1).join(char) + strn);
-  }
+}
 
-  export class Static extends React.Component<Resume, any> {
+export class Static extends React.Component<Resume, any> {
     private tc: TwoColumn;
     constructor (resume: Resume) {
-      super();
-      this.tc = new TwoColumn(resume);
+        super();
+        this.tc = new TwoColumn(resume);
     }
     render() {
-      var self = this;
-      return <html>
-      <head>
-        <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-        <link rel="stylesheet" type="text/css" href="./css/resume.css" />
-      </head>
-      <body>
-      {self.tc.render()}
-      </body>
-      </html>;
-    }
+        var self = this;
+        return <html>
+        <head>
+          <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+          <link rel="stylesheet" type="text/css" href="./css/resume.css" />
+          <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+        </head>
+        <body>
+        {self.tc.render()}
+        </body>
+        </html>;
+      }
   }
 
-  export class TwoColumn extends React.Component<Resume, any> {
+export class TwoColumn extends React.Component<Resume, any> {
     private resume: Resume;
     constructor (resume: Resume) {
-      super();
-      var self = this;
-      resume.categories.forEach(category => SortEntitiesDescending(category.entities));
+        super();
+        var self = this;
+        resume.categories.forEach(category => SortEntitiesDescending(category.entities));
 
-      this.resume = resume;
+        this.resume = resume;
     }
     render() {
-      var self = this;
-      var resume = this.resume;
-      var person = this.resume.person;
+        var self = this;
+        var resume = this.resume;
+        var person = this.resume.person;
 
-      var recognitions = this.resume.recognitions;
-      var v2 = TransformCategories(
-        this.resume.categories,
-        {
-          sequence: [
+        var recognitions = this.resume.recognitions;
+        var v2 = TransformCategories(
+            this.resume.categories,
             {
-              item: "Volunteer",
-              entities: {
-                filter: All,
-                involvements: { sequence: [ { item: All /* selects first */ } ]}
-              }
+                sequence: [
+                    {
+                        item: "Volunteer",
+                        entities: {
+                            filter: All,
+                            involvements: { sequence: [ { item: All /* selects first */ } ]}
+                        }
+                    }
+                ]
             }
-          ]
-        }
       );
       var volunteer = v2[0].entities.flatMap(ei => ei.involvements.map(inv => (ei.short || ei.entity) + " " + inv.title));
 
       var main_categories = TransformCategories(
-        this.resume.categories,
-        Transform.categories
+          this.resume.categories,
+          Transform.categories
       );
 
       var listing_obj = main_categories.flatMap(cat => cat.entities).flatMap(ent => ent.involvements).flatMap(inv => inv.lists).groupByFlatMap((g => g.name), (l => l.list));
@@ -86,7 +87,7 @@ import React = require("react");
           </header>
           <div className="content">
             <article>{
-              main_categories.map(category =>
+              main_categories.filter(category => category.name !== "Volunteer" /* volunteer section separate */).map(category =>
                 <section className="category">
                   <h1>{category.name}</h1>
                   {
@@ -104,7 +105,7 @@ import React = require("react");
                           </div>
                           {involvement.description && <p>{involvement.description}</p>}
                           {involvement.properties && <p className="properties">{involvement.properties.map(
-                            prop => <span><strong>{prop.name}</strong>:&nbsp;{prop.value}</span>
+                            prop => <span><strong>{prop.name}</strong>:&nbsp;{prop.value} </span>
                           )}</p>}
                           {involvement.accomplishments && (<ul>{involvement.accomplishments.map(acc => (<li>{acc}</li>))}</ul>)}
                         </div>)
@@ -115,6 +116,18 @@ import React = require("react");
               )
             }</article>
             <aside>
+            {
+                (person.links.github || person.links.stackOverflow)
+                ?
+                  <div className="identities">
+                    <h3>Find me online</h3>
+                    <p>
+                    {person.links.github && <a href={"https://github.com/" + person.links.github}><i className="fa fa-github" />@{person.links.github}</a>}
+                    {person.links.stackOverflow && <a href={"http://stackoverflow.com/users/" + person.links.stackOverflow[0] + "/" + person.links.stackOverflow[1]}><i className="fa fa-stack-overflow"/>{person.links.stackOverflow[1]}</a> }
+                    </p>
+                  </div>
+                : ""
+            }
             {
               listings.map(list =>
                 <div>
@@ -150,4 +163,4 @@ import React = require("react");
           </div>
       </div>;
     }
-  }
+}

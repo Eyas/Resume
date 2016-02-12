@@ -8,6 +8,14 @@
   font-size: 1.1em;
 }
 
+.resume a:link,
+.resume a:visited,
+.resume a:active {
+    color: #444444;
+    text-decoration: none;
+    font-weight: 400;
+}
+
 .resume .content {
   display: -webkit-flex;
   -webkit-flex-flow: row;
@@ -21,13 +29,30 @@
 }
 
 .resume .content aside {
-  flex: 0 3 17rem;
+  flex: 0 3 16rem;
+  text-align: start;
 
   padding-left: 1.25rem;
   box-sizing: border-box;
 
   font-size: 0.75em;
   font-weight: 200;
+}
+
+aside .identities p {
+    font-size: 1.5em;
+}
+
+aside .identities p i.fa {
+    padding-right: 0.3em;
+}
+
+aside .identities p a {
+    padding-right: 0.5em;
+}
+
+aside .identities p a::after {
+    content: ' ';
 }
 
 aside h3 {
@@ -190,6 +215,6 @@ div.info>span {
   body { font-size: 10pt; margin: 0; }
   @page {
       size: auto;
-      margin: 0.32in 0.36in;
+      margin: 0.40in 0.50in;
   }
 }

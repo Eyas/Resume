@@ -8,6 +8,10 @@ export var EyasResume: Resume = {
       personal: "eyas@alum.mit.edu",
     },
     address: { },
+    links: {
+        github: "Eyas",
+        stackOverflow: [864313, "eyassh"]
+    },
     biography: {
       birth: {
         place: "Amman, Jordan",
@@ -216,6 +220,16 @@ export var EyasResume: Resume = {
     ]},
     { name: "Volunteer", entities: [
       {
+          entity: "Girls Who Code",
+          involvements: [
+              {
+                  dates: { start: MakeDate(2016, 1) },
+                  title: "Clubs Instructor",
+                  description: "Teaching novice middle school girls programming using Scratch and Python at a local school."
+              }
+          ]
+      },
+      {
         entity: "Massachusetts Institute of Technology",
         short: "MIT",
         involvements: [
@@ -227,13 +241,13 @@ export var EyasResume: Resume = {
         ]
       },
       {
-        entity: "St. Anthony Association of Boston (Number Six Club Alumni Organization)",
-        short: "St. Anthony Association of Boston",
+        entity: "The Number Six Club",
+        short: "The Number Six Club",
         involvements: [
           {
             dates: { start: MakeDate(2013, 4)},
-            title: "Alumni Board House Manager",
-            description: "Serving on the board of the house-owning alumni organization for the Number Six Club, an independent living group and co-ed literary fraternity at MIT. Alumni House Manager in that capacity."
+            title: "Director & Alumni Board House Manager",
+            description: "Serving on the board of the house-owning alumni organization for the Number Six Club, an independent living group and co-ed literary fraternity at MIT."
           }
         ]
       },
@@ -368,7 +382,8 @@ export var EyasResume: Resume = {
       recognitions: [
         {
           date: MakeDate(2012),
-          description: "MIT Frederick Gardiner Fassett, Jr. Award, given to tree \u201Cindividual male [or] female member[s] of FSILG Community who [have] most unselfishly demonstrated the qualities of spirit, dedication, and service in furthering the ideals of MIT brotherhood and sisterhood.\u201D"
+          description: "MIT Frederick Gardiner Fassett, Jr. Award",
+          more: "given to three \u201Cindividual male [or] female member[s] of FSILG Community who [have] most unselfishly demonstrated the qualities of spirit, dedication, and service in furthering the ideals of MIT brotherhood and sisterhood.\u201D"
         },
         {
           date: MakeDate(2011),

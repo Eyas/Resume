@@ -68,19 +68,25 @@ Cambridge, MA
 
 ### Graduate Researcher
 January 2014 – May 2014
-
+* Studied effect of annotation and online discussions on online materials in achieving interactive or collaborative learning.
+* Created interactions to allow instructors to find student course discussions along a number of “success” metics studied.
+* Introduced tools allowing instructors to reuse successful discussions between documents of different class offerings.
 
 ### MIT EECS Google Research and Innovation Fellow
 September 2012 – July 2013
-
+* Added support for adding annotations and discussions static HTML documents to NB, an online social annotation tool for education.
 
 Volunteer
 ---------
+
+## Girls Who Code
+### Clubs Instructor
+January 2016 – Present
 
 ## Massachusetts Institute of Technology
 ### Educational Counselor
 June 2013 – Present
 
-## St. Anthony Association of Boston (Number Six Club Alumni Organization)
-### Alumni Board House Manager
+## The Number Six Club
+### Director & Alumni Board House Manager
 April 2013 – Present

@@ -91,7 +91,7 @@ export class CurriculumVitae extends React.Component<Resume, any> {
           resume.recognitions.map(recog => <div>
               <h1>{recog.name}</h1>
               <ul>
-              {recog.recognitions.map(r => <li>{RenderApproxDate(r.date)}:&nbsp;{r.description}</li>)}
+              {recog.recognitions.map(r => <li>{RenderApproxDate(r.date)}:&nbsp;{r.description}{r.more ? ', ' + r.more : ''}</li>)}
               </ul>
             </div>)
         }
