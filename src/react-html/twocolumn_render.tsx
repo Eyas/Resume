@@ -15,17 +15,20 @@ function Pad(n: number, width: number, char?: string): string {
 
 export class Static extends React.Component<Resume, any> {
     private tc: TwoColumn;
+    private name: string;
     constructor (resume: Resume) {
         super();
         this.tc = new TwoColumn(resume);
+        this.name = resume.person.name;
     }
     render() {
         var self = this;
         return <html>
         <head>
+          <title>{self.name} &ndash; Resume</title>
           <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
           <link rel="stylesheet" type="text/css" href="./css/resume.css" />
-          <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+          <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
         </head>
         <body>
         {self.tc.render()}

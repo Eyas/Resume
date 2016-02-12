@@ -6,14 +6,17 @@ import React = require("react");
 
 export class Static extends React.Component<Resume, any> {
   private cv: CurriculumVitae;
+  private name: string;
   constructor (resume: Resume) {
     super();
     this.cv = new CurriculumVitae(resume);
+    this.name = resume.person.name;
   }
   render() {
     var self = this;
     return <html>
     <head>
+      <title>{self.name} &ndash; Curriculum Vitae</title>
       <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
       <link rel="stylesheet" type="text/css" href="./css/cv.css" />
     </head>
