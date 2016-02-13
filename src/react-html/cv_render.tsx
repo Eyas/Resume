@@ -19,6 +19,7 @@ export class Static extends React.Component<Resume, any> {
       <title>{self.name} &ndash; Curriculum Vitae</title>
       <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
       <link rel="stylesheet" type="text/css" href="./css/cv.css" />
+      <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,600italic,400italic,300italic,700,700italic' type='text/css' />
     </head>
     <body>
     {self.cv.render()}

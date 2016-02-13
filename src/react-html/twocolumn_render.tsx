@@ -28,7 +28,8 @@ export class Static extends React.Component<Resume, any> {
           <title>{self.name} &ndash; Resume</title>
           <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
           <link rel="stylesheet" type="text/css" href="./css/resume.css" />
-          <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+          <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+          <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,600italic,400italic,300italic,700,700italic' type='text/css' />
         </head>
         <body>
         {self.tc.render()}
