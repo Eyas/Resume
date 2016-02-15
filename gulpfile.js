@@ -46,8 +46,8 @@ gulp.task('resume-html', ['build'], function() {
     var TC = require("./built/react-html/twocolumn_render");
     require("./built/core/extensions.js");
 
-    var cvr = ReactDOMServer.renderToStaticMarkup( (new CV.Static(r.EyasResume)).render() );
-    var tcr = ReactDOMServer.renderToStaticMarkup( (new TC.Static(r.EyasResume)).render() );
+    var cvr = '<!DOCTYPE HTML>\n' + ReactDOMServer.renderToStaticMarkup( (new CV.Static(r.EyasResume)).render() );
+    var tcr = '<!DOCTYPE HTML>\n' + ReactDOMServer.renderToStaticMarkup( (new TC.Static(r.EyasResume)).render() );
     
     return file('cv.html', cvr, { src: true })
         .pipe(file('resume.html', tcr))
