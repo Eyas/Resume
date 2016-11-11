@@ -110,7 +110,7 @@ export class TwoColumn extends React.Component<Resume, any> {
                           </div>
                           {involvement.description && <p>{involvement.description}</p>}
                           {involvement.properties && <p className="properties">{involvement.properties.map(
-                            prop => <span><strong>{prop.name}</strong>:&nbsp;{prop.value} </span>
+                            prop => <span><strong>{prop.name}</strong>:&nbsp;{prop.url ? <a href="{prop.url}" target="_blank">{prop.value}</a> : prop.value} </span>
                           )}</p>}
                           {involvement.accomplishments && (<ul>{involvement.accomplishments.map(acc => (<li>{acc}</li>))}</ul>)}
                         </div>)

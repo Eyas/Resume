@@ -72,6 +72,7 @@ export interface InvolvementProperty {
     // e.g., GPA = { name: "GPA", value: "3.6/4.0" };
     name: string;
     value: string;
+    url?: string;
 }
 
 export interface InvolvementSublisting {

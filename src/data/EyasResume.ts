@@ -80,7 +80,7 @@ export var EyasResume: Resume = {
               },
               title: "Master of Engineering in Electrical Engineering & Computer Science",
               properties: [
-                {name: "Thesis", value: "Enhancing the Classroom Experience with Faculty Curated Discussions" },
+                {name: "Thesis", value: "Enhancing the Classroom Experience with Faculty Curated Discussions", url: "https://dspace.mit.edu/handle/1721.1/91453" },
                 {name: "Concentration", value: "Computer Systems"},
                 {name: "GPA", value: "5.0/5.0"}
               ]
