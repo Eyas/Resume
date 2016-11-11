@@ -14,8 +14,7 @@ gulp.task('build', function() {
             target: 'ES6',
             module: 'commonjs',
             jsx: 'react',
-            declaration: true,
-            noExternalResolve: true
+            declaration: true
         }))
         .pipe(gulp.dest('built/'));
 });
