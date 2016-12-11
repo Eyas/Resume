@@ -1,6 +1,6 @@
 import { ApproximateDate, DateRange, DatesAreEqual } from "../core/resume";
 
-var months: {[month: number]: string} = {
+const months: {[month: number]: string} = {
   1: "January",
   2: "February",
   3: "March",
@@ -29,4 +29,11 @@ export function RenderDateRange(range: DateRange): string {
   }
   return RenderApproxDate(range.start) + "\u00A0\u2013 " +
     (range.end ? RenderApproxDate(range.end) : "Present");
+}
+
+export function RenderYearRange(range: DateRange): string {
+  if (range.end && range.start.year == range.end.year) {
+    return "" + range.start.year;
+  }
+  return "" + range.start.year +"\u00A0\u2013 " + (range.end ? range.end.year : "Present");
 }

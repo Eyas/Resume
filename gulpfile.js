@@ -7,16 +7,11 @@ gulp.task('clean', function() {
     return del('built');
 });
 
+var project = tsc.createProject('src/tsconfig.json');
 gulp.task('build', function() {
-    return gulp.src(['src/**/*.ts', 'src/**/*.tsx', 'typings/main.d.ts', 'typings/main/**/*.d.ts'])
-        .pipe(tsc({
-            noImplicitAny: true,
-            target: 'ES6',
-            module: 'commonjs',
-            jsx: 'react',
-            declaration: true
-        }))
-        .pipe(gulp.dest('built/'));
+    return project.src()
+        .pipe(project())
+        .js.pipe(gulp.dest('built/'));
 });
 
 gulp.task('resume-json', ['build'], function() {
@@ -45,8 +40,8 @@ gulp.task('resume-html', ['build'], function() {
     var TC = require("./built/react-html/twocolumn_render");
     require("./built/core/extensions.js");
 
-    var cvr = '<!DOCTYPE HTML>\n' + ReactDOMServer.renderToStaticMarkup( (new CV.Static(r.EyasResume)).render() );
-    var tcr = '<!DOCTYPE HTML>\n' + ReactDOMServer.renderToStaticMarkup( (new TC.Static(r.EyasResume)).render() );
+    var cvr = '<!DOCTYPE HTML>\n' + ReactDOMServer.renderToStaticMarkup( (new CV.Static({ resume: r.EyasResume})).render() );
+    var tcr = '<!DOCTYPE HTML>\n' + ReactDOMServer.renderToStaticMarkup( (new TC.Static({ resume: r.EyasResume})).render() );
     
     return file('cv.html', cvr, { src: true })
         .pipe(file('resume.html', tcr))

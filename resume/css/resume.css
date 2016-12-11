@@ -39,24 +39,8 @@
   font-weight: 200;
 }
 
-aside .identities p {
-    font-size: 1.5em;
-}
-
-aside .identities p i.fa {
-    padding-right: 0.3em;
-}
-
-aside .identities p a {
-    padding-right: 0.5em;
-}
-
-aside .identities p a::after {
-    content: ' ';
-}
-
 aside h3 {
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 0.2em;
 }
 
@@ -88,17 +72,37 @@ aside strong {
 
 header { text-align: left; }
 
+header .person { display: flex; width: 100%; }
+
 span.name {
   font-weight: 500;
   font-size: 1.833em;
   margin-right: 0.25em;
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
-span.tagline {
+/*span.tagline {
   font-weight: 300;
   font-size: 1.667em;
   font-style: italic;
   text-transform: lowercase;
+}*/
+
+.identity i.fa {
+    padding-right: 0.3em;
+}
+
+.identity {
+    padding-right: 0.5em;
+    font-size: 1.5em;
+    font-weight: 300;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+identity::after {
+    content: ' ';
 }
 
 div.info {
@@ -118,8 +122,15 @@ div.info>span {
   font-size: 0.9em;
 }
 
+.entity p,
 .involvement ul, .involvement p {
   font-size: 0.833em;
+}
+
+.entity > p {
+  font-weight: 300;
+  margin-top: 0;
+  margin-bottom: 0.75em;
 }
 
 .category h1 {
@@ -141,6 +152,10 @@ div.info>span {
   font-style: italic;
   margin-top: 0;
   margin-bottom: 0.3em;
+}
+
+.entity + .entity {
+  margin-top: 0.75em;
 }
 
 .category .entity .involvementTitle {
@@ -190,6 +205,11 @@ div.info>span {
   font-weight: 300;
   padding-left: 1.5em;
   margin-top: 0;
+}
+
+.category .involvement p {
+  font-weight: 300;
+  margin: 0.25em 0;
 }
 
 .resume span.skill::after {

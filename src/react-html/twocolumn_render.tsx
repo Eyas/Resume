@@ -1,61 +1,77 @@
 "use strict";
 
 import { ApproximateDate, DateRange, DatesAreEqual, Resume, Category, EntityInvolvements, SortEntitiesDescending } from "../core/resume";
-import { TransformCategories, All, None } from "../core/transform";
-import { RenderApproxDate, RenderDateRange } from "../render/render";
+import { TransformCategories, SelectCategory, All, None } from "../core/transform";
+import { RenderApproxDate, RenderDateRange, RenderYearRange } from "../render/render";
 import { Transform } from "../data/EyasResumeTransform"
 import React = require("react");
 
-// credit: stackoverflow.com/a/10073788/864313
-function Pad(n: number, width: number, char?: string): string {
-    char = (char && char[0]) || '0';
-    var strn = '' + n;
-    return strn.length > width ? strn : (new Array(width - strn.length + 1).join(char) + strn);
-}
-
-export class Static extends React.Component<Resume, any> {
-    private tc: TwoColumn;
-    private name: string;
-    constructor (resume: Resume) {
-        super();
-        this.tc = new TwoColumn(resume);
-        this.name = resume.person.name;
-    }
+export class Static extends React.Component<{resume: Resume}, any> {
     render() {
-        var self = this;
-        return <html>
+        var resume = this.props.resume;
+        return <html lang="en">
         <head>
-          <title>{self.name} &ndash; Resume</title>
-          <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+          <title>{resume.person.name} &ndash; Resume</title>
           <meta charSet="utf-8" />
           <link rel="stylesheet" type="text/css" href="./css/resume.css" />
           <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
           <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,600italic,400italic,300italic,700,700italic' type='text/css' />
         </head>
         <body>
-        {self.tc.render()}
+          <TwoColumn resume={resume} />
         </body>
         </html>;
       }
-  }
+}
 
-export class TwoColumn extends React.Component<Resume, any> {
-    private resume: Resume;
-    constructor (resume: Resume) {
-        super();
-        var self = this;
+class InvolvementRender extends React.Component<{ entity: EntityInvolvements }, any> {
+  render() {
+    var entity = this.props.entity;
+
+    return <div className="entity">
+              <div className="entityTitle">
+                <h2>{entity.entity}</h2>
+                {entity.location && <div className="location">{entity.location}</div>}
+              </div>
+              {entity.entityDescription && <p>{entity.entityDescription}</p>}
+              {
+                entity.involvements.map(involvement => <div className="involvement" key={RenderDateRange(involvement.dates)}>
+                  <div className="involvementTitle">
+                    <h3>{involvement.title}</h3>
+                    <div className="date">{RenderDateRange(involvement.dates)}</div>
+                  </div>
+                  {involvement.description && <p>{involvement.description}</p>}
+                  {involvement.properties && <p className="properties">{involvement.properties.map(
+                    prop => <span key={prop.name}><strong>{prop.name}</strong>:&nbsp;{prop.url ? <a href={prop.url} target="_blank">{prop.value}</a> : prop.value} </span>
+                  )}</p>}
+                  {involvement.accomplishments
+                    && involvement.accomplishments.length > 0
+                    && (<ul>{involvement.accomplishments.map(acc => (<li key={acc}>{acc}</li>))}</ul>)}
+                </div>)
+              }
+          </div>;
+  }
+}
+class CategoryRender extends React.Component<{category: Category}, any> {
+  render() {
+    var category = this.props.category;
+    return <section className="category">
+             <h1>{category.name}</h1>
+             {category.entities.map(entity => <InvolvementRender entity={entity} key={entity.entity} />)}
+           </section>
+  }
+}
+
+export class TwoColumn extends React.Component<{ resume: Resume }, any> {
+    render() {
+        var resume = this.props.resume;
         resume.categories.forEach(category => SortEntitiesDescending(category.entities));
 
-        this.resume = resume;
-    }
-    render() {
-        var self = this;
-        var resume = this.resume;
-        var person = this.resume.person;
+        var person = resume.person;
 
-        var recognitions = this.resume.recognitions;
+        var recognitions = resume.recognitions;
         var v2 = TransformCategories(
-            this.resume.categories,
+            resume.categories,
             {
                 sequence: [
                     {
@@ -68,21 +84,41 @@ export class TwoColumn extends React.Component<Resume, any> {
                 ]
             }
       );
-      var volunteer = v2[0].entities.flatMap(ei => ei.involvements.map(inv => (ei.short || ei.entity) + " " + inv.title));
+      var volunteer_full = v2[0].entities.flatMap(ei => ei.involvements.map(inv => ({ name: ((ei.short || ei.entity) + " " + inv.title), dates: inv.dates })));
 
-      var main_categories = TransformCategories(
-          this.resume.categories,
-          Transform.categories
-      );
+      {
+        const main_categories = TransformCategories(
+            resume.categories,
+            Transform.categories
+        );
+        var education = SelectCategory(main_categories, "Education");
+        let more_experience = SelectCategory(main_categories, "Education Experience");
+        education.entities = education.entities.concat(more_experience.entities);
 
-      var listing_obj = main_categories.flatMap(cat => cat.entities).flatMap(ent => ent.involvements).flatMap(inv => inv.lists).groupByFlatMap((g => g.name), (l => l.list));
-      var listings = Object.getOwnPropertyNames(listing_obj).map(k => ({name: k, list: listing_obj[k]})).filter(x => x.list.length > 0);
+        var experience = SelectCategory(main_categories, "Experience");
+
+        var volunteer_highlights = SelectCategory(main_categories, "Volunteer");
+      }
+
+
+      var original_exp = resume.categories.find((cat) => cat.name === "Industry Experience").entities.flatMap(
+        e => e.involvements.map(inv => ({ entity: e.short || e.entity, title: inv.title, dates: inv.dates })));
+      var transformed_exp = experience.entities.flatMap(
+        e => e.involvements.map(inv => ({ entity: e.entity, title: inv.title, dates: inv.dates })));
+      var remaining = original_exp.filter(o_item => !transformed_exp.some(t_item => t_item.entity === o_item.entity && t_item.title == o_item.title));
+      var grouped = remaining.groupBy(item => `${item.title} at ${item.entity}`);
+
+      var other_experience = Object.getOwnPropertyNames(grouped).map(title => ({ title: title, years: grouped[title].map(item=>item.dates.start.year) }))
+
+      var listing_obj = education.entities.flatMap(ent => ent.involvements).flatMap(inv => inv.lists).groupByFlatMap((g => g.name), (l => l.list));
+      var education_listings = Object.getOwnPropertyNames(listing_obj).map(k => ({name: k, list: listing_obj[k]})).filter(x => x.list.length > 0);
 
       return <div className="resume">
           <header>
-            <div>
+            <div className="person">
               <span className="name">{person.name}</span>
-              <span className="tagline">{person.biography.tagline}</span>
+              {person.links.github && <a href={"https://github.com/" + person.links.github} className="identity"><i className="fa fa-github" />@{person.links.github}</a>}
+              {person.links.stackOverflow && <a href={"http://stackoverflow.com/users/" + person.links.stackOverflow[0] + "/" + person.links.stackOverflow[1]} className="identity"><i className="fa fa-stack-overflow"/>{person.links.stackOverflow[1]}</a> }
             </div>
             <div className="info">
               <span>{person.address.mailing}</span>
@@ -91,79 +127,47 @@ export class TwoColumn extends React.Component<Resume, any> {
             </div>
           </header>
           <div className="content">
-            <article>{
-              main_categories.filter(category => category.name !== "Volunteer" /* volunteer section separate */).map(category =>
-                <section className="category">
-                  <h1>{category.name}</h1>
-                  {
-                    category.entities.map(entity => <div className="entity">
-                      <div className="entityTitle">
-                        <h2>{entity.entity}</h2>
-                        {entity.location && <div className="location">{entity.location}</div>}
-                      </div>
-                      {entity.entityDescription && <p>{entity.entityDescription}</p>}
-                      {
-                        entity.involvements.map(involvement => <div className="involvement">
-                          <div className="involvementTitle">
-                            <h3>{involvement.title}</h3>
-                            <div className="date">{RenderDateRange(involvement.dates)}</div>
-                          </div>
-                          {involvement.description && <p>{involvement.description}</p>}
-                          {involvement.properties && <p className="properties">{involvement.properties.map(
-                            prop => <span><strong>{prop.name}</strong>:&nbsp;{prop.url ? <a href="{prop.url}" target="_blank">{prop.value}</a> : prop.value} </span>
-                          )}</p>}
-                          {involvement.accomplishments && (<ul>{involvement.accomplishments.map(acc => (<li>{acc}</li>))}</ul>)}
-                        </div>)
-                      }
-                  </div>)
-                  }
-                </section>
-              )
-            }</article>
+            <article><CategoryRender category={experience} key={experience.name} /></article>
             <aside>
-            {
-                (person.links.github || person.links.stackOverflow)
-                ?
-                  <div className="identities">
-                    <h3>Find me online</h3>
-                    <p>
-                    {person.links.github && <a href={"https://github.com/" + person.links.github}><i className="fa fa-github" />@{person.links.github}</a>}
-                    {person.links.stackOverflow && <a href={"http://stackoverflow.com/users/" + person.links.stackOverflow[0] + "/" + person.links.stackOverflow[1]}><i className="fa fa-stack-overflow"/>{person.links.stackOverflow[1]}</a> }
-                    </p>
-                  </div>
-                : ""
-            }
-            {
-              listings.map(list =>
-                <div>
-                  <h3>{list.name}</h3>
-                  <ul>
-                    {list.list.map(item => <li>{item}</li>)}
-                  </ul>
-                </div>)
-            }
-            <h3>Volunteer Activities</h3>
-            <ul>
-            {
-              volunteer.map(v => <li>{v}</li>)
-            }
-            </ul>
-            {
-              recognitions.map(recog => <div>
-                  <h3>{recog.name}</h3>
-                  <ul>
-                  {recog.recognitions.map(r => <li>&lsquo;{Pad(r.date.year % 100, 2)}:&nbsp;{r.description}</li>)}
-                  </ul>
-                </div>)
-            }
-            <h3>Skills</h3>
-            <p>
+              <h3>Skills</h3>
+              <p>
+                {
+                  resume.skills.map(skill => <span key={skill.name}>
+                    <strong>{skill.name}</strong>: {skill.skills.map(sk => <span className="skill" key={sk}>{sk}</span>)}
+                  </span>)
+                }
+              </p>
+              <h3>Other Experience</h3>
+              <ul>{other_experience.map(exp => <li key={exp.title}><strong>{exp.title}</strong> ({exp.years.join(' & ')})</li>)}</ul>
+            </aside>
+          </div>
+          <div className="content">
+            <article><CategoryRender category={education} key={education.name}/></article>
+            <aside>
               {
-                resume.skills.map(skill => <span>
-                  <strong>{skill.name}</strong>: {skill.skills.map(sk => <span className="skill">{sk}</span>)}
-                </span>)
+                education_listings.map(list =>
+                  <div key={list.name}>
+                    <h3>{list.name}</h3>
+                    <ul>
+                      {list.list.map(item => <li key={item}>{item}</li>)}
+                    </ul>
+                  </div>)
               }
-            </p>
+              {
+              //   recognitions.map(recog => <div>
+              //       <h3>{recog.name}</h3>
+              //       <ul>
+              //       {recog.recognitions.map(r => <li>&lsquo;{Pad(r.date.year % 100, 2)}:&nbsp;{r.description}</li>)}
+              //       </ul>
+              //     </div>)
+              }
+            </aside>
+          </div>
+          <div className="content">
+            <article><CategoryRender category={volunteer_highlights} key={volunteer_highlights.name}/></article>
+            <aside>
+              <h3>Volunteer Activities</h3>
+              <ul>{volunteer_full.map(v => <li key={v.name}>{v.name}{v.dates.end && ` (${RenderYearRange(v.dates)})`}</li>)}</ul>
             </aside>
           </div>
       </div>;
