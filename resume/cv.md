@@ -53,7 +53,7 @@ New York, NY
 
 ### Software Developer
 July 2014 – Present
-Building high-performance loosely-coupled distributed systems on a 7 engineer team. Developing
+Building high-performance loosely-coupled distributed systems on a 7-engineer team. Developing
  server-side components connecting sell-side banks to their clients.
 * Leading initiative of 4 developers to consolidate venue connector codebases across asset classes.
  Implementing required changes for unified quoting libraries.

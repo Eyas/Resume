@@ -112,7 +112,7 @@ export var EyasResume: Resume = {
             dates: { start: MakeDate(2014, 7) },
             title: "Software Developer",
             description:
-`Building high-performance loosely-coupled distributed systems on a 7 engineer team. Developing
+`Building high-performance loosely-coupled distributed systems on a 7-engineer team. Developing
  server-side components connecting sell-side banks to their clients.`,
             accomplishments: [
 `Leading initiative of 4 developers to consolidate venue connector codebases across asset classes.

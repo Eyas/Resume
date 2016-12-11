@@ -163,7 +163,7 @@
                                 }
                             },
                             "title": "Software Developer",
-                            "description": "Building high-performance loosely-coupled distributed systems on a 7 engineer team. Developing\n server-side components connecting sell-side banks to their clients.",
+                            "description": "Building high-performance loosely-coupled distributed systems on a 7-engineer team. Developing\n server-side components connecting sell-side banks to their clients.",
                             "accomplishments": [
                                 "Leading initiative of 4 developers to consolidate venue connector codebases across asset classes.\n Implementing required changes for unified quoting libraries.",
                                 "Designed and built a randomized test client for venue connectors over the FIX protocol. Load tests\n and performs state explorations of server-side components. These explorations can either follow a\n naive uniform distribution, or modeled by an NFA with user-defined state graphs and probabilities.",
