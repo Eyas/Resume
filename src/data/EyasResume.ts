@@ -19,7 +19,7 @@ export var EyasResume: Resume = {
       gender: "Male",
       pronouns: "He/Him/His",
       nationality: ["Jordanian"],
-      tagline: "Software Engineer, Tech Enthusiast"
+      //tagline: "Software Engineer, Tech Enthusiast"
     }
   },
   categories: [
@@ -61,7 +61,7 @@ export var EyasResume: Resume = {
                   ]
                 },
                 {
-                  name: "Activities/Membership",
+                  name: "Membership",
                   list: [
                     "St. Anthony Hall (Delta Psi Co-Ed Fraternity; locally known as The Number Six Club)",
                     "National Society of Collegiate Scholars",
@@ -111,15 +111,24 @@ export var EyasResume: Resume = {
           {
             dates: { start: MakeDate(2014, 7) },
             title: "Software Developer",
+            description:
+`Building high-performance loosely-coupled distributed systems on a 7 engineer team. Developing
+ server-side components connecting sell-side banks to their clients.`,
             accomplishments: [
-              "Built high-performance loosely-coupled distributed systems with uses in trading.",
-              "Created time-series analysis component to monitor health of financial systems; processing throughputs up to 100K incoming events/sec"
+`Leading initiative of 4 developers to cosolidate venue connector codebases across asset classes.
+ Implementing required changes for unified quoting libraries.`,
+`Designed and built a randomized test client for venue connectors over the FIX protocol. Load tests
+ and performs state explorations of server-side components. These explorations can either follow a
+ naive uniform distribution, or modeled by an NFA with user-defined state graphs and probabilities.`,
+`Designed and implemented a time-series analysis component monitoring system and business health.
+ Computes configurable sliding-window measurements on arbitrary data. A single instance handles up
+ to 100K incoming events/sec.`
             ]
           }
         ]
       },
       {
-        entity: "Microsoft Corporation",
+        entity: "Microsoft Corporation", short: "Microsoft",
         location: "Redmond, WA",
         involvements: [
           {
@@ -139,7 +148,7 @@ export var EyasResume: Resume = {
         ]
       },
       {
-        entity: "Google, Inc",
+        entity: "Google, Inc", short: "Google",
         location: "New York, NY",
         involvements: [
           {
@@ -171,21 +180,21 @@ export var EyasResume: Resume = {
       {
         entity: "MIT CSAIL Laboratory: Haystack Group",
         location: "Cambridge, MA",
+        entityDescription: "Working on NB, an online social discussion-based annotation tool for education.",
         involvements: [
           {
             dates: { start: MakeDate(2014, 1), end: MakeDate(2014, 5) },
             title: "Graduate Researcher",
             accomplishments: [
-              "Studied effect of annotation and online discussions on online materials in achieving interactive or collaborative learning.",
-              "Created interactions to allow instructors to find student course discussions along a number of \u201Csuccess\u201D metics studied.",
-              "Introduced tools allowing instructors to reuse successful discussions between documents of different class offerings."
+              "Studied impact of NB annotations on course materials on collaborative learning.",
+              "Created tools to find impactful discussions, and introduced tools allowing instructors to reuse them accross class offerings."
             ]
           },
           {
             dates: { start: MakeDate(2012, 9), end: MakeDate(2013, 7) },
             title: "MIT EECS Google Research and Innovation Fellow",
             accomplishments: [
-              "Added support for adding annotations and discussions static HTML documents to NB, an online social annotation tool for education."
+              "Added support for annotations and discussions on static HTML documents to NB."
             ]
           }
         ]
@@ -220,12 +229,26 @@ export var EyasResume: Resume = {
     ]},
     { name: "Volunteer", entities: [
       {
+        entity: "DevProgress",
+        involvements: [ {
+          dates: { start: MakeDate(2016, 9) },
+          title: "Developer",
+          description: "Building sites and tools to help progressive candidates and causes.",
+          accomplishments: [
+`Maintained and managed contributions for a static Jekyll website dispelling fake news rumors
+ and discussing common concerns related to Hillary Clinton.`,
+`Launched site within two weeks of starting the initiative.`,
+`Translated UX designer slides into accessible, responsive, and scaleable template.`
+          ]
+        } ]
+      },
+      {
           entity: "Girls Who Code",
           involvements: [
               {
-                  dates: { start: MakeDate(2016, 1) },
-                  title: "Clubs Instructor",
-                  description: "Teaching novice middle school girls programming using Scratch and Python at a local school."
+                  dates: { start: MakeDate(2016, 1), end: MakeDate(2016, 6) },
+                  title: "Club Instructor",
+                  description: "Teaching middle school girls programming using Scratch and Python at a school club."
               }
           ]
       },
@@ -371,9 +394,9 @@ export var EyasResume: Resume = {
     ]}
   ],
   skills: [
-    { name: "Programming", skills: ["C++", "C", "C#", "Scala", "Java", "Go", "Python"]},
-    { name: "Web", skills: ["TypeScript", "JavaScript", "PHP", "SQL", "HTML", "CSS"]},
-    { name: "Other", skills: ["GameMaker:Studio"] },
+    { name: "Programming", skills: ["C++", "C#", "Scala", "Java", "Go", "Python"]},
+    { name: "Web", skills: ["TypeScript", "JavaScript", "PHP", "HTML", "CSS"]},
+    { name: "Other", skills: ["SQL", "GameMaker"] },
     { name: "Language", skills: ["Arabic (Native)", "English (Fluent)"] }
   ],
   recognitions: [
