@@ -16,77 +16,66 @@ June 2013
 **Major GPA**: 5.0/5.0; **GPA**: 4.9/5.0
 
 #### Highlighted Coursework
-* Automata, Computability, and Complexity
 * Computer Language Engineering
-* Computer Systems Engineering
-* Design & Analysis of Algorithms
 * Distributed Systems
 * Multicore Programming
 * Operating System Engineering
 * User Interface Design
 
-#### Activities/Membership
+#### Membership
 * Phi Beta Kappa Society
 * Tau Beta Pi Engineering Society
 * Eta Kappa Nu ECE Society
 * St. Anthony Hall (Delta Psi Co-Ed Fraternity; The Number Six Club)
 
-Industry Experience
--------------------
+Experience
+----------
 
 ## Broadway Technology
 New York, NY
 
 ### Software Developer
 July 2014 – Present
-* Built high-performance loosely-coupled distributed systems with uses in trading.
-* Created time-series analysis component to monitor health of financial systems; processing throughputs up to 100K incoming events/sec
-
-## Microsoft Corporation
-Redmond, WA
-
-### Software Development Engineer Intern
-June 2013 – August 2013
-* Built support for real-time collaborative editing in Word Online by developing inter-paragraph text merge strategies.
-
-### Software Development Engineer Intern
-June 2012 – August 2012
-* Extended OneNote Online to support editing, viewing, and collaborating across securely encrypted, password-protected sections.
-
-## Google, Inc
-New York, NY
-
-### Software Engineer Intern
-June 2011 – August 2011
-* Built tools to facilitate event-driven programming for internal software; built load-testing framework for internal message bus; ran performance trials.
+Building high-performance loosely-coupled distributed systems on a 7 engineer team. Developing
+ server-side components connecting sell-side banks to their clients.
+* Leading initiative of 4 developers to cosolidate venue connector codebases across asset classes.
+ Implementing required changes for unified quoting libraries.
+* Designed and built a randomized test client for venue connectors over the FIX protocol. Load tests
+ and performs state explorations of server-side components. These explorations can either follow a
+ naive uniform distribution, or modeled by an NFA with user-defined state graphs and probabilities.
+* Designed and implemented a time-series analysis component monitoring system and business health.
+ Computes configurable sliding-window measurements on arbitrary data. A single instance handles up
+ to 100K incoming events/sec.
 
 Education Experience
 --------------------
 
 ## MIT CSAIL Laboratory: Haystack Group
 Cambridge, MA
+Working on NB, an online social discussion-based annotation tool for education.
 
 ### Graduate Researcher
 January 2014 – May 2014
-* Studied effect of annotation and online discussions on online materials in achieving interactive or collaborative learning.
-* Created interactions to allow instructors to find student course discussions along a number of “success” metics studied.
-* Introduced tools allowing instructors to reuse successful discussions between documents of different class offerings.
+* Studied impact of NB annotations on course materials on collaborative learning.
+* Created tools to find impactful discussions, and introduced tools allowing instructors to reuse them accross class offerings.
 
 ### MIT EECS Google Research and Innovation Fellow
 September 2012 – July 2013
-* Added support for adding annotations and discussions static HTML documents to NB, an online social annotation tool for education.
+* Added support for annotations and discussions on static HTML documents to NB.
 
 Volunteer
 ---------
 
+## DevProgress
+### Developer
+September 2016 – Present
+Building sites and tools to help progressive candidates and causes.
+* Maintained and managed contributions for a static Jekyll website dispelling fake news rumors
+ and discussing common concerns related to Hillary Clinton.
+* Launched site within two weeks of starting the initiative.
+* Translated UX designer slides into accessible, responsive, and scaleable template.
+
 ## Girls Who Code
-### Clubs Instructor
-January 2016 – Present
-
-## Massachusetts Institute of Technology
-### Educational Counselor
-June 2013 – Present
-
-## The Number Six Club
-### Director & Alumni Board House Manager
-April 2013 – Present
+### Club Instructor
+January 2016 – June 2016
+Teaching middle school girls programming using Scratch and Python at a school club.

@@ -30,7 +30,7 @@ August 2009 – June 2013
 * Operating System Engineering
 * User Interface Design
 
-#### Activities/Membership
+#### Membership
 * St. Anthony Hall (Delta Psi Co-Ed Fraternity; locally known as The Number Six Club)
 * National Society of Collegiate Scholars
 * Phi Beta Kappa Society
@@ -53,8 +53,16 @@ New York, NY
 
 ### Software Developer
 July 2014 – Present
-* Built high-performance loosely-coupled distributed systems with uses in trading.
-* Created time-series analysis component to monitor health of financial systems; processing throughputs up to 100K incoming events/sec
+Building high-performance loosely-coupled distributed systems on a 7 engineer team. Developing
+ server-side components connecting sell-side banks to their clients.
+* Leading initiative of 4 developers to cosolidate venue connector codebases across asset classes.
+ Implementing required changes for unified quoting libraries.
+* Designed and built a randomized test client for venue connectors over the FIX protocol. Load tests
+ and performs state explorations of server-side components. These explorations can either follow a
+ naive uniform distribution, or modeled by an NFA with user-defined state graphs and probabilities.
+* Designed and implemented a time-series analysis component monitoring system and business health.
+ Computes configurable sliding-window measurements on arbitrary data. A single instance handles up
+ to 100K incoming events/sec.
 
 ## Microsoft Corporation
 Redmond, WA
@@ -79,16 +87,16 @@ Education Experience
 
 ## MIT CSAIL Laboratory: Haystack Group
 Cambridge, MA
+Working on NB, an online social discussion-based annotation tool for education.
 
 ### Graduate Researcher
 January 2014 – May 2014
-* Studied effect of annotation and online discussions on online materials in achieving interactive or collaborative learning.
-* Created interactions to allow instructors to find student course discussions along a number of “success” metics studied.
-* Introduced tools allowing instructors to reuse successful discussions between documents of different class offerings.
+* Studied impact of NB annotations on course materials on collaborative learning.
+* Created tools to find impactful discussions, and introduced tools allowing instructors to reuse them accross class offerings.
 
 ### MIT EECS Google Research and Innovation Fellow
 September 2012 – July 2013
-* Added support for adding annotations and discussions static HTML documents to NB, an online social annotation tool for education.
+* Added support for annotations and discussions on static HTML documents to NB.
 
 ## MIT 6.170: Software Studio
 Cambridge, MA
@@ -117,10 +125,14 @@ January 2010
 Volunteer
 ---------
 
-## Girls Who Code
-### Clubs Instructor
-January 2016 – Present
-Teaching novice middle school girls programming using Scratch and Python at a local school.
+## DevProgress
+### Developer
+September 2016 – Present
+Building sites and tools to help progressive candidates and causes.
+* Maintained and managed contributions for a static Jekyll website dispelling fake news rumors
+ and discussing common concerns related to Hillary Clinton.
+* Launched site within two weeks of starting the initiative.
+* Translated UX designer slides into accessible, responsive, and scaleable template.
 
 ## Massachusetts Institute of Technology
 ### Educational Counselor
@@ -131,6 +143,11 @@ Recruiting, acting as a community resource, and interviewing candidates for the 
 ### Director & Alumni Board House Manager
 April 2013 – Present
 Serving on the board of the house-owning alumni organization for the Number Six Club, an independent living group and co-ed literary fraternity at MIT.
+
+## Girls Who Code
+### Club Instructor
+January 2016 – June 2016
+Teaching middle school girls programming using Scratch and Python at a school club.
 
 ## Seeds of Peace
 International, U.S.-based non-profit organization aimed to promote peace coexistence in the Middle East through a dialogue program.
