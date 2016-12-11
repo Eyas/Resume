@@ -28,6 +28,7 @@ export interface ResumeTransform {
 export interface CategoryTransform {
     // Not present === { filter: All }, with no transform present
     entities?: ListTransform<EntityInvolvements, EntityTransform>;
+    as?: string;
 }
 export interface EntityTransform {
     involvements?: ListTransform<Involvement, InvolvementTransform>;
@@ -113,6 +114,13 @@ export function TestString(pattern: Pattern<string>, value: string): boolean {
     } else if (typeof pattern === "function") {
         return (<(c: string)=>boolean>pattern)(value);
     } else throw "Invalid Pattern";
+}
+
+export function SelectCategory(
+    list: Category[],
+    pattern: Pattern<Category>): Category {
+    
+    return list.find(cat => TestCategory(pattern, cat));
 }
 
 export function ListTransformer<Type, XForm>(
@@ -221,7 +229,7 @@ export function TransformCategory(
     category: Category,
     filter: CategoryTransform): Category {
     var ret: Category = {
-        name: category.name,
+        name: filter.as || category.name,
         entities:
             filter.entities === undefined ?
                 category.entities :

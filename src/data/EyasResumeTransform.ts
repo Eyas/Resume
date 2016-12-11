@@ -16,10 +16,7 @@ export var Transform: ResumeTransform = { categories: {
                 item: /Coursework/g,
                 list: {
                     sequence: [
-                    {item: /Automata/g },
                     {item: /Computer Language/g },
-                    {item: /Computer Systems/g },
-                    {item: /Algorithms/g },
                     {item: /Distributed Systems/g },
                     {item: /Multicore/g },
                     {item: /Operating System/g },
@@ -44,8 +41,12 @@ export var Transform: ResumeTransform = { categories: {
         }
     },
     {
-        item: "Industry Experience",
-        entities: { filter: All, /* for now */ }
+        item: "Industry Experience", as: "Experience",
+        entities: { filter: (entity) => entity.involvements.some(inv => inv.dates.start.year > 2013),
+            involvements: {
+                filter: (involvement) => involvement.dates.start.year > 2013
+            }
+        }
     },
     {
         item: "Education Experience",
@@ -64,8 +65,8 @@ export var Transform: ResumeTransform = { categories: {
     {
         item: "Volunteer",
         entities: {
-            filter: (entity) => entity.involvements.some(involvement => involvement.dates.start.year > 2012),
-            involvements: { filter: All, accomplishments: { filter: None }, description: false }
+            filter: (entity) => entity.involvements.some(involvement => involvement.dates.start.year > 2013)
+            // , involvements: { filter: All, accomplishments: { filter: None }, description: false }
         }
     }
     ]
