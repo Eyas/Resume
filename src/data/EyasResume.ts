@@ -115,7 +115,7 @@ export var EyasResume: Resume = {
 `Building high-performance loosely-coupled distributed systems on a 7 engineer team. Developing
  server-side components connecting sell-side banks to their clients.`,
             accomplishments: [
-`Leading initiative of 4 developers to cosolidate venue connector codebases across asset classes.
+`Leading initiative of 4 developers to consolidate venue connector codebases across asset classes.
  Implementing required changes for unified quoting libraries.`,
 `Designed and built a randomized test client for venue connectors over the FIX protocol. Load tests
  and performs state explorations of server-side components. These explorations can either follow a
@@ -187,7 +187,7 @@ export var EyasResume: Resume = {
             title: "Graduate Researcher",
             accomplishments: [
               "Studied impact of NB annotations on course materials on collaborative learning.",
-              "Created tools to find impactful discussions, and introduced tools allowing instructors to reuse them accross class offerings."
+              "Created tools to find impactful discussions, and introduced tools allowing instructors to reuse them across class offerings."
             ]
           },
           {
@@ -238,7 +238,7 @@ export var EyasResume: Resume = {
 `Maintained and managed contributions for a static Jekyll website dispelling fake news rumors
  and discussing common concerns related to Hillary Clinton.`,
 `Launched site within two weeks of starting the initiative.`,
-`Translated UX designer slides into accessible, responsive, and scaleable template.`
+`Translated UX designer slides into accessible, responsive, and scalable template.`
           ]
         } ]
       },

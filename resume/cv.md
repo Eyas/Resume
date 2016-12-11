@@ -55,7 +55,7 @@ New York, NY
 July 2014 – Present
 Building high-performance loosely-coupled distributed systems on a 7 engineer team. Developing
  server-side components connecting sell-side banks to their clients.
-* Leading initiative of 4 developers to cosolidate venue connector codebases across asset classes.
+* Leading initiative of 4 developers to consolidate venue connector codebases across asset classes.
  Implementing required changes for unified quoting libraries.
 * Designed and built a randomized test client for venue connectors over the FIX protocol. Load tests
  and performs state explorations of server-side components. These explorations can either follow a
@@ -92,7 +92,7 @@ Working on NB, an online social discussion-based annotation tool for education.
 ### Graduate Researcher
 January 2014 – May 2014
 * Studied impact of NB annotations on course materials on collaborative learning.
-* Created tools to find impactful discussions, and introduced tools allowing instructors to reuse them accross class offerings.
+* Created tools to find impactful discussions, and introduced tools allowing instructors to reuse them across class offerings.
 
 ### MIT EECS Google Research and Innovation Fellow
 September 2012 – July 2013
@@ -132,7 +132,7 @@ Building sites and tools to help progressive candidates and causes.
 * Maintained and managed contributions for a static Jekyll website dispelling fake news rumors
  and discussing common concerns related to Hillary Clinton.
 * Launched site within two weeks of starting the initiative.
-* Translated UX designer slides into accessible, responsive, and scaleable template.
+* Translated UX designer slides into accessible, responsive, and scalable template.
 
 ## Massachusetts Institute of Technology
 ### Educational Counselor
