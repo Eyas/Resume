@@ -1,8 +1,8 @@
 "use strict";
 
 import { ApproximateDate, DateRange, DatesAreEqual, Resume, Category, EntityInvolvements, SortEntitiesDescending } from "../core/resume";
-import { TransformCategories, SelectCategory, All, None } from "../core/transform";
-import { RenderApproxDate, RenderDateRange, RenderYearRange } from "../render/render";
+import { TransformCategories, SelectCategory, InvolvementsByTag, All, None } from "../core/transform";
+import { RenderApproxDate, RenderDateRange, RenderYearRange, RenderUrlText } from "../render/render";
 import { Transform } from "../data/EyasResumeTransform"
 import React = require("react");
 
@@ -102,6 +102,9 @@ export class TwoColumn extends React.Component<{ resume: Resume }, any> {
       var listing_obj = education.entities.flatMap(ent => ent.involvements).flatMap(inv => inv.lists).groupByFlatMap((g => g.name), (l => l.list));
       var education_listings = Object.getOwnPropertyNames(listing_obj).map(k => ({name: k, list: listing_obj[k]})).filter(x => x.list.length > 0);
 
+      var side_projects = InvolvementsByTag(resume.categories, "project")
+        .filter(p => p.involvement.dates.start.year >= 2015);
+
       return <div className="resume">
           <header>
             <div className="person">
@@ -157,6 +160,8 @@ export class TwoColumn extends React.Component<{ resume: Resume }, any> {
             <aside>
               <h3>Other Volunteering</h3>
               <ul>{other_volunteer.map(v => <li key={v.entity}>{v.title} at {v.entity}{v.dates.end && ` (${RenderYearRange(v.dates)})`}</li>)}</ul>
+              <h3>Side Projects</h3>
+              <ul>{side_projects.map(p => <li>{p.involvement.description || p.involvement.title} {p.involvement.url && <a href={p.involvement.url}>{RenderUrlText(p.involvement.url)}</a>}</li>)}</ul>
             </aside>
           </div>
       </div>;
