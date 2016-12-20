@@ -66,6 +66,8 @@ export interface Involvement {
     description?: string;
     accomplishments?: string[];
     lists?: InvolvementSublisting[];
+    url?: string;
+    tags?: string[]; // for search
 }
 
 export interface InvolvementProperty {

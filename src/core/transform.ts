@@ -330,3 +330,24 @@ export function FilterApproximateDate(date: ApproximateDate, filter: Approximate
     if (filter.month !== false && date.month) ret.month = date.month;
     return ret;
 }
+
+export function InvolvementsByTag(categories: Category[], tags: string | string[]): ({involvement: Involvement, entity: EntityInvolvements, category: Category})[] {
+    const exploded = categories.flatMap(c => c.entities.flatMap(e => e.involvements.filter(i => i.tags && i.tags.length > 0).map(i => ({involvement: i, entity: e, category: c}))));
+
+    if (typeof tags === "string") {
+        return exploded.filter(e => e.involvement.tags.indexOf(tags) >= 0);
+    }
+
+    // eh, just do the O(n^2) for now, easier
+    return exploded.filter(e => e.involvement.tags.some(tag => tags.indexOf(tag) >= 0));
+
+    // var byTag = new Map<string, {involvement: Involvement, entity: EntityInvolvements, category: Category}[]>();
+    // // populate byTag below (since values appear multiple times)
+    // exploded.forEach(exp => exp.involvement.tags.forEach(tag => {
+    //     if (byTag.has(tag)) byTag.get(tag).push(exp);
+    //     else byTag.set(tag, [ exp ]);
+    // }));
+    // var returned = new Set<Involvement>(); // can be weakset
+    // // this is not idempotent, sorry :(
+    // return tags.flatMap(tag => byTag.has(tag) ? byTag.get(tag).filter(x => !returned.has(x.involvement)) : []);
+}
