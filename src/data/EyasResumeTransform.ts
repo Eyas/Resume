@@ -66,7 +66,6 @@ export var Transform: ResumeTransform = { categories: {
         item: "Volunteer",
         entities: {
             filter: (entity) => entity.involvements.some(involvement => involvement.dates.start.year > 2013)
-            // , involvements: { filter: All, accomplishments: { filter: None }, description: false }
         }
     }
     ]
