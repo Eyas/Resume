@@ -115,8 +115,8 @@ export var EyasResume: Resume = {
 `Building high-performance loosely-coupled distributed systems on a 7-engineer team. Developing
  server-side components connecting sell-side banks to their clients.`,
             accomplishments: [
-`Leading initiative of 4 developers to consolidate venue connector codebases across asset classes.
- Implementing required changes for unified quoting libraries.`,
+`Leading technical direction for a 3 developer initiative to consolidate two major families of
+ components across asset classes. Implementing required changes for unified quoting libraries.`,
 `Designed and built a randomized test client for venue connectors over the FIX protocol. Load tests
  and performs state explorations of server-side components. These explorations can either follow a
  naive uniform distribution, or modeled by an NFA with user-defined state graphs and probabilities.`,
