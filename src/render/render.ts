@@ -41,3 +41,9 @@ export function RenderYearRange(range: DateRange): string {
   }
   return "" + range.start.year +"\u00A0\u2013 " + (range.end ? range.end.year : "Present");
 }
+
+export function RenderUrlText(url: string): string {
+  // strip protocol
+  const protocol = /^.+:\/\/\/?/;
+  return url.replace(protocol, '');
+}
