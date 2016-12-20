@@ -298,7 +298,30 @@ export var EyasResume: Resume = {
         ]
       }
     ]},
-    { name: "Highlighted Side Projects", entities: [
+    { name: "Side Projects", entities: [
+      {
+        entity: "Open Source Personal Projects",
+        involvements: [
+          {
+            dates: {start: MakeDate(2016), end: MakeDate(2016)}, title: "Developer",
+            description: "JSON-based resume schema, transformation, and generation.",
+            url: "https://github.com/Eyas/Resume",
+            tags: [ "project" ]
+          },
+          {
+            dates: {start: MakeDate(2015), end: MakeDate(2016)}, title: "Developer",
+            description: "C# libraries for polymorphic types, memoization, logging, and more.",
+            url: "https://github.com/Eyas/Ibra",
+            tags: [ "project" ]
+          },
+          {
+            dates: {start: MakeDate(2016), end: MakeDate(2016)}, title: "Developer",
+            description: "Monadic observables in JS.",
+            url: "https://github.com/Eyas/RamzLib",
+            tags: [ "project" ]
+          }
+        ]
+      },
       {
         entity: "MarkUp Game Development Magazine",
         location: "Amman, Jordan",
@@ -309,7 +332,22 @@ export var EyasResume: Resume = {
             accomplishments: [
               "Started, wrote in, and edited a game development magazine aimed at the more technical members of the Game Maker community.",
               "The project peaked towards its end to include ~15 regular writers, other individual contributors, 300 regular subscribers, and a monthly readership of more than 3,000."
-            ]
+            ],
+            tags: [ "project" ]
+          }
+        ]
+      },
+      {
+        entity: "GMPedia.org (Later YoYo Games Wiki)",
+        entityDescription: "Initially an independent Game Development Wiki serving different online development communities. Merged with YoYo Games Ltd. to become the primary resources for Independent Developers using YoYo Games' GameMaker software.",
+        involvements: [
+          {
+            dates: { start: MakeDate(2007), end: MakeDate(2008)},
+            title: "Founder, Administrator, and Senior Editor of GMPedia.org"
+          },
+          {
+            dates: { start: MakeDate(2008), end: MakeDate(2009)},
+            title: "Administrator at YoYo Games Wiki"
           }
         ]
       }
@@ -374,20 +412,6 @@ export var EyasResume: Resume = {
               "Contributed to the MITMUNC in 2010 as an Assistant Committee Chair; in 2011 as a Head Chair; in 2012 as a Crisis Director.",
               "MITMUNC is annually attended by 250-500 students from around the world."
             ]
-          }
-        ]
-      },
-      {
-        entity: "GMPedia.org (Later YoYo Games Wiki)",
-        entityDescription: "Initially an independent Game Development Wiki serving different online development communities. Merged with YoYo Games Ltd. to become the primary resources for Independent Developers using YoYo Games' GameMaker software.",
-        involvements: [
-          {
-            dates: { start: MakeDate(2007), end: MakeDate(2008)},
-            title: "Founder, Administrator, and Senior Editor of GMPedia.org"
-          },
-          {
-            dates: { start: MakeDate(2008), end: MakeDate(2009)},
-            title: "Administrator at YoYo Games Wiki"
           }
         ]
       }
