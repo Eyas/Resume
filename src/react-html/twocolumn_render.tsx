@@ -155,7 +155,7 @@ export class TwoColumn extends React.Component<{ resume: Resume }, any> {
           <div className="content">
             <article><CategoryRender category={volunteer_highlights} key={volunteer_highlights.name}/></article>
             <aside>
-              <h3>Other Volunteer</h3>
+              <h3>Other Volunteering</h3>
               <ul>{other_volunteer.map(v => <li key={v.entity}>{v.title} at {v.entity}{v.dates.end && ` (${RenderYearRange(v.dates)})`}</li>)}</ul>
             </aside>
           </div>
