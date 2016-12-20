@@ -38,8 +38,8 @@ New York, NY
 July 2014 – Present
 Building high-performance loosely-coupled distributed systems on a 7-engineer team. Developing
  server-side components connecting sell-side banks to their clients.
-* Leading initiative of 4 developers to consolidate venue connector codebases across asset classes.
- Implementing required changes for unified quoting libraries.
+* Leading technical direction for a 3 developer initiative to consolidate two major families of
+ components across asset classes. Implementing required changes for unified quoting libraries.
 * Designed and built a randomized test client for venue connectors over the FIX protocol. Load tests
  and performs state explorations of server-side components. These explorations can either follow a
  naive uniform distribution, or modeled by an NFA with user-defined state graphs and probabilities.
@@ -55,7 +55,7 @@ Cambridge, MA
 Working on NB, an online social discussion-based annotation tool for education.
 
 ### Graduate Researcher
-January 2014 – May 2014
+January – May 2014
 * Studied impact of NB annotations on course materials on collaborative learning.
 * Created tools to find impactful discussions, and introduced tools allowing instructors to reuse them across class offerings.
 
@@ -77,5 +77,5 @@ Building sites and tools to help progressive candidates and causes.
 
 ## Girls Who Code
 ### Club Instructor
-January 2016 – June 2016
+January – June 2016
 Teaching middle school girls programming using Scratch and Python at a school club.

@@ -55,8 +55,8 @@ New York, NY
 July 2014 – Present
 Building high-performance loosely-coupled distributed systems on a 7-engineer team. Developing
  server-side components connecting sell-side banks to their clients.
-* Leading initiative of 4 developers to consolidate venue connector codebases across asset classes.
- Implementing required changes for unified quoting libraries.
+* Leading technical direction for a 3 developer initiative to consolidate two major families of
+ components across asset classes. Implementing required changes for unified quoting libraries.
 * Designed and built a randomized test client for venue connectors over the FIX protocol. Load tests
  and performs state explorations of server-side components. These explorations can either follow a
  naive uniform distribution, or modeled by an NFA with user-defined state graphs and probabilities.
@@ -68,18 +68,18 @@ Building high-performance loosely-coupled distributed systems on a 7-engineer te
 Redmond, WA
 
 ### Software Development Engineer Intern
-June 2013 – August 2013
+June – August 2013
 * Built support for real-time collaborative editing in Word Online by developing inter-paragraph text merge strategies.
 
 ### Software Development Engineer Intern
-June 2012 – August 2012
+June – August 2012
 * Extended OneNote Online to support editing, viewing, and collaborating across securely encrypted, password-protected sections.
 
 ## Google, Inc
 New York, NY
 
 ### Software Engineer Intern
-June 2011 – August 2011
+June – August 2011
 * Built tools to facilitate event-driven programming for internal software; built load-testing framework for internal message bus; ran performance trials.
 
 Education Experience
@@ -90,7 +90,7 @@ Cambridge, MA
 Working on NB, an online social discussion-based annotation tool for education.
 
 ### Graduate Researcher
-January 2014 – May 2014
+January – May 2014
 * Studied impact of NB annotations on course materials on collaborative learning.
 * Created tools to find impactful discussions, and introduced tools allowing instructors to reuse them across class offerings.
 
@@ -146,7 +146,7 @@ Serving on the board of the house-owning alumni organization for the Number Six 
 
 ## Girls Who Code
 ### Club Instructor
-January 2016 – June 2016
+January – June 2016
 Teaching middle school girls programming using Scratch and Python at a school club.
 
 ## Seeds of Peace
@@ -163,8 +163,30 @@ International, U.S.-based non-profit organization aimed to promote peace coexist
 ### Camper
 2005
 
-Highlighted Side Projects
--------------------------
+Side Projects
+-------------
+
+## Open Source Personal Projects
+### Developer
+2016
+JSON-based resume schema, transformation, and generation.
+
+### Developer
+2015 – 2016
+C# libraries for polymorphic types, memoization, logging, and more.
+
+### Developer
+2016
+Monadic observables in JS.
+
+## GMPedia.org (Later YoYo Games Wiki)
+Initially an independent Game Development Wiki serving different online development communities. Merged with YoYo Games Ltd. to become the primary resources for Independent Developers using YoYo Games' GameMaker software.
+
+### Administrator at YoYo Games Wiki
+2008 – 2009
+
+### Founder, Administrator, and Senior Editor of GMPedia.org
+2007 – 2008
 
 ## MarkUp Game Development Magazine
 Amman, Jordan
@@ -197,7 +219,7 @@ January 2011 – August 2012
 Cambridge, MA
 
 ### Living Group Council (LGC) Speaker
-March 2012 – December 2012
+March – December 2012
 * Served as the representative of MIT's six Independent Living Groups to the MIT Administration, the Undergraduate Association, and the Alumni Association for Fraternities, Sororities, and Independent Living Groups. Organized and ran meetings of LGC representatives, increase LGC recognition and visibility on campus, and participated in the revitalization of the council in 2012.
 
 ### MIT Model United Nations Conference Chair & Secretariat
@@ -209,14 +231,5 @@ March 2012 – December 2012
 Cambridge, MA
 
 ### Developer
-September 2009 – December 2009
+September – December 2009
 * Built online database and applicant management interface to handle Summer Applicants for GAMBIT, transitioning from manual data management to web-based database.
-
-## GMPedia.org (Later YoYo Games Wiki)
-Initially an independent Game Development Wiki serving different online development communities. Merged with YoYo Games Ltd. to become the primary resources for Independent Developers using YoYo Games' GameMaker software.
-
-### Administrator at YoYo Games Wiki
-2008 – 2009
-
-### Founder, Administrator, and Senior Editor of GMPedia.org
-2007 – 2008
