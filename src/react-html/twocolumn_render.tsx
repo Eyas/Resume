@@ -64,27 +64,9 @@ class CategoryRender extends React.Component<{category: Category}, any> {
 
 export class TwoColumn extends React.Component<{ resume: Resume }, any> {
     render() {
-        var resume = this.props.resume;
-        resume.categories.forEach(category => SortEntitiesDescending(category.entities));
-
-        var person = resume.person;
-
-        var recognitions = resume.recognitions;
-        var v2 = TransformCategories(
-            resume.categories,
-            {
-                sequence: [
-                    {
-                        item: "Volunteer",
-                        entities: {
-                            filter: All,
-                            involvements: { sequence: [ { item: All /* selects first */ } ]}
-                        }
-                    }
-                ]
-            }
-      );
-      var volunteer_full = v2[0].entities.flatMap(ei => ei.involvements.map(inv => ({ name: ((ei.short || ei.entity) + " " + inv.title), dates: inv.dates })));
+      var resume = this.props.resume;
+      resume.categories.forEach(category => SortEntitiesDescending(category.entities));
+      var person = resume.person;
 
       {
         const main_categories = TransformCategories(
@@ -100,15 +82,22 @@ export class TwoColumn extends React.Component<{ resume: Resume }, any> {
         var volunteer_highlights = SelectCategory(main_categories, "Volunteer");
       }
 
+      function Subtract(selected: Category, full: Category) {
+        const full_exp = 
+          full.entities.flatMap(e => e.involvements.map(inv =>
+            ({ entity: e.short || e.entity, title: inv.title, dates: inv.dates})));
+        const selected_exp = 
+          selected.entities.flatMap(e => e.involvements.map(inv =>
+            ({ entity: e.short || e.entity, title: inv.title})));
+        var remaining = full_exp.filter(o_item => !selected_exp.some(t_item => t_item.entity === o_item.entity && t_item.title === o_item.title));
+        return remaining;
+      }
 
-      var original_exp = resume.categories.find((cat) => cat.name === "Industry Experience").entities.flatMap(
-        e => e.involvements.map(inv => ({ entity: e.short || e.entity, title: inv.title, dates: inv.dates })));
-      var transformed_exp = experience.entities.flatMap(
-        e => e.involvements.map(inv => ({ entity: e.entity, title: inv.title, dates: inv.dates })));
-      var remaining = original_exp.filter(o_item => !transformed_exp.some(t_item => t_item.entity === o_item.entity && t_item.title == o_item.title));
-      var grouped = remaining.groupBy(item => `${item.title} at ${item.entity}`);
-
+      var grouped = Subtract(experience, SelectCategory(resume.categories, "Industry Experience"))
+        .groupBy(item => `${item.title} at ${item.entity}`);
       var other_experience = Object.getOwnPropertyNames(grouped).map(title => ({ title: title, years: grouped[title].map(item=>item.dates.start.year) }))
+
+      var other_volunteer = Subtract(volunteer_highlights, SelectCategory(resume.categories, "Volunteer"));
 
       var listing_obj = education.entities.flatMap(ent => ent.involvements).flatMap(inv => inv.lists).groupByFlatMap((g => g.name), (l => l.list));
       var education_listings = Object.getOwnPropertyNames(listing_obj).map(k => ({name: k, list: listing_obj[k]})).filter(x => x.list.length > 0);
@@ -166,8 +155,8 @@ export class TwoColumn extends React.Component<{ resume: Resume }, any> {
           <div className="content">
             <article><CategoryRender category={volunteer_highlights} key={volunteer_highlights.name}/></article>
             <aside>
-              <h3>Volunteer Activities</h3>
-              <ul>{volunteer_full.map(v => <li key={v.name}>{v.name}{v.dates.end && ` (${RenderYearRange(v.dates)})`}</li>)}</ul>
+              <h3>Other Volunteer</h3>
+              <ul>{other_volunteer.map(v => <li key={v.entity}>{v.title} at {v.entity}{v.dates.end && ` (${RenderYearRange(v.dates)})`}</li>)}</ul>
             </aside>
           </div>
       </div>;
