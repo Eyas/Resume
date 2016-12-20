@@ -27,6 +27,10 @@ export function RenderDateRange(range: DateRange): string {
   if (range.end && DatesAreEqual(range.start, range.end)) {
     return RenderApproxDate(range.start);
   }
+  if (range.end && range.start.year === range.end.year
+    && range.start.month && range.end.month) {
+    return "" + months[range.start.month] + "\u00A0\u2013 " + RenderApproxDate(range.end);
+  }
   return RenderApproxDate(range.start) + "\u00A0\u2013 " +
     (range.end ? RenderApproxDate(range.end) : "Present");
 }
