@@ -361,6 +361,11 @@
                                 "start": {
                                     "year": 2016,
                                     "month": 9
+                                },
+                                "end": {
+                                    "year": 2016,
+                                    "month": 11,
+                                    "day": 9
                                 }
                             },
                             "title": "Developer",

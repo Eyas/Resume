@@ -68,7 +68,7 @@ Volunteer
 
 ## DevProgress
 ### Developer
-September 2016 – Present
+September – November 2016
 Building sites and tools to help progressive candidates and causes.
 * Maintained and managed contributions for a static Jekyll website dispelling fake news rumors
  and discussing common concerns related to Hillary Clinton.

@@ -125,15 +125,6 @@ January 2010
 Volunteer
 ---------
 
-## DevProgress
-### Developer
-September 2016 – Present
-Building sites and tools to help progressive candidates and causes.
-* Maintained and managed contributions for a static Jekyll website dispelling fake news rumors
- and discussing common concerns related to Hillary Clinton.
-* Launched site within two weeks of starting the initiative.
-* Translated UX designer slides into accessible, responsive, and scalable template.
-
 ## Massachusetts Institute of Technology
 ### Educational Counselor
 June 2013 – Present
@@ -143,6 +134,15 @@ Recruiting, acting as a community resource, and interviewing candidates for the 
 ### Director & Alumni Board House Manager
 April 2013 – Present
 Serving on the board of the house-owning alumni organization for the Number Six Club, an independent living group and co-ed literary fraternity at MIT.
+
+## DevProgress
+### Developer
+September – November 2016
+Building sites and tools to help progressive candidates and causes.
+* Maintained and managed contributions for a static Jekyll website dispelling fake news rumors
+ and discussing common concerns related to Hillary Clinton.
+* Launched site within two weeks of starting the initiative.
+* Translated UX designer slides into accessible, responsive, and scalable template.
 
 ## Girls Who Code
 ### Club Instructor
