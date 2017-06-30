@@ -231,7 +231,7 @@ export var EyasResume: Resume = {
       {
         entity: "DevProgress",
         involvements: [ {
-          dates: { start: MakeDate(2016, 9) },
+          dates: { start: MakeDate(2016, 9), end: MakeDate(2016, 11, 9) },
           title: "Developer",
           description: "Building sites and tools to help progressive candidates and causes.",
           accomplishments: [
