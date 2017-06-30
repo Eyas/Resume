@@ -35,7 +35,7 @@ class InvolvementRender extends React.Component<{ entity: EntityInvolvements }, 
               </div>
               {entity.entityDescription && <p>{entity.entityDescription}</p>}
               {
-                entity.involvements.map(involvement => <div className="involvement" key={RenderDateRange(involvement.dates)}>
+                entity.involvements.map(involvement => <div className="involvement" key={involvement.title + '_' + RenderDateRange(involvement.dates)}>
                   <div className="involvementTitle">
                     <h3>{involvement.title}</h3>
                     <div className="date">{RenderDateRange(involvement.dates)}</div>
@@ -159,9 +159,9 @@ export class TwoColumn extends React.Component<{ resume: Resume }, any> {
             <article><CategoryRender category={volunteer_highlights} key={volunteer_highlights.name}/></article>
             <aside>
               <h3>Other Volunteering</h3>
-              <ul>{other_volunteer.map(v => <li key={v.entity}>{v.title} at {v.entity}{v.dates.end && ` (${RenderYearRange(v.dates)})`}</li>)}</ul>
+              <ul>{other_volunteer.map(v => <li key={v.entity + '_' + v.title}>{v.title} at {v.entity}{v.dates.end && ` (${RenderYearRange(v.dates)})`}</li>)}</ul>
               <h3>Side Projects</h3>
-              <ul>{side_projects.map(p => <li>{p.involvement.description || p.involvement.title} {p.involvement.url && <a href={p.involvement.url}>{RenderUrlText(p.involvement.url)}</a>}</li>)}</ul>
+              <ul>{side_projects.map((p, idx) => <li key={p.involvement.title + '_' + idx}>{p.involvement.description || p.involvement.title} {p.involvement.url && <a href={p.involvement.url}>{RenderUrlText(p.involvement.url)}</a>}</li>)}</ul>
             </aside>
           </div>
       </div>;

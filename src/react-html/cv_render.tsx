@@ -45,7 +45,7 @@ export class CurriculumVitae extends React.Component<{ resume: Resume }, any> {
                     {entity.entityDescription && <p className="description">{entity.entityDescription}</p>}
                   </div>
                   {
-                    entity.involvements.map(involvement => <div className="involvement" key={RenderDateRange(involvement.dates)}>
+                    entity.involvements.map((involvement, idx) => <div className="involvement" key={entity.entity + '_' + idx + '_' + involvement.title + '_' + RenderDateRange(involvement.dates)}>
                       <h3>{involvement.title}</h3>
                       <div className="involvementDate"><span>{RenderDateRange(involvement.dates)}</span></div>
                       {involvement.description && <p>{involvement.description}</p>}
