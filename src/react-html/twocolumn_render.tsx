@@ -97,7 +97,9 @@ export class TwoColumn extends React.Component<{ resume: Resume }, any> {
         .groupBy(item => `${item.title} at ${item.entity}`);
       var other_experience = Object.getOwnPropertyNames(grouped).map(title => ({ title: title, years: grouped[title].map(item=>item.dates.start.year) }))
 
-      var other_volunteer = Subtract(volunteer_highlights, SelectCategory(resume.categories, "Volunteer"));
+      var other_volunteer =
+        Subtract(volunteer_highlights, SelectCategory(resume.categories, "Volunteer"))
+        .filter(element => !element.dates.end || element.dates.end.year > 2009)
 
       var listing_obj = education.entities.flatMap(ent => ent.involvements).flatMap(inv => inv.lists).groupByFlatMap((g => g.name), (l => l.list));
       var education_listings = Object.getOwnPropertyNames(listing_obj).map(k => ({name: k, list: listing_obj[k]})).filter(x => x.list.length > 0);
