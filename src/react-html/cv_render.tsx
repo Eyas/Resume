@@ -38,7 +38,7 @@ export class CurriculumVitae extends React.Component<{ resume: Resume }, any> {
             <section className="category" key={category.name}>
               <h1>{category.name}</h1>
               {
-                category.entities.map(entity => <div className="entity" key={entity.entity}>
+                category.entities.map((entity, idx) => <div className="entity" key={entity.entity + '_' + idx}>
                   <h2>{entity.entity}</h2>
                   <div className="info">
                     {entity.location && <div className="location"><span>{entity.location}</span></div>}

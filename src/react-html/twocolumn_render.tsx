@@ -57,7 +57,7 @@ class CategoryRender extends React.Component<{category: Category}, any> {
     var category = this.props.category;
     return <section className="category">
              <h1>{category.name}</h1>
-             {category.entities.map(entity => <InvolvementRender entity={entity} key={entity.entity} />)}
+             {category.entities.map((entity, idx) => <InvolvementRender entity={entity} key={entity.entity + '_' + idx} />)}
            </section>
   }
 }
