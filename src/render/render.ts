@@ -36,7 +36,7 @@ export function RenderDateRange(range: DateRange): string {
 }
 
 export function RenderYearRange(range: DateRange): string {
-  if (range.end && range.start.year == range.end.year) {
+  if (range.end && range.start.year === range.end.year) {
     return "" + range.start.year;
   }
   return "" + range.start.year +"\u00A0\u2013 " + (range.end ? range.end.year : "Present");
