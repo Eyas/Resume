@@ -264,6 +264,7 @@ export function TransformInvolvement(
         dates: filter.dates ? FilterDateRange(involvement.dates, filter.dates) : involvement.dates,
         title: involvement.title
     };
+    if (involvement.short) ret.short = involvement.short;
     if (filter.description !== false && involvement.description) ret.description = involvement.description;
     if (involvement.accomplishments) {
         if (filter.accomplishments === undefined) ret.accomplishments = involvement.accomplishments;

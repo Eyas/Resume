@@ -62,6 +62,7 @@ export interface EntityInvolvements {
 export interface Involvement {
     dates: DateRange;
     title: string;
+    short?: string;
     properties?: InvolvementProperty[];
     description?: string;
     accomplishments?: string[];
