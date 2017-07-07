@@ -12,7 +12,7 @@
             "taskName": "resume",
             "args": [],
             "isBuildCommand": true,
-            "isWatching": false,
+            "isBackground": false,
             "problemMatcher": [
                 "$lessCompile",
                 "$tsc",
