@@ -48,15 +48,21 @@ June 2009
 Industry Experience
 -------------------
 
+## Google, Inc
+New York, NY
+
+### Software Engineer
+July 2017 – Present
+
 ## Broadway Technology
 New York, NY
 
 ### Software Developer
-July 2014 – Present
-Building high-performance loosely-coupled distributed systems on a 7-engineer team. Developing
+July 2014 – July 2017
+Built high-performance loosely-coupled distributed systems on a 7-engineer team. Developed
  server-side components connecting sell-side banks to their clients.
-* Leading technical direction for a 3 developer initiative to consolidate two major families of
- components across asset classes. Implementing required changes for unified quoting libraries.
+* Lead technical direction for a 3 developer initiative to consolidate two major families of
+ components across asset classes. Implemented required changes for unified quoting libraries.
 * Designed and built a randomized test client for venue connectors over the FIX protocol. Load tests
  and performs state explorations of server-side components. These explorations can either follow a
  naive uniform distribution, or modeled by an NFA with user-defined state graphs and probabilities.

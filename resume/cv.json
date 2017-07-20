@@ -152,6 +152,22 @@
             "name": "Industry Experience",
             "entities": [
                 {
+                    "entity": "Google, Inc",
+                    "short": "Google",
+                    "location": "New York, NY",
+                    "involvements": [
+                        {
+                            "dates": {
+                                "start": {
+                                    "year": 2017,
+                                    "month": 7
+                                }
+                            },
+                            "title": "Software Engineer"
+                        }
+                    ]
+                },
+                {
                     "entity": "Broadway Technology",
                     "location": "New York, NY",
                     "involvements": [
@@ -160,12 +176,16 @@
                                 "start": {
                                     "year": 2014,
                                     "month": 7
+                                },
+                                "end": {
+                                    "year": 2017,
+                                    "month": 7
                                 }
                             },
                             "title": "Software Developer",
-                            "description": "Building high-performance loosely-coupled distributed systems on a 7-engineer team. Developing\n server-side components connecting sell-side banks to their clients.",
+                            "description": "Built high-performance loosely-coupled distributed systems on a 7-engineer team. Developed\n server-side components connecting sell-side banks to their clients.",
                             "accomplishments": [
-                                "Leading technical direction for a 3 developer initiative to consolidate two major families of\n components across asset classes. Implementing required changes for unified quoting libraries.",
+                                "Lead technical direction for a 3 developer initiative to consolidate two major families of\n components across asset classes. Implemented required changes for unified quoting libraries.",
                                 "Designed and built a randomized test client for venue connectors over the FIX protocol. Load tests\n and performs state explorations of server-side components. These explorations can either follow a\n naive uniform distribution, or modeled by an NFA with user-defined state graphs and probabilities.",
                                 "Designed and implemented a time-series analysis component monitoring system and business health.\n Computes configurable sliding-window measurements on arbitrary data. A single instance handles up\n to 100K incoming events/sec."
                             ]
@@ -241,6 +261,7 @@
             "entities": [
                 {
                     "entity": "MIT 6.170: Software Studio",
+                    "short": "MIT 6.170",
                     "location": "Cambridge, MA",
                     "involvements": [
                         {
@@ -255,6 +276,7 @@
                                 }
                             },
                             "title": "Graduate Teaching Assistant",
+                            "short": "Teaching Assistant",
                             "accomplishments": [
                                 "One of 5 graduate teaching assistants for a class of 125 students, where students learn web development, with a focus on JavaScript and Rails.",
                                 "Lead planning and logistics, which involved managing scheduling, locations, office hours, and recitations.",
@@ -265,6 +287,7 @@
                 },
                 {
                     "entity": "MIT CSAIL Laboratory: Haystack Group",
+                    "short": "CSAIL",
                     "location": "Cambridge, MA",
                     "entityDescription": "Working on NB, an online social discussion-based annotation tool for education.",
                     "involvements": [
@@ -280,6 +303,7 @@
                                 }
                             },
                             "title": "Graduate Researcher",
+                            "short": "Researcher",
                             "accomplishments": [
                                 "Studied impact of NB annotations on course materials on collaborative learning.",
                                 "Created tools to find impactful discussions, and introduced tools allowing instructors to reuse them across class offerings."
@@ -297,6 +321,7 @@
                                 }
                             },
                             "title": "MIT EECS Google Research and Innovation Fellow",
+                            "short": "Researcher",
                             "accomplishments": [
                                 "Added support for annotations and discussions on static HTML documents to NB."
                             ]

@@ -31,21 +31,48 @@ June 2013
 Experience
 ----------
 
+## Google, Inc
+New York, NY
+
+### Software Engineer
+July 2017 – Present
+
 ## Broadway Technology
 New York, NY
 
 ### Software Developer
-July 2014 – Present
-Building high-performance loosely-coupled distributed systems on a 7-engineer team. Developing
+July 2014 – July 2017
+Built high-performance loosely-coupled distributed systems on a 7-engineer team. Developed
  server-side components connecting sell-side banks to their clients.
-* Leading technical direction for a 3 developer initiative to consolidate two major families of
- components across asset classes. Implementing required changes for unified quoting libraries.
+* Lead technical direction for a 3 developer initiative to consolidate two major families of
+ components across asset classes. Implemented required changes for unified quoting libraries.
 * Designed and built a randomized test client for venue connectors over the FIX protocol. Load tests
  and performs state explorations of server-side components. These explorations can either follow a
  naive uniform distribution, or modeled by an NFA with user-defined state graphs and probabilities.
 * Designed and implemented a time-series analysis component monitoring system and business health.
  Computes configurable sliding-window measurements on arbitrary data. A single instance handles up
  to 100K incoming events/sec.
+
+Other Experience
+----------------
+
+## Microsoft Corporation
+Redmond, WA
+
+### Software Development Engineer Intern
+June – August 2013
+* Built support for real-time collaborative editing in Word Online by developing inter-paragraph text merge strategies.
+
+### Software Development Engineer Intern
+June – August 2012
+* Extended OneNote Online to support editing, viewing, and collaborating across securely encrypted, password-protected sections.
+
+## Google, Inc
+New York, NY
+
+### Software Engineer Intern
+June – August 2011
+* Built tools to facilitate event-driven programming for internal software; built load-testing framework for internal message bus; ran performance trials.
 
 Education Experience
 --------------------
@@ -62,6 +89,15 @@ January – May 2014
 ### MIT EECS Google Research and Innovation Fellow
 September 2012 – July 2013
 * Added support for annotations and discussions on static HTML documents to NB.
+
+## MIT 6.170: Software Studio
+Cambridge, MA
+
+### Graduate Teaching Assistant
+August 2013 – January 2014
+* One of 5 graduate teaching assistants for a class of 125 students, where students learn web development, with a focus on JavaScript and Rails.
+* Lead planning and logistics, which involved managing scheduling, locations, office hours, and recitations.
+* Taught recitation sections, tutored students in lab hours, and mentored student teams of 3-4 students in final project consultations.
 
 Volunteer
 ---------
