@@ -105,18 +105,28 @@ export var EyasResume: Resume = {
     },
     { name: "Industry Experience", entities: [
       {
+        entity: "Google, Inc", short: "Google",
+        location: "New York, NY",
+        involvements: [
+          {
+            dates: { start: MakeDate(2017, 7) },
+            title: "Software Engineer"
+          }
+        ]
+      },
+      {
         entity: "Broadway Technology",
         location: "New York, NY",
         involvements: [
           {
-            dates: { start: MakeDate(2014, 7) },
+            dates: { start: MakeDate(2014, 7), end: MakeDate(2017, 7) },
             title: "Software Developer",
             description:
-`Building high-performance loosely-coupled distributed systems on a 7-engineer team. Developing
+`Built high-performance loosely-coupled distributed systems on a 7-engineer team. Developed
  server-side components connecting sell-side banks to their clients.`,
             accomplishments: [
-`Leading technical direction for a 3 developer initiative to consolidate two major families of
- components across asset classes. Implementing required changes for unified quoting libraries.`,
+`Lead technical direction for a 3 developer initiative to consolidate two major families of
+ components across asset classes. Implemented required changes for unified quoting libraries.`,
 `Designed and built a randomized test client for venue connectors over the FIX protocol. Load tests
  and performs state explorations of server-side components. These explorations can either follow a
  naive uniform distribution, or modeled by an NFA with user-defined state graphs and probabilities.`,
@@ -163,12 +173,12 @@ export var EyasResume: Resume = {
     ]},
     { name: "Education Experience", entities: [
       {
-        entity: "MIT 6.170: Software Studio",
+        entity: "MIT 6.170: Software Studio", short: "MIT 6.170",
         location: "Cambridge, MA",
         involvements: [
           {
             dates: { start: MakeDate(2013, 8), end: MakeDate(2014, 1) },
-            title: "Graduate Teaching Assistant",
+            title: "Graduate Teaching Assistant", short: "Teaching Assistant",
             accomplishments: [
               "One of 5 graduate teaching assistants for a class of 125 students, where students learn web development, with a focus on JavaScript and Rails.",
               "Lead planning and logistics, which involved managing scheduling, locations, office hours, and recitations.",
@@ -178,13 +188,13 @@ export var EyasResume: Resume = {
         ]
       },
       {
-        entity: "MIT CSAIL Laboratory: Haystack Group",
+        entity: "MIT CSAIL Laboratory: Haystack Group", short: "CSAIL",
         location: "Cambridge, MA",
         entityDescription: "Working on NB, an online social discussion-based annotation tool for education.",
         involvements: [
           {
             dates: { start: MakeDate(2014, 1), end: MakeDate(2014, 5) },
-            title: "Graduate Researcher",
+            title: "Graduate Researcher", short: "Researcher",
             accomplishments: [
               "Studied impact of NB annotations on course materials on collaborative learning.",
               "Created tools to find impactful discussions, and introduced tools allowing instructors to reuse them across class offerings."
@@ -192,7 +202,7 @@ export var EyasResume: Resume = {
           },
           {
             dates: { start: MakeDate(2012, 9), end: MakeDate(2013, 7) },
-            title: "MIT EECS Google Research and Innovation Fellow",
+            title: "MIT EECS Google Research and Innovation Fellow", short: "Researcher",
             accomplishments: [
               "Added support for annotations and discussions on static HTML documents to NB."
             ]

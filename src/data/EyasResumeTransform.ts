@@ -1,4 +1,4 @@
-import { Category } from "../core/resume";
+import { Category, DateRangesIntersect, CompareDatesAscending } from "../core/resume";
 import { ResumeTransform, All, None } from "../core/transform";
 
 export var Transform: ResumeTransform = { categories: {
@@ -49,23 +49,30 @@ export var Transform: ResumeTransform = { categories: {
         }
     },
     {
+        item: "Industry Experience", as: "Other Experience",
+        entities: { filter: (entity) => entity.involvements.some(inv => inv.dates.start.year <= 2013),
+            involvements: {
+                filter: (involvement) => involvement.dates.start.year <= 2013
+            }
+        }
+    },
+    {
         item: "Education Experience",
         entities: {
-        sequence: [
-            {
-            item: /CSAIL/g,
-            involvements: {
-                filter: All,
-                accomplishments: { filter: All }
-            }
-            }
-        ]
+            filter: (entity) => entity.involvements.some(involvement => DateRangesIntersect({ start: { year: 2013} }, involvement.dates))
         }
     },
     {
         item: "Volunteer",
         entities: {
-            filter: (entity) => entity.involvements.some(involvement => involvement.dates.start.year > 2013)
+            // filter: (entity) => entity.involvements.some(involvement => DateRangesIntersect({ start: { year: 2013} }, involvement.dates)),
+            filter: (entity) => entity.involvements.some(involvement => involvement.dates.start.year > 2013),
+            // filter: (entity) => entity.involvements.some(involvement => CompareDatesAscending(involvement.dates.start, { year: 2016, month: 6}) >= 0 )
+            // involvements: {
+            //     filter: All,
+            //     description: false,
+            //     accomplishments: { filter: None }
+            // }
         }
     }
     ]
