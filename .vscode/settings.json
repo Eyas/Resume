@@ -1,3 +1,7 @@
 {
-    "typescript.tsdk": "./node_modules/typescript/lib"
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "editor.formatOnType": false,
+    "editor.formatOnSave": false,
+    "files.insertFinalNewline": false,
+    "files.trimTrailingWhitespace": false
 }
