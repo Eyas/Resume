@@ -185,3 +185,34 @@ export function SortEntitiesDescending(entities: EntityInvolvements[]): void {
     return CompareDateRangeDescending(a.involvements[0].dates, b.involvements[0].dates);
     });
 }
+
+export function IsDateInRange(date: ApproximateDate, range: DateRange) {
+    // start           end
+    //  /               /
+    // <---- range ---->
+    //     \
+    //      \ date
+    const start_cmp = CompareDatesAscending(range.start, date);
+
+    if (start_cmp > 0) return false; // date range starts aftern date.
+
+    return !range.end || ( CompareDatesAscending(range.end, date) >= 0 );
+}
+
+export function DateRangesIntersect(first: DateRange, second:DateRange): boolean {
+    const start_cmp = CompareDatesAscending(first.start, second.start);
+
+    if (start_cmp > 0) return DateRangesIntersect(second, first);
+
+    // after this point, `first` always comes at the
+    // same(ish) time or before `second`...
+
+    // if first goes to the present, then it subsumes second always.
+    if (!first.end) return true;
+
+    const inter_cmp = CompareDatesAscending(first.end, second.start);
+
+    // the first range either ends before the second starts (no inersection)
+    // or after (intersection)
+    return inter_cmp >= 0;
+}
