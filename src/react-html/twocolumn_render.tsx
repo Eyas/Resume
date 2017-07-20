@@ -1,6 +1,6 @@
 "use strict";
 
-import { ApproximateDate, DateRange, DatesAreEqual, Resume, Category, EntityInvolvements, SortEntitiesDescending } from "../core/resume";
+import { ApproximateDate, DateRange, DatesAreEqual, Resume, Category, EntityInvolvements, Involvement, SortEntitiesDescending } from "../core/resume";
 import { TransformCategories, SelectCategory, InvolvementsByTag, All, None } from "../core/transform";
 import { RenderApproxDate, RenderDateRange, RenderYearRange, RenderUrlText } from "../render/render";
 import { Transform } from "../data/EyasResumeTransform"
@@ -24,7 +24,26 @@ export class Static extends React.Component<{resume: Resume}, any> {
       }
 }
 
-class InvolvementRender extends React.Component<{ entity: EntityInvolvements }, any> {
+class InvolvementRender extends React.Component<{ involvement: Involvement }, any> {
+  render() {
+    const involvement = this.props.involvement;
+    return <div className="involvement" >
+              <div className="involvementTitle">
+                <h3>{involvement.title}</h3>
+                <div className="date">{RenderDateRange(involvement.dates)}</div>
+              </div>
+              {involvement.description && <p>{involvement.description}</p>}
+              {involvement.properties && <p className="properties">{involvement.properties.map(
+                prop => <span key={prop.name}><strong>{prop.name}</strong>:&nbsp;{prop.url ? <a href={prop.url} target="_blank">{prop.value}</a> : prop.value} </span>
+              )}</p>}
+              {involvement.accomplishments
+                && involvement.accomplishments.length > 0
+                && (<ul>{involvement.accomplishments.map(acc => (<li key={acc}>{acc}</li>))}</ul>)}
+            </div>;
+  }
+}
+
+class EntityRender extends React.Component<{ entity: EntityInvolvements }, any> {
   render() {
     var entity = this.props.entity;
 
@@ -35,19 +54,11 @@ class InvolvementRender extends React.Component<{ entity: EntityInvolvements }, 
               </div>
               {entity.entityDescription && <p>{entity.entityDescription}</p>}
               {
-                entity.involvements.map(involvement => <div className="involvement" key={involvement.title + '_' + RenderDateRange(involvement.dates)}>
-                  <div className="involvementTitle">
-                    <h3>{involvement.title}</h3>
-                    <div className="date">{RenderDateRange(involvement.dates)}</div>
-                  </div>
-                  {involvement.description && <p>{involvement.description}</p>}
-                  {involvement.properties && <p className="properties">{involvement.properties.map(
-                    prop => <span key={prop.name}><strong>{prop.name}</strong>:&nbsp;{prop.url ? <a href={prop.url} target="_blank">{prop.value}</a> : prop.value} </span>
-                  )}</p>}
-                  {involvement.accomplishments
-                    && involvement.accomplishments.length > 0
-                    && (<ul>{involvement.accomplishments.map(acc => (<li key={acc}>{acc}</li>))}</ul>)}
-                </div>)
+                entity.involvements.map(involvement =>
+                  <InvolvementRender
+                    involvement={involvement}
+                    key={involvement.title + '_' + RenderDateRange(involvement.dates)} />
+                )
               }
           </div>;
   }
@@ -57,8 +68,29 @@ class CategoryRender extends React.Component<{category: Category}, any> {
     var category = this.props.category;
     return <section className="category">
              <h1>{category.name}</h1>
-             {category.entities.map((entity, idx) => <InvolvementRender entity={entity} key={entity.entity + '_' + idx} />)}
+             {category.entities.map((entity, idx) => <EntityRender entity={entity} key={entity.entity + '_' + idx} />)}
            </section>
+  }
+}
+
+class MiniCategory extends React.Component<{category: Category}, any> {
+  render() {
+    const category = this.props.category;
+    const grouped = category.entities
+      .flatMap(invs =>
+        invs.involvements.map(inv =>
+        ({entity: (invs.short || invs.entity), title: (inv.short || inv.title), dates: inv.dates })))
+      .groupBy(item => `${item.title} at ${item.entity}`);
+      var exp_list = Object.getOwnPropertyNames(grouped).map(title => ({ title: title, dates: grouped[title].map(i => i.dates) }))
+
+    return <section className="mini-category">
+      <h3>{category.name}</h3>
+      <ul>
+        {exp_list.map(item => <li key={item.title}>
+            <strong>{item.title}</strong> ({item.dates.map(RenderYearRange).join(' & ')})
+          </li>)}
+      </ul>
+      </section>;
   }
 }
 
@@ -74,12 +106,14 @@ export class TwoColumn extends React.Component<{ resume: Resume }, any> {
             Transform.categories
         );
         var education = SelectCategory(main_categories, "Education");
-        let more_experience = SelectCategory(main_categories, "Education Experience");
-        education.entities = education.entities.concat(more_experience.entities);
+        //education.entities = education.entities.concat(more_experience.entities);
 
         var experience = SelectCategory(main_categories, "Experience");
-
         var volunteer_highlights = SelectCategory(main_categories, "Volunteer");
+
+        var other_experience = SelectCategory(main_categories, "Other Experience");
+        const education_experience = SelectCategory(main_categories, "Education Experience");
+        Array.prototype.push.apply(other_experience.entities, education_experience.entities);
       }
 
       function Subtract(selected: Category, full: Category) {
@@ -92,10 +126,6 @@ export class TwoColumn extends React.Component<{ resume: Resume }, any> {
         var remaining = full_exp.filter(o_item => !selected_exp.some(t_item => t_item.entity === o_item.entity && t_item.title === o_item.title));
         return remaining;
       }
-
-      var grouped = Subtract(experience, SelectCategory(resume.categories, "Industry Experience"))
-        .groupBy(item => `${item.title} at ${item.entity}`);
-      var other_experience = Object.getOwnPropertyNames(grouped).map(title => ({ title: title, years: grouped[title].map(item=>item.dates.start.year) }))
 
       var other_volunteer =
         Subtract(volunteer_highlights, SelectCategory(resume.categories, "Volunteer"))
@@ -131,8 +161,7 @@ export class TwoColumn extends React.Component<{ resume: Resume }, any> {
                   </span>)
                 }
               </p>
-              <h3>Other Experience</h3>
-              <ul>{other_experience.map(exp => <li key={exp.title}><strong>{exp.title}</strong> ({exp.years.join(' & ')})</li>)}</ul>
+              <MiniCategory category={other_experience} />
             </aside>
           </div>
           <div className="content">
@@ -147,18 +176,12 @@ export class TwoColumn extends React.Component<{ resume: Resume }, any> {
                     </ul>
                   </div>)
               }
-              {
-              //   recognitions.map(recog => <div>
-              //       <h3>{recog.name}</h3>
-              //       <ul>
-              //       {recog.recognitions.map(r => <li>&lsquo;{Pad(r.date.year % 100, 2)}:&nbsp;{r.description}</li>)}
-              //       </ul>
-              //     </div>)
-              }
             </aside>
           </div>
           <div className="content">
-            <article><CategoryRender category={volunteer_highlights} key={volunteer_highlights.name}/></article>
+            <article>
+              <CategoryRender category={volunteer_highlights} key={volunteer_highlights.name}/>
+            </article>
             <aside>
               <h3>Other Volunteering</h3>
               <ul>{other_volunteer.map(v => <li key={v.entity + '_' + v.title}>{v.title} at {v.entity}{v.dates.end && ` (${RenderYearRange(v.dates)})`}</li>)}</ul>
