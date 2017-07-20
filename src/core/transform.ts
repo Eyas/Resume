@@ -2,6 +2,7 @@ import { Resume, Category, EntityInvolvements, Involvement, InvolvementProperty,
 
 
 export type Pattern<T> = string|RegExp|((t:T)=>boolean);
+// TODO: Should a 'concat' merge be a pattern? |{concat: Pattern<T>[]}
 
 export type FilterTransform<Type, XForm> = { filter: Pattern<Type> } & XForm;
 export interface IntersectTransform<Type, XForm> {
@@ -67,7 +68,9 @@ export function TestCategory(pattern: Pattern<Category>, category: Category): bo
     } else if (pattern instanceof RegExp) {
         return pattern.test(category.name);
     } else if (typeof pattern === "function") {
-        return (<(c: Category)=>boolean>pattern)(category);
+        return pattern(category);
+    // } else if (pattern.concat) {
+    //     return pattern.concat.some(sub_pattern => TestCategory(sub_pattern, category));
     } else throw "Invalid Pattern";
 }
 export function TestEntity(pattern: Pattern<EntityInvolvements>, entity: EntityInvolvements): boolean {
@@ -76,7 +79,9 @@ export function TestEntity(pattern: Pattern<EntityInvolvements>, entity: EntityI
     } else if (pattern instanceof RegExp) {
         return pattern.test(entity.short) || pattern.test(entity.entity);
     } else if (typeof pattern === "function") {
-        return (<(c: EntityInvolvements)=>boolean>pattern)(entity);
+        return pattern(entity);
+    // } else if (pattern.concat) {
+    //     return pattern.concat.some(sub_pattern => TestEntity(sub_pattern, entity));
     } else throw "Invalid Pattern";
 }
 export function TestInvolvement(pattern: Pattern<Involvement>, involvement: Involvement): boolean {
@@ -85,7 +90,9 @@ export function TestInvolvement(pattern: Pattern<Involvement>, involvement: Invo
     } else if (pattern instanceof RegExp) {
         return pattern.test(involvement.title);
     } else if (typeof pattern === "function") {
-        return (<(c: Involvement)=>boolean>pattern)(involvement);
+        return pattern(involvement);
+    // } else if (pattern.concat) {
+    //     return pattern.concat.some(sub_pattern => TestInvolvement(sub_pattern, involvement));
     } else throw "Invalid Pattern";
 }
 export function TestProperty(pattern: Pattern<InvolvementProperty>, property: InvolvementProperty): boolean {
@@ -94,7 +101,9 @@ export function TestProperty(pattern: Pattern<InvolvementProperty>, property: In
     } else if (pattern instanceof RegExp) {
         return pattern.test(property.name);
     } else if (typeof pattern === "function") {
-        return (<(c: InvolvementProperty)=>boolean>pattern)(property);
+        return pattern(property);
+    // } else if (pattern.concat) {
+    //     return pattern.concat.some(sub_pattern => TestProperty(sub_pattern, property));
     } else throw "Invalid Pattern";
 }
 export function TestSublisting(pattern: Pattern<InvolvementSublisting>, listing: InvolvementSublisting): boolean {
@@ -103,7 +112,9 @@ export function TestSublisting(pattern: Pattern<InvolvementSublisting>, listing:
     } else if (pattern instanceof RegExp) {
         return pattern.test(listing.name);
     } else if (typeof pattern === "function") {
-        return (<(c: InvolvementSublisting)=>boolean>pattern)(listing);
+        return pattern(listing);
+    // } else if (pattern.concat) {
+    //     return pattern.concat.some(sub_pattern => TestSublisting(sub_pattern, listing));
     } else throw "Invalid Pattern";
 }
 export function TestString(pattern: Pattern<string>, value: string): boolean {
@@ -112,7 +123,9 @@ export function TestString(pattern: Pattern<string>, value: string): boolean {
     } else if (pattern instanceof RegExp) {
         return pattern.test(value);
     } else if (typeof pattern === "function") {
-        return (<(c: string)=>boolean>pattern)(value);
+        return pattern(value);
+    // } else if (pattern.concat) {
+    //     return pattern.concat.some(sub_pattern => TestString(sub_pattern, value));
     } else throw "Invalid Pattern";
 }
 
