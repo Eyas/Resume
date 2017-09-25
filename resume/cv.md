@@ -98,7 +98,8 @@ Working on NB, an online social discussion-based annotation tool for education.
 ### Graduate Researcher
 January – May 2014
 * Studied impact of NB annotations on course materials on collaborative learning.
-* Created tools to find impactful discussions, and introduced tools allowing instructors to reuse them across class offerings.
+* Created tools to find impactful online discussions in online annotation conversations.
+* Introduced tools allowing instructors to reuse impactful across class offerings.
 
 ### MIT EECS Google Research and Innovation Fellow
 September 2012 – July 2013
@@ -131,6 +132,21 @@ January 2010
 Volunteer
 ---------
 
+## Out in Tech
+New York, NY
+
+### Digital Corps Committee Organizer
+April 2017 – Present
+Connecting LGBT activists and organizations around the world with  tech volunteers.
+* Organized an event of 50 Out in Tech volunteers in building websites for domestic LGBT organizations.
+* Interfaced with the Massachusetts Transgender Political Coalition in building an online tool to guide
+ transgender and gender-nonconforming individuals in Massachusetts with the name and gender marker change
+ process. The project was featured on VICE impact.
+
+### Digital Corps Volunteer
+September 2016
+Built sites to help international LGBT organizations in regions where it is illegal or dangerous to be out.
+
 ## Massachusetts Institute of Technology
 ### Educational Counselor
 June 2013 – Present
@@ -144,7 +160,7 @@ Serving on the board of the house-owning alumni organization for the Number Six 
 ## DevProgress
 ### Developer
 September – November 2016
-Building sites and tools to help progressive candidates and causes.
+Built sites and tools to help progressive candidates and causes.
 * Maintained and managed contributions for a static Jekyll website dispelling fake news rumors
  and discussing common concerns related to Hillary Clinton.
 * Launched site within two weeks of starting the initiative.

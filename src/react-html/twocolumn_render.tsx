@@ -108,6 +108,8 @@ export class TwoColumn extends React.Component<{ resume: Resume }, any> {
         );
         education = SelectCategory(main_categories, "Education");
         //education.entities = education.entities.concat(more_experience.entities);
+        const more_edu = SelectCategory(main_categories, "Education Extra");
+        education.entities = education.entities.concat(more_edu.entities);
 
         experience = SelectCategory(main_categories, "Experience");
         volunteer_highlights = SelectCategory(main_categories, "Volunteer");
