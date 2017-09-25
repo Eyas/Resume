@@ -108,12 +108,12 @@ export interface ApproximateDate {
 
 export function MakeDate(year: number, month?: number, day?: number): ApproximateDate {
     if (month && day) return {
-        year: year, month: month, day: day
+        year, month, day
     };
     if (month) return {
-        year: year, month: month
+        year, month
     };
-    return { year: year };
+    return { year };
 }
 
 export function DatesAreEqual(first: ApproximateDate, second: ApproximateDate) {

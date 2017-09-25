@@ -52,7 +52,7 @@ export interface StringTransform {
 }
 
 export interface DateRangeTransform {
-    start?: boolean|ApproximateDateTransform
+    start?: boolean|ApproximateDateTransform;
     end?: boolean|ApproximateDateTransform;
 }
 export interface ApproximateDateTransform {
@@ -71,7 +71,7 @@ export function TestCategory(pattern: Pattern<Category>, category: Category): bo
         return pattern(category);
     // } else if (pattern.concat) {
     //     return pattern.concat.some(sub_pattern => TestCategory(sub_pattern, category));
-    } else throw "Invalid Pattern";
+    } else throw new Error("Invalid Pattern");
 }
 export function TestEntity(pattern: Pattern<EntityInvolvements>, entity: EntityInvolvements): boolean {
     if (typeof pattern === "string") {
@@ -82,7 +82,7 @@ export function TestEntity(pattern: Pattern<EntityInvolvements>, entity: EntityI
         return pattern(entity);
     // } else if (pattern.concat) {
     //     return pattern.concat.some(sub_pattern => TestEntity(sub_pattern, entity));
-    } else throw "Invalid Pattern";
+    } else throw new Error("Invalid Pattern");
 }
 export function TestInvolvement(pattern: Pattern<Involvement>, involvement: Involvement): boolean {
     if (typeof pattern === "string") {
@@ -93,7 +93,7 @@ export function TestInvolvement(pattern: Pattern<Involvement>, involvement: Invo
         return pattern(involvement);
     // } else if (pattern.concat) {
     //     return pattern.concat.some(sub_pattern => TestInvolvement(sub_pattern, involvement));
-    } else throw "Invalid Pattern";
+    } else throw new Error("Invalid Pattern");
 }
 export function TestProperty(pattern: Pattern<InvolvementProperty>, property: InvolvementProperty): boolean {
     if (typeof pattern === "string") {
@@ -104,7 +104,7 @@ export function TestProperty(pattern: Pattern<InvolvementProperty>, property: In
         return pattern(property);
     // } else if (pattern.concat) {
     //     return pattern.concat.some(sub_pattern => TestProperty(sub_pattern, property));
-    } else throw "Invalid Pattern";
+    } else throw new Error("Invalid Pattern");
 }
 export function TestSublisting(pattern: Pattern<InvolvementSublisting>, listing: InvolvementSublisting): boolean {
     if (typeof pattern === "string") {
@@ -115,7 +115,7 @@ export function TestSublisting(pattern: Pattern<InvolvementSublisting>, listing:
         return pattern(listing);
     // } else if (pattern.concat) {
     //     return pattern.concat.some(sub_pattern => TestSublisting(sub_pattern, listing));
-    } else throw "Invalid Pattern";
+    } else throw new Error("Invalid Pattern");
 }
 export function TestString(pattern: Pattern<string>, value: string): boolean {
     if (typeof pattern === "string") {
@@ -126,7 +126,7 @@ export function TestString(pattern: Pattern<string>, value: string): boolean {
         return pattern(value);
     // } else if (pattern.concat) {
     //     return pattern.concat.some(sub_pattern => TestString(sub_pattern, value));
-    } else throw "Invalid Pattern";
+    } else throw new Error("Invalid Pattern");
 }
 
 export function SelectCategory(
@@ -143,16 +143,15 @@ export function ListTransformer<Type, XForm>(
     tester: Tester<Type>): Type[] {
 
     if (isFilterTransform(transform)) {
-        var glob: Pattern<Type> = transform.filter;
-
-        var filtered = list.filter(item => tester(glob, item));
+        const glob: Pattern<Type> = transform.filter;
+        const filtered = list.filter(item => tester(glob, item));
         return filtered.map(item => transformer(item, transform));
 
     } else if (isIntersectTransform(transform)) {
 
-        var intersected: Type[] = [];
+        const intersected: Type[] = [];
         transform.sequence.forEach(int => {
-            var filtered = (list.filter(item => tester(int.item, item)))[0];
+            const filtered = (list.filter(item => tester(int.item, item)))[0];
             if (filtered) {
                 intersected.push(transformer(filtered, int));
             }
@@ -160,7 +159,7 @@ export function ListTransformer<Type, XForm>(
 
         return intersected;
 
-    } else throw "Unknown transform";
+    } else throw new Error("Unknown transform");
 }
 
 export function TransformCategories(
@@ -227,7 +226,7 @@ export function TransformStrings(
 export function TransformResume(
     resume: Resume,
     filter: ResumeTransform) : Resume {
-    var ret: Resume = {
+    const ret: Resume = {
         person: resume.person,
         categories: filter.categories === undefined ?
             resume.categories :
@@ -241,7 +240,7 @@ export function TransformResume(
 export function TransformCategory(
     category: Category,
     filter: CategoryTransform): Category {
-    var ret: Category = {
+    const ret: Category = {
         name: filter.as || category.name,
         entities:
             filter.entities === undefined ?
@@ -255,7 +254,7 @@ export function TransformCategory(
 export function TransformEntity(
     entity: EntityInvolvements,
     filter: EntityTransform): EntityInvolvements {
-    var ret: EntityInvolvements = {
+    const ret: EntityInvolvements = {
         entity: entity.entity,
         involvements:
             filter.involvements === undefined ?
@@ -273,7 +272,7 @@ export function TransformEntity(
 export function TransformInvolvement(
     involvement: Involvement,
     filter: InvolvementTransform): Involvement {
-    var ret: Involvement = {
+    const ret: Involvement = {
         dates: filter.dates ? FilterDateRange(involvement.dates, filter.dates) : involvement.dates,
         title: involvement.title
     };
@@ -310,7 +309,7 @@ export function TransformSublisting(list: InvolvementSublisting, xform: Sublisti
 }
 
 export function TransformString(str: string, xform: StringTransform): string {
-    var xf = xform.xform;
+    const xf = xform.xform;
     if (typeof xf === "string") {
         return xf;
     } else if (typeof xf === "undefined") {
@@ -323,23 +322,23 @@ export function TransformString(str: string, xform: StringTransform): string {
 export function FilterDateRange(range: DateRange, filter: DateRangeTransform): DateRange {
     if (filter.start === false && filter.end === true) return { start: range.end, end: range.end};
     if (filter.start === false && filter.end) {
-        var e = FilterApproximateDate(range.end, <ApproximateDateTransform>filter.end);
+        const e = FilterApproximateDate(range.end, filter.end as ApproximateDateTransform);
         return {start: e, end: e};
     }
-    if (filter.start === false) throw "bad call";
+    if (filter.start === false) throw new Error("bad call");
 
-    var ret: DateRange = {
+    const ret: DateRange = {
         start: filter.start !== true && filter.start ? FilterApproximateDate(range.start, filter.start) : range.start
     };
     if (range.end) {
         if (filter.end === true) ret.end = range.end;
-        if (filter.end) ret.end = FilterApproximateDate(range.end, <ApproximateDateTransform>filter.end);
+        if (filter.end) ret.end = FilterApproximateDate(range.end, filter.end as ApproximateDateTransform);
     }
     return ret;
 }
 
 export function FilterApproximateDate(date: ApproximateDate, filter: ApproximateDateTransform): ApproximateDate {
-    var ret: ApproximateDate = {year: date.year};
+    const ret: ApproximateDate = {year: date.year};
     if (filter.day !== false && date.day) ret.day = date.day;
     if (filter.month !== false && date.month) ret.month = date.month;
     return ret;

@@ -8,7 +8,7 @@ import React = require("react");
 
 export class Static extends React.Component<{resume: Resume}, any> {
     render() {
-        var resume = this.props.resume;
+        const resume = this.props.resume;
         return <html lang="en">
         <head>
           <title>{resume.person.name} &ndash; Resume</title>
@@ -45,7 +45,7 @@ class InvolvementRender extends React.Component<{ involvement: Involvement }, an
 
 class EntityRender extends React.Component<{ entity: EntityInvolvements }, any> {
   render() {
-    var entity = this.props.entity;
+    const entity = this.props.entity;
 
     return <div className="entity">
               <div className="entityTitle">
@@ -65,11 +65,11 @@ class EntityRender extends React.Component<{ entity: EntityInvolvements }, any> 
 }
 class CategoryRender extends React.Component<{category: Category}, any> {
   render() {
-    var category = this.props.category;
+    const category = this.props.category;
     return <section className="category">
              <h1>{category.name}</h1>
              {category.entities.map((entity, idx) => <EntityRender entity={entity} key={entity.entity + '_' + idx} />)}
-           </section>
+           </section>;
   }
 }
 
@@ -81,7 +81,7 @@ class MiniCategory extends React.Component<{category: Category}, any> {
         invs.involvements.map(inv =>
         ({entity: (invs.short || invs.entity), title: (inv.short || inv.title), dates: inv.dates })))
       .groupBy(item => `${item.title} at ${item.entity}`);
-      var exp_list = Object.getOwnPropertyNames(grouped).map(title => ({ title: title, dates: grouped[title].map(i => i.dates) }))
+      const exp_list = Object.getOwnPropertyNames(grouped).map(title => ({ title, dates: grouped[title].map(i => i.dates) }))
 
     return <section className="mini-category">
       <h3>{category.name}</h3>
@@ -96,22 +96,23 @@ class MiniCategory extends React.Component<{category: Category}, any> {
 
 export class TwoColumn extends React.Component<{ resume: Resume }, any> {
     render() {
-      var resume = this.props.resume;
+      const resume = this.props.resume;
       resume.categories.forEach(category => SortEntitiesDescending(category.entities));
-      var person = resume.person;
+      const person = resume.person;
 
+      let education: Category, experience: Category, volunteer_highlights: Category, other_experience: Category;
       {
         const main_categories = TransformCategories(
             resume.categories,
             Transform.categories
         );
-        var education = SelectCategory(main_categories, "Education");
+        education = SelectCategory(main_categories, "Education");
         //education.entities = education.entities.concat(more_experience.entities);
 
-        var experience = SelectCategory(main_categories, "Experience");
-        var volunteer_highlights = SelectCategory(main_categories, "Volunteer");
+        experience = SelectCategory(main_categories, "Experience");
+        volunteer_highlights = SelectCategory(main_categories, "Volunteer");
 
-        var other_experience = SelectCategory(main_categories, "Other Experience");
+        other_experience = SelectCategory(main_categories, "Other Experience");
         const education_experience = SelectCategory(main_categories, "Education Experience");
         Array.prototype.push.apply(other_experience.entities, education_experience.entities);
       }
@@ -123,18 +124,18 @@ export class TwoColumn extends React.Component<{ resume: Resume }, any> {
         const selected_exp = 
           selected.entities.flatMap(e => e.involvements.map(inv =>
             ({ entity: e.short || e.entity, title: inv.title})));
-        var remaining = full_exp.filter(o_item => !selected_exp.some(t_item => t_item.entity === o_item.entity && t_item.title === o_item.title));
+        const remaining = full_exp.filter(o_item => !selected_exp.some(t_item => t_item.entity === o_item.entity && t_item.title === o_item.title));
         return remaining;
       }
 
-      var other_volunteer =
+      const other_volunteer =
         Subtract(volunteer_highlights, SelectCategory(resume.categories, "Volunteer"))
         .filter(element => !element.dates.end || element.dates.end.year > 2009)
 
-      var listing_obj = education.entities.flatMap(ent => ent.involvements).flatMap(inv => inv.lists).groupByFlatMap((g => g.name), (l => l.list));
-      var education_listings = Object.getOwnPropertyNames(listing_obj).map(k => ({name: k, list: listing_obj[k]})).filter(x => x.list.length > 0);
+      const listing_obj = education.entities.flatMap(ent => ent.involvements).flatMap(inv => inv.lists).groupByFlatMap((g => g.name), (l => l.list));
+      const education_listings = Object.getOwnPropertyNames(listing_obj).map(k => ({name: k, list: listing_obj[k]})).filter(x => x.list.length > 0);
 
-      var side_projects = InvolvementsByTag(resume.categories, "project")
+      const side_projects = InvolvementsByTag(resume.categories, "project")
         .filter(p => p.involvement.dates.start.year >= 2015);
 
       return <div className="resume">
