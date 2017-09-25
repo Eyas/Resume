@@ -127,6 +127,12 @@ div.info>span {
   font-size: 0.833em;
 }
 
+.entity p,
+.involvement li,
+.involvement p {
+  page-break-inside: avoid;
+}
+
 .entity > p {
   font-weight: 300;
   margin-top: 0;
