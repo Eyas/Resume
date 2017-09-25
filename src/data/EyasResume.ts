@@ -197,7 +197,8 @@ export var EyasResume: Resume = {
             title: "Graduate Researcher", short: "Researcher",
             accomplishments: [
               "Studied impact of NB annotations on course materials on collaborative learning.",
-              "Created tools to find impactful discussions, and introduced tools allowing instructors to reuse them across class offerings."
+              "Created tools to find impactful online discussions in online annotation conversations.",
+              "Introduced tools allowing instructors to reuse impactful across class offerings."
             ]
           },
           {
@@ -243,7 +244,7 @@ export var EyasResume: Resume = {
         involvements: [ {
           dates: { start: MakeDate(2016, 9), end: MakeDate(2016, 11, 9) },
           title: "Developer",
-          description: "Building sites and tools to help progressive candidates and causes.",
+          description: "Built sites and tools to help progressive candidates and causes.",
           accomplishments: [
 `Maintained and managed contributions for a static Jekyll website dispelling fake news rumors
  and discussing common concerns related to Hillary Clinton.`,
