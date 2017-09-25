@@ -3,11 +3,13 @@ import { Resume, MakeDate } from "../core/resume";
 export var EyasResume: Resume = {
   person: {
     name: "Eyas Sharaiha",
-    phone: { },
+    phone: { mobile: "(617) 866 7961" },
     email: {
       personal: "eyas@alum.mit.edu",
     },
-    address: { },
+    address: {
+      mailing: "201 N 6th St, Apt 1R, Brooklyn NY 11211"
+    },
     links: {
         github: "Eyas",
         stackOverflow: [864313, "eyassh"]
@@ -15,6 +17,7 @@ export var EyasResume: Resume = {
     biography: {
       birth: {
         place: "Amman, Jordan",
+        date: new Date(1991, 3, 16)
       },
       gender: "Male",
       pronouns: "He/Him/His",
@@ -239,6 +242,29 @@ export var EyasResume: Resume = {
       }
     ]},
     { name: "Volunteer", entities: [
+      {
+        entity: "Out in Tech",
+        location: "New York, NY",
+        involvements: [
+          {
+            dates: { start: MakeDate(2017, 4) },
+            url: "https://outintech.com/digital-corps/",
+            title: "Digital Corps Committee Organizer",
+            description: "Connecting LGBT activists and organizations around the world with  tech volunteers.",
+            accomplishments: [
+`Organized an event of 50 Out in Tech volunteers in building websites for domestic LGBT organizations.`,
+`Interfaced with the Massachusetts Transgender Political Coalition in building an online tool to guide
+ transgender and gender-nonconforming individuals in Massachusetts with the name and gender marker change
+ process. The project was featured on VICE impact.`
+            ]
+          },
+          {
+            dates: { start: MakeDate(2016, 9), end: MakeDate(2016, 9) },
+            title: "Digital Corps Volunteer",
+            description: "Built sites to help international LGBT organizations in regions where it is illegal or dangerous to be out."
+          }
+        ]
+      },
       {
         entity: "DevProgress",
         involvements: [ {

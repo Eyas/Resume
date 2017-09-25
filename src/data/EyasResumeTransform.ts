@@ -63,10 +63,24 @@ export var Transform: ResumeTransform = { categories: {
         }
     },
     {
+        item: "Education Experience", as: "Education Extra",
+        entities: {
+            sequence: [
+                {
+                    item: /CSAIL/g,
+                    involvements: {
+                        filter: All,
+                        accomplishments: {filter: All }
+                    }
+                }
+            ]
+        }
+    },
+    {
         item: "Volunteer",
         entities: {
-            // filter: (entity) => entity.involvements.some(involvement => DateRangesIntersect({ start: { year: 2013} }, involvement.dates)),
-            filter: (entity) => entity.involvements.some(involvement => involvement.dates.start.year > 2013),
+            filter: (entity) => entity.involvements.some(involvement => DateRangesIntersect({ start: { year: 2017} }, involvement.dates)),
+            // filter: (entity) => entity.involvements.some(involvement => involvement.dates.start.year > 2013),
             // filter: (entity) => entity.involvements.some(involvement => CompareDatesAscending(involvement.dates.start, { year: 2016, month: 6}) >= 0 )
             // involvements: {
             //     filter: All,
