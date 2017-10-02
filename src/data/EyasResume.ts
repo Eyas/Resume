@@ -240,6 +240,15 @@ export var EyasResume: Resume = {
     ]},
     { name: "Volunteer", entities: [
       {
+        entity: "iMentor",
+        location: "New York, NY",
+        involvements: [ {
+          dates: { start: MakeDate(2017, 10) },
+          title: "Mentor",
+          description: "Guiding a high school student through their college journey."
+        } ]
+      },
+      {
         entity: "DevProgress",
         involvements: [ {
           dates: { start: MakeDate(2016, 9), end: MakeDate(2016, 11, 9) },
