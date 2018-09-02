@@ -24,7 +24,7 @@
     "@types/react-dom": "latest",
     "del": "latest",
     "fs-extra": "^1.0.0",
-    "gulp": "latest",
+    "gulp": "^4.0.0",
     "gulp-file": "latest",
     "gulp-typescript": "latest",
     "react": "^15.4.1",

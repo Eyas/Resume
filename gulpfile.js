@@ -7,20 +7,20 @@ gulp.task('clean', function() {
     return del('built');
 });
 
-var project = tsc.createProject('src/tsconfig.json');
 gulp.task('build', function() {
+    const project = tsc.createProject('src/tsconfig.json');
     return project.src()
         .pipe(project())
         .js.pipe(gulp.dest('built/'));
 });
 
-gulp.task('resume-json', ['build'], function() {
+gulp.task('resume-json', function() {
     var r = require("./built/data/EyasResume.js");
     return file('cv.json', JSON.stringify(r.EyasResume, null, 4), { src: true })
         .pipe(gulp.dest('resume/'));
 });
 
-gulp.task('resume-md', ['build'], function() {
+gulp.task('resume-md', function() {
     var r = require("./built/data/EyasResume.js");
     var t = require("./built/data/EyasResumeTransform.js");
     var x = require("./built/core/transform.js");
@@ -32,7 +32,7 @@ gulp.task('resume-md', ['build'], function() {
         .pipe(gulp.dest('resume/'));
 });
 
-gulp.task('resume-html', ['build'], function() {
+gulp.task('resume-html', function() {
     var r = require("./built/data/EyasResume.js");
 
     var ReactDOMServer = require('react-dom/server');
@@ -48,4 +48,4 @@ gulp.task('resume-html', ['build'], function() {
         .pipe(gulp.dest('resume/'));
 });
 
-gulp.task('resume', ['resume-json', 'resume-md', 'resume-html']);
+gulp.task('resume', gulp.series('clean', 'build', gulp.parallel('resume-json', 'resume-md', 'resume-html')));

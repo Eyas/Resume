@@ -33,7 +33,7 @@ export var EyasResume: Resume = {
           involvements: [
             {
               dates: {
-                start: MakeDate(2009, 08),
+                start: MakeDate(2009, 8),
                 end: MakeDate(2013, 6)
               },
               title: "Bachelor of Science in Computer Science & Engineering",
