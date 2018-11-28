@@ -1,8 +1,6 @@
-"use strict";
-
-import { ApproximateDate, DateRange, DatesAreEqual, Resume, Category, EntityInvolvements, SortEntitiesDescending } from "../core/resume";
+import {  Resume, SortEntitiesDescending } from "../core/resume";
 import { RenderApproxDate, RenderDateRange } from "../render/render";
-import React = require("react");
+import * as React  from "react";
 
 export class Static extends React.Component<{ resume: Resume }, any> {
   render() {

@@ -26,12 +26,11 @@ June 2013
 * Phi Beta Kappa Society
 * Tau Beta Pi Engineering Society
 * Eta Kappa Nu ECE Society
-* St. Anthony Hall (Delta Psi Co-Ed Fraternity; The Number Six Club)
 
 Experience
 ----------
 
-## Google, Inc
+## Google LLC
 New York, NY
 
 ### Software Engineer
@@ -84,7 +83,8 @@ Working on NB, an online social discussion-based annotation tool for education.
 ### Graduate Researcher
 January – May 2014
 * Studied impact of NB annotations on course materials on collaborative learning.
-* Created tools to find impactful discussions, and introduced tools allowing instructors to reuse them across class offerings.
+* Created tools to find impactful online discussions in online annotation conversations.
+* Introduced tools allowing instructors to reuse impactful across class offerings.
 
 ### MIT EECS Google Research and Innovation Fellow
 September 2012 – July 2013
@@ -102,14 +102,10 @@ August 2013 – January 2014
 Volunteer
 ---------
 
-## DevProgress
-### Developer
-September – November 2016
-Building sites and tools to help progressive candidates and causes.
-* Maintained and managed contributions for a static Jekyll website dispelling fake news rumors
- and discussing common concerns related to Hillary Clinton.
-* Launched site within two weeks of starting the initiative.
-* Translated UX designer slides into accessible, responsive, and scalable template.
+## Massachusetts Institute of Technology
+### Educational Counselor
+June 2013 – Present
+Recruiting, acting as a community resource, and interviewing candidates for the MIT freshman class.
 
 ## Girls Who Code
 ### Club Instructor

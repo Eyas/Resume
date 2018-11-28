@@ -48,7 +48,7 @@ June 2009
 Industry Experience
 -------------------
 
-## Google, Inc
+## Google LLC
 New York, NY
 
 ### Software Engineer
@@ -98,7 +98,8 @@ Working on NB, an online social discussion-based annotation tool for education.
 ### Graduate Researcher
 January – May 2014
 * Studied impact of NB annotations on course materials on collaborative learning.
-* Created tools to find impactful discussions, and introduced tools allowing instructors to reuse them across class offerings.
+* Created tools to find impactful online discussions in online annotation conversations.
+* Introduced tools allowing instructors to reuse impactful across class offerings.
 
 ### MIT EECS Google Research and Innovation Fellow
 September 2012 – July 2013
@@ -136,15 +137,22 @@ Volunteer
 June 2013 – Present
 Recruiting, acting as a community resource, and interviewing candidates for the MIT freshman class.
 
-## The Number Six Club
-### Director & Alumni Board House Manager
+## St. Anthony Association of Boston
+### Director
 April 2013 – Present
 Serving on the board of the house-owning alumni organization for the Number Six Club, an independent living group and co-ed literary fraternity at MIT.
+
+## iMentor
+New York, NY
+
+### Mentor
+October 2017 – June 2018
+Working with a high school student through their college journey.
 
 ## DevProgress
 ### Developer
 September – November 2016
-Building sites and tools to help progressive candidates and causes.
+Built sites and tools to help progressive candidates and causes.
 * Maintained and managed contributions for a static Jekyll website dispelling fake news rumors
  and discussing common concerns related to Hillary Clinton.
 * Launched site within two weeks of starting the initiative.

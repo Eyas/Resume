@@ -11,7 +11,8 @@
             "stackOverflow": [
                 864313,
                 "eyassh"
-            ]
+            ],
+            "personal": "https://eyas.sh"
         },
         "biography": {
             "birth": {
@@ -31,6 +32,7 @@
                 {
                     "entity": "Massachusetts Institute of Technology",
                     "short": "MIT",
+                    "url": "https://web.mit.edu/",
                     "location": "Cambridge, MA",
                     "involvements": [
                         {
@@ -152,8 +154,9 @@
             "name": "Industry Experience",
             "entities": [
                 {
-                    "entity": "Google, Inc",
+                    "entity": "Google LLC",
                     "short": "Google",
+                    "url": "https://google.com/",
                     "location": "New York, NY",
                     "involvements": [
                         {
@@ -306,7 +309,8 @@
                             "short": "Researcher",
                             "accomplishments": [
                                 "Studied impact of NB annotations on course materials on collaborative learning.",
-                                "Created tools to find impactful discussions, and introduced tools allowing instructors to reuse them across class offerings."
+                                "Created tools to find impactful online discussions in online annotation conversations.",
+                                "Introduced tools allowing instructors to reuse impactful across class offerings."
                             ]
                         },
                         {
@@ -379,6 +383,27 @@
             "name": "Volunteer",
             "entities": [
                 {
+                    "entity": "iMentor",
+                    "url": "https://imentor.org/",
+                    "location": "New York, NY",
+                    "involvements": [
+                        {
+                            "dates": {
+                                "start": {
+                                    "year": 2017,
+                                    "month": 10
+                                },
+                                "end": {
+                                    "year": 2018,
+                                    "month": 6
+                                }
+                            },
+                            "title": "Mentor",
+                            "description": "Working with a high school student through their college journey."
+                        }
+                    ]
+                },
+                {
                     "entity": "DevProgress",
                     "involvements": [
                         {
@@ -394,7 +419,7 @@
                                 }
                             },
                             "title": "Developer",
-                            "description": "Building sites and tools to help progressive candidates and causes.",
+                            "description": "Built sites and tools to help progressive candidates and causes.",
                             "accomplishments": [
                                 "Maintained and managed contributions for a static Jekyll website dispelling fake news rumors\n and discussing common concerns related to Hillary Clinton.",
                                 "Launched site within two weeks of starting the initiative.",
@@ -418,6 +443,9 @@
                                 }
                             },
                             "title": "Club Instructor",
+                            "tags": [
+                                "highlight"
+                            ],
                             "description": "Teaching middle school girls programming using Scratch and Python at a school club."
                         }
                     ]
@@ -434,13 +462,16 @@
                                 }
                             },
                             "title": "Educational Counselor",
+                            "tags": [
+                                "highlight"
+                            ],
                             "description": "Recruiting, acting as a community resource, and interviewing candidates for the MIT freshman class."
                         }
                     ]
                 },
                 {
-                    "entity": "The Number Six Club",
-                    "short": "The Number Six Club",
+                    "entity": "St. Anthony Association of Boston",
+                    "short": "SAAB (MIT)",
                     "involvements": [
                         {
                             "dates": {
@@ -449,7 +480,7 @@
                                     "month": 4
                                 }
                             },
-                            "title": "Director & Alumni Board House Manager",
+                            "title": "Director",
                             "description": "Serving on the board of the house-owning alumni organization for the Number Six Club, an independent living group and co-ed literary fraternity at MIT."
                         }
                     ]
@@ -736,19 +767,20 @@
             "name": "Programming",
             "skills": [
                 "C++",
+                "TypeScript",
                 "C#",
                 "Scala",
+                "JavaScript",
                 "Java",
                 "Go",
-                "Python"
+                "Python",
+                "PHP"
             ]
         },
         {
             "name": "Web",
             "skills": [
-                "TypeScript",
-                "JavaScript",
-                "PHP",
+                "Angular",
                 "HTML",
                 "CSS"
             ]

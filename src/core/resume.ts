@@ -33,6 +33,7 @@ export interface Contact {
     links: {
         github?: string;
         stackOverflow?: [number, string];
+        personal?: string;
     };
     biography: Biography;
 }
@@ -54,6 +55,7 @@ export interface DateRange {
 export interface EntityInvolvements {
     entity: string;
     short?: string;
+    url?: string;
     entityDescription?: string;
     location?: string;
     involvements: Involvement[];
@@ -166,9 +168,11 @@ export function CompareDateRangeAscending(first: DateRange, second: DateRange): 
 }
 
 export function CompareDateRangeDescending(first: DateRange, second: DateRange): number {
-    if (!first.end && second.end) { return -1; }
-    if (!second.end && first.end) { return +1; }
-    if (!first.end && !second.end) { return CompareDatesDescending(first.start, second.start) }
+    if (!first.end || !second.end) {
+        if (second.end) return -1;
+        else if (first.end) return +1;
+        else return CompareDatesDescending(first.start, second.start);
+    }
     return CompareDatesDescending(first.end, second.end);
 }
 

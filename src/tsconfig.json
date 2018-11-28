@@ -1,18 +1,17 @@
 {
     "compilerOptions": {
-        "noImplicitAny": true,
+        "strict": true,
         "alwaysStrict": true,
-        "types": [
-            "node"
-        ],
         "typeRoots": [
             "../node_modules/@types"
         ],
-        "target": "es6",
-        "declaration": true,
-        "moduleResolution": "node",
+        "target": "es2015",
         "module": "commonjs",
+        "moduleResolution": "node",
         "jsx": "react",
         "outDir": "../built/ide/"
-    }
+    },
+    "include": [
+        "./**/*"
+    ]
 }
