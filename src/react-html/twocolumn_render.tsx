@@ -57,6 +57,8 @@ export class Static extends React.Component<{ resume: Resume }, any> {
         <head>
           <title>{resume.person.name} &ndash; Resume</title>
           <meta charSet="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1"/>
+          <meta name="description" content={`Resume for ${this.props.resume.person.name}`}/>
           <link rel="stylesheet" type="text/css" href="./css/resume.css" />
           <link
             rel="stylesheet"

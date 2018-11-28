@@ -2,7 +2,7 @@
   margin-left: auto;
   margin-right: auto;
   max-width: 55rem;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   text-align: justify;
 
   font-size: 1.1em;
@@ -11,25 +11,12 @@
 .resume a:link,
 .resume a:visited,
 .resume a:active {
-    color: #444444;
-    text-decoration: none;
-    font-weight: 400;
-}
-
-.resume .content {
-  display: -webkit-flex;
-  -webkit-flex-flow: row;
-
-  display: flex;
-  flex-flow: row;
-}
-
-.resume .content article {
-  flex: 1 2 31rem;
+  color: #444444;
+  text-decoration: none;
+  font-weight: 400;
 }
 
 .resume .content aside {
-  flex: 0 3 16rem;
   text-align: start;
 
   padding-left: 1.25rem;
@@ -57,22 +44,23 @@ aside strong {
   font-weight: 500;
 }
 
-.resume .content section {
-  -webkit-flex: 3 1 auto;
-  flex: 3 1 auto;
-}
-
 .resume .entity .properties {
   margin-top: 0;
 }
 
-.resume .entity .properties>span {
+.resume .entity .properties > span {
   margin-right: 0.5em;
 }
 
-header { text-align: left; }
+header {
+  text-align: left;
+}
 
-header .person { display: flex; width: 100%; }
+header .person {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
 
 span.name {
   font-weight: 500;
@@ -90,19 +78,19 @@ span.name {
 }*/
 
 .identity i.fa {
-    padding-right: 0.3em;
+  padding-right: 0.3em;
 }
 
 .identity {
-    padding-right: 0.5em;
-    font-size: 1.5em;
-    font-weight: 300;
-    flex-grow: 0;
-    flex-shrink: 0;
+  padding-right: 0.5em;
+  font-size: 1.5em;
+  font-weight: 300;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 identity::after {
-    content: ' ';
+  content: " ";
 }
 
 div.info {
@@ -112,7 +100,7 @@ div.info {
   display: flex;
   flex-flow: row;
 }
-div.info>span {
+div.info > span {
   font-weight: 300;
   flex: 1 1 auto;
   vertical-align: middle;
@@ -123,7 +111,8 @@ div.info>span {
 }
 
 .entity p,
-.involvement ul, .involvement p {
+.involvement ul,
+.involvement p {
   font-size: 0.833em;
 }
 
@@ -219,28 +208,46 @@ div.info>span {
 }
 
 .resume span.skill::after {
-  content: ', ';
+  content: ", ";
 }
 .resume span.skill:last-child::after {
-  content: '. ';
+  content: ". ";
+}
+
+@media all and (min-width: 30em) {
+  .resume .content {
+    display: -webkit-flex;
+    -webkit-flex-flow: row;
+    display: flex;
+    flex-flow: row;
+  }
+
+  .resume .content article {
+    flex: 1 2 31rem;
+  }
+
+  .resume .content aside {
+    flex: 0 3 16rem;
+  }
 }
 
 @media screen and (max-width: 30em) {
-  .resume .content {
-    -webkit-flex-flow: column ;
-    flex-flow: column;
-  }
   .resume .content aside {
     padding: 0;
-    font-size: 0.917rem ;
+    font-size: 0.917rem;
   }
 }
 
 @media print {
-  .resume { max-width: none; }
-  body { font-size: 10pt; margin: 0; }
+  .resume {
+    max-width: none;
+  }
+  body {
+    font-size: 10pt;
+    margin: 0;
+  }
   @page {
-      size: auto;
-      margin: 0.40in 0.50in;
+    size: auto;
+    margin: 0.4in 0.5in;
   }
 }
