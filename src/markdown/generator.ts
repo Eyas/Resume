@@ -1,6 +1,5 @@
 import * as r from "../core/resume";
-import { RenderApproxDate, RenderDateRange } from "../render/render";
-import * as fs from "fs";
+import { RenderDateRange } from "../render/render";
 
 export function toMarkdown(resume: r.Resume): string {
     resume.categories.forEach(category => r.SortEntitiesDescending(category.entities));
