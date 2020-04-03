@@ -44,7 +44,7 @@ export type Transform<Type> = Type extends object
         ? DateRangeTransform
         : Certain<Type[K]> extends ReadonlyArray<infer Item>
         ? ListTransform<Item>
-        : ScalarXForm<Certain<Type[K]>>
+        : ScalarXForm<Certain<Type[K]>>;
     }
   : ScalarXForm<Type>;
 
@@ -372,11 +372,11 @@ export function FilterApproximateDate(
 export function InvolvementsByTag(
   categories: Category[],
   tags: string | string[]
-): ({
+): {
   involvement: Involvement;
   entity: EntityInvolvements;
   category: Category;
-})[] {
+}[] {
   const exploded = categories.flatMap(c =>
     c.entities.flatMap(e =>
       e.involvements

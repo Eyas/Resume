@@ -1,6 +1,6 @@
 import { ApproximateDate, DateRange, DatesAreEqual } from "../core/resume";
 
-const months: {[month: number]: string} = {
+const months: { [month: number]: string } = {
   1: "January",
   2: "February",
   3: "March",
@@ -16,34 +16,52 @@ const months: {[month: number]: string} = {
 };
 
 export function RenderApproxDate(date: ApproximateDate): string {
-  if (date.day) { }
+  if (date.day) {
+  }
   if (date.month) {
     return "" + months[date.month] + "\u00A0" + date.year;
   }
-  return ""+date.year;
+  return "" + date.year;
 }
 
 export function RenderDateRange(range: DateRange): string {
   if (range.end && DatesAreEqual(range.start, range.end)) {
     return RenderApproxDate(range.start);
   }
-  if (range.end && range.start.year === range.end.year
-    && range.start.month && range.end.month) {
-    return "" + months[range.start.month] + "\u00A0\u2013 " + RenderApproxDate(range.end);
+  if (
+    range.end &&
+    range.start.year === range.end.year &&
+    range.start.month &&
+    range.end.month
+  ) {
+    return (
+      "" +
+      months[range.start.month] +
+      "\u00A0\u2013 " +
+      RenderApproxDate(range.end)
+    );
   }
-  return RenderApproxDate(range.start) + "\u00A0\u2013 " +
-    (range.end ? RenderApproxDate(range.end) : "Present");
+  return (
+    RenderApproxDate(range.start) +
+    "\u00A0\u2013 " +
+    (range.end ? RenderApproxDate(range.end) : "Present")
+  );
 }
 
 export function RenderYearRange(range: DateRange): string {
   if (range.end && range.start.year === range.end.year) {
     return "" + range.start.year;
   }
-  return "" + range.start.year +"\u00A0\u2013 " + (range.end ? range.end.year : "Present");
+  return (
+    "" +
+    range.start.year +
+    "\u00A0\u2013 " +
+    (range.end ? range.end.year : "Present")
+  );
 }
 
 export function RenderUrlText(url: string): string {
   // strip protocol
   const protocol = /^.+:\/\/\/?/;
-  return url.replace(protocol, '');
+  return url.replace(protocol, "");
 }

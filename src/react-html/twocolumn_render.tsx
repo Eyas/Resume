@@ -57,8 +57,11 @@ export class Static extends React.Component<{ resume: Resume }, any> {
         <head>
           <title>{resume.person.name} &ndash; Resume</title>
           <meta charSet="utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1"/>
-          <meta name="description" content={`Resume for ${this.props.resume.person.name}`}/>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta
+            name="description"
+            content={`Resume for ${this.props.resume.person.name}`}
+          />
           <link rel="stylesheet" type="text/css" href="./css/resume.css" />
           <link
             rel="stylesheet"
@@ -222,15 +225,16 @@ export class TwoColumn extends React.Component<{ resume: Resume }, any> {
       const education_experience = assert(
         SelectCategory(main_categories, "Education Experience")
       );
-      other_experience.entities.push(
-        ...education_experience.entities,
-      );
+      other_experience.entities.push(...education_experience.entities);
     }
 
     const listing_obj = education.entities
       .flatMap(ent => ent.involvements)
       .flatMap(inv => inv.lists || [])
-      .groupByFlatMap(g => g.name, l => l.list);
+      .groupByFlatMap(
+        g => g.name,
+        l => l.list
+      );
     const education_listings = Object.getOwnPropertyNames(listing_obj)
       .map(k => ({ name: k, list: listing_obj[k] }))
       .filter(x => x.list.length > 0);

@@ -1,7 +1,8 @@
 {
     "typescript.tsdk": "./node_modules/typescript/lib",
-    "editor.formatOnType": false,
-    "editor.formatOnSave": false,
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true,
     "files.insertFinalNewline": false,
-    "files.trimTrailingWhitespace": false
+    "files.trimTrailingWhitespace": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
