@@ -49,9 +49,7 @@ gulp.task("resume-html", function() {
     );
   var tcr =
     "<!DOCTYPE HTML>\n" +
-    ReactDOMServer.renderToStaticMarkup(
-      new TC.Static({ resume: r.EyasResume }).render()
-    );
+    ReactDOMServer.renderToStaticMarkup(TC.Static({ resume: r.EyasResume }));
 
   return file("cv.html", cvr, { src: true })
     .pipe(file("resume.html", tcr))
