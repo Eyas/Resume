@@ -1,14 +1,7 @@
 interface Array<T> {
-  flatMap<B>(f: (a: T) => B[]): B[];
   groupBy(f: (g: T) => string): { [group: string]: T[] };
   groupByFlatMap<B>(f: (g: T) => string, m: (a: T) => B[]): { [group: string]: B[] };
 }
-
-Array.prototype.flatMap = function(f: (a: any) => any[]) {
-  var mapped: any[] = this.map(f);
-  if (!mapped) return [];
-  return Array.prototype.concat.apply([], mapped.filter(item => item !== undefined));
-};
 
 Array.prototype.groupBy = function(grouper: (a: any) => string) {
   var g: {[group: string]: any[]} = {};

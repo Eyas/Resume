@@ -2,10 +2,7 @@
     "compilerOptions": {
         "strict": true,
         "alwaysStrict": true,
-        "typeRoots": [
-            "../node_modules/@types"
-        ],
-        "target": "es2015",
+        "target": "es2020",
         "module": "commonjs",
         "moduleResolution": "node",
         "jsx": "react",
