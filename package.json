@@ -19,9 +19,7 @@
     "url": "https://github.com/Eyas/Resume.git"
   },
   "devDependencies": {
-    "@types/node": "^13.11.0",
     "@types/react": "^16.9.32",
-    "@types/react-dom": "^16.9.6",
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
     "eslint": "^6.8.0",
@@ -30,11 +28,11 @@
     "eslint-plugin-react": "^7.19.0",
     "prettier": "^2.0.2",
     "react": "^15.4.1",
-    "react-dom": "^15.4.1",
     "typescript": "^3.8.3"
   },
   "scripts": {
     "build": "tsc -p src/",
     "prepare": "npm run build"
-  }
+  },
+  "main": "./lib/index.js"
 }
