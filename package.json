@@ -34,6 +34,7 @@
     "typescript": "^3.8.3"
   },
   "scripts": {
-    "build": "tsc -p src/"
+    "build": "tsc -p src/",
+    "prepare": "npm run build"
   }
 }
