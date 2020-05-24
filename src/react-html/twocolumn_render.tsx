@@ -3,17 +3,17 @@ import {
   Category,
   EntityInvolvements,
   Involvement,
-  SortEntitiesDescending
+  SortEntitiesDescending,
 } from "../core/resume";
 import {
   TransformCategories,
   SelectCategory,
-  InvolvementsByTag
+  InvolvementsByTag,
 } from "../core/transform";
 import {
   RenderDateRange,
   RenderYearRange,
-  RenderUrlText
+  RenderUrlText,
 } from "../render/render";
 import { Transform } from "../data/EyasResumeTransform";
 import "../core/extensions";
@@ -26,35 +26,37 @@ function assert<T>(input: T | undefined): T {
 }
 
 function Subtract(selected: Category, full: Category) {
-  const full_exp = full.entities.flatMap(e =>
-    e.involvements.map(inv => ({
+  const full_exp = full.entities.flatMap((e) =>
+    e.involvements.map((inv) => ({
       entity: e.short || e.entity,
       title: inv.title,
-      dates: inv.dates
+      dates: inv.dates,
     }))
   );
-  const selected_exp = selected.entities.flatMap(e =>
-    e.involvements.map(inv => ({
+  const selected_exp = selected.entities.flatMap((e) =>
+    e.involvements.map((inv) => ({
       entity: e.short || e.entity,
-      title: inv.title
+      title: inv.title,
     }))
   );
   const remaining = full_exp.filter(
-    o_item =>
+    (o_item) =>
       !selected_exp.some(
-        t_item =>
+        (t_item) =>
           t_item.entity === o_item.entity && t_item.title === o_item.title
       )
   );
   return remaining;
 }
 
-export const Static: React.FunctionComponent<{ resume: Resume }> = ({
-  resume
-}) => {
+export const Static: React.FunctionComponent<{
+  resume: Resume;
+  Head: React.FunctionComponent<{ children: React.ReactNode }>;
+  Body: React.FunctionComponent<{ children: React.ReactNode }>;
+}> = ({ resume, Head, Body }) => {
   return (
-    <html lang="en">
-      <head>
+    <>
+      <Head>
         <title>{resume.person.name} &ndash; Resume</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -70,11 +72,11 @@ export const Static: React.FunctionComponent<{ resume: Resume }> = ({
           href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,600italic,400italic,300italic,700,700italic"
           type="text/css"
         />
-      </head>
-      <body>
+      </Head>
+      <Body>
         <TwoColumn resume={resume} />
-      </body>
-    </html>
+      </Body>
+    </>
   );
 };
 
@@ -90,7 +92,7 @@ const InvolvementRender: React.FunctionComponent<{
       {involvement.description && <p>{involvement.description}</p>}
       {involvement.properties && (
         <p className="properties">
-          {involvement.properties.map(prop => (
+          {involvement.properties.map((prop) => (
             <span key={prop.name}>
               <strong>{prop.name}</strong>:&nbsp;
               {prop.url ? (
@@ -106,7 +108,7 @@ const InvolvementRender: React.FunctionComponent<{
       )}
       {involvement.accomplishments && involvement.accomplishments.length > 0 && (
         <ul>
-          {involvement.accomplishments.map(acc => (
+          {involvement.accomplishments.map((acc) => (
             <li key={acc}>{acc}</li>
           ))}
         </ul>
@@ -116,7 +118,7 @@ const InvolvementRender: React.FunctionComponent<{
 };
 
 const EntityRender: React.FunctionComponent<{ entity: EntityInvolvements }> = ({
-  entity
+  entity,
 }) => {
   return (
     <div className="entity">
@@ -125,7 +127,7 @@ const EntityRender: React.FunctionComponent<{ entity: EntityInvolvements }> = ({
         {entity.location && <div className="location">{entity.location}</div>}
       </div>
       {entity.entityDescription && <p>{entity.entityDescription}</p>}
-      {entity.involvements.map(involvement => (
+      {entity.involvements.map((involvement) => (
         <InvolvementRender
           involvement={involvement}
           key={involvement.title + "_" + RenderDateRange(involvement.dates)}
@@ -136,7 +138,7 @@ const EntityRender: React.FunctionComponent<{ entity: EntityInvolvements }> = ({
 };
 
 const CategoryRender: React.FunctionComponent<{ category: Category }> = ({
-  category
+  category,
 }) => {
   return (
     <section className="category">
@@ -149,27 +151,27 @@ const CategoryRender: React.FunctionComponent<{ category: Category }> = ({
 };
 
 const MiniCategory: React.FunctionComponent<{ category: Category }> = ({
-  category
+  category,
 }) => {
   const grouped = category.entities
-    .flatMap(invs =>
-      invs.involvements.map(inv => ({
+    .flatMap((invs) =>
+      invs.involvements.map((inv) => ({
         entity: invs.short || invs.entity,
         title: inv.short || inv.title,
-        dates: inv.dates
+        dates: inv.dates,
       }))
     )
-    .groupBy(item => `${item.title} at ${item.entity}`);
-  const exp_list = Object.getOwnPropertyNames(grouped).map(title => ({
+    .groupBy((item) => `${item.title} at ${item.entity}`);
+  const exp_list = Object.getOwnPropertyNames(grouped).map((title) => ({
     title,
-    dates: grouped[title].map(i => i.dates)
+    dates: grouped[title].map((i) => i.dates),
   }));
 
   return (
     <section className="mini-category">
       <h3>{category.name}</h3>
       <ul>
-        {exp_list.map(item => (
+        {exp_list.map((item) => (
           <li key={item.title}>
             <strong>{item.title}</strong> (
             {item.dates.map(RenderYearRange).join(" & ")})
@@ -181,9 +183,9 @@ const MiniCategory: React.FunctionComponent<{ category: Category }> = ({
 };
 
 export const TwoColumn: React.FunctionComponent<{ resume: Resume }> = ({
-  resume
+  resume,
 }) => {
-  resume.categories.forEach(category =>
+  resume.categories.forEach((category) =>
     SortEntitiesDescending(category.entities)
   );
   const person = resume.person;
@@ -201,7 +203,7 @@ export const TwoColumn: React.FunctionComponent<{ resume: Resume }> = ({
   const other_volunteer = Subtract(
     volunteer_highlights,
     assert(SelectCategory(resume.categories, "Volunteer"))
-  ).filter(element => !element.dates.end || element.dates.end.year > 2009);
+  ).filter((element) => !element.dates.end || element.dates.end.year > 2009);
 
   let other_experience: Category;
   {
@@ -215,18 +217,18 @@ export const TwoColumn: React.FunctionComponent<{ resume: Resume }> = ({
   }
 
   const listing_obj = education.entities
-    .flatMap(ent => ent.involvements)
-    .flatMap(inv => inv.lists || [])
+    .flatMap((ent) => ent.involvements)
+    .flatMap((inv) => inv.lists || [])
     .groupByFlatMap(
-      g => g.name,
-      l => l.list
+      (g) => g.name,
+      (l) => l.list
     );
   const education_listings = Object.getOwnPropertyNames(listing_obj)
-    .map(k => ({ name: k, list: listing_obj[k] }))
-    .filter(x => x.list.length > 0);
+    .map((k) => ({ name: k, list: listing_obj[k] }))
+    .filter((x) => x.list.length > 0);
 
   const side_projects = InvolvementsByTag(resume.categories, "project").filter(
-    p => p.involvement.dates.start.year >= 2015
+    (p) => p.involvement.dates.start.year >= 2015
   );
 
   return (
@@ -284,10 +286,10 @@ export const TwoColumn: React.FunctionComponent<{ resume: Resume }> = ({
         <aside>
           <h3>Skills</h3>
           <p>
-            {resume.skills.map(skill => (
+            {resume.skills.map((skill) => (
               <span key={skill.name}>
                 <strong>{skill.name}</strong>:{" "}
-                {skill.skills.map(sk => (
+                {skill.skills.map((sk) => (
                   <span className="skill" key={sk}>
                     {sk}
                   </span>
@@ -316,11 +318,11 @@ export const TwoColumn: React.FunctionComponent<{ resume: Resume }> = ({
           <CategoryRender category={education} key={education.name} />
         </article>
         <aside>
-          {education_listings.map(list => (
+          {education_listings.map((list) => (
             <div key={list.name}>
               <h3>{list.name}</h3>
               <ul>
-                {list.list.map(item => (
+                {list.list.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
@@ -338,7 +340,7 @@ export const TwoColumn: React.FunctionComponent<{ resume: Resume }> = ({
         <aside>
           <h3>Other Volunteering</h3>
           <ul>
-            {other_volunteer.map(v => (
+            {other_volunteer.map((v) => (
               <li key={v.entity + "_" + v.title}>
                 {v.title} at {v.entity} ({RenderYearRange(v.dates)})
               </li>

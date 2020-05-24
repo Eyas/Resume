@@ -1,14 +1,12 @@
 {
-    "compilerOptions": {
-        "strict": true,
-        "alwaysStrict": true,
-        "target": "es2020",
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "jsx": "react",
-        "outDir": "../built/ide/"
-    },
-    "include": [
-        "./**/*"
-    ]
+  "compilerOptions": {
+    "strict": true,
+    "alwaysStrict": true,
+    "target": "es2020",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "outDir": "../lib/"
+  },
+  "include": ["./**/*"]
 }
