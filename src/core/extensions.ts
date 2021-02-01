@@ -6,7 +6,7 @@ interface Array<T> {
   ): { [group: string]: B[] };
 }
 
-Array.prototype.groupBy = function(grouper: (a: any) => string) {
+Array.prototype.groupBy = function (grouper: (a: any) => string) {
   var g: { [group: string]: any[] } = {};
   this.forEach((item: any) => {
     var grp = grouper(item);
@@ -16,7 +16,7 @@ Array.prototype.groupBy = function(grouper: (a: any) => string) {
   return g;
 };
 
-Array.prototype.groupByFlatMap = function(
+Array.prototype.groupByFlatMap = function (
   grouper: (a: any) => string,
   mapper: (a: any) => any[]
 ) {
@@ -31,11 +31,11 @@ Array.prototype.groupByFlatMap = function(
 };
 
 function getJSON(url: string): Promise<Object> {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     var request = new XMLHttpRequest();
     request.open("GET", url, true);
 
-    request.onload = function() {
+    request.onload = function () {
       if (request.status >= 200 && request.status < 400) {
         var data: Object = JSON.parse(request.responseText);
         resolve(data);
@@ -44,7 +44,7 @@ function getJSON(url: string): Promise<Object> {
       }
     };
 
-    request.onerror = function(ev) {
+    request.onerror = function (ev) {
       reject(ev);
     };
 

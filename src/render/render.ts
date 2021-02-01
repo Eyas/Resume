@@ -12,7 +12,7 @@ const months: { [month: number]: string } = {
   9: "September",
   10: "October",
   11: "November",
-  12: "December"
+  12: "December",
 };
 
 export function RenderApproxDate(date: ApproximateDate): string {

@@ -10,7 +10,6 @@ export interface Biography {
     place?: string;
     date?: Date;
   };
-  gender?: string;
   pronouns?: string;
   nationality?: string[];
   tagline?: string;
@@ -117,12 +116,12 @@ export function MakeDate(
     return {
       year,
       month,
-      day
+      day,
     };
   if (month)
     return {
       year,
-      month
+      month,
     };
   return { year };
 }
@@ -197,7 +196,7 @@ export function CompareDateRangeDescending(
 }
 
 export function SortEntitiesDescending(entities: EntityInvolvements[]): void {
-  entities.forEach(e => {
+  entities.forEach((e) => {
     e.involvements.sort((f, s) => CompareDateRangeDescending(f.dates, s.dates));
   });
 

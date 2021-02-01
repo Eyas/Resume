@@ -6,7 +6,7 @@ import {
   InvolvementProperty,
   InvolvementSublisting,
   DateRange,
-  ApproximateDate
+  ApproximateDate,
 } from "./resume";
 
 export type Pattern<T> = string | RegExp | ((t: T) => boolean);
@@ -155,7 +155,7 @@ export function SelectCategory(
   list: Category[],
   pattern: Pattern<Category>
 ): Category | undefined {
-  return list.find(cat => TestCategory(pattern, cat));
+  return list.find((cat) => TestCategory(pattern, cat));
 }
 
 export function MakeListTransformer<Type>(
@@ -167,13 +167,13 @@ export function MakeListTransformer<Type>(
     if (isFilterTransform(transform)) {
       const glob: Pattern<Type> = transform.filter;
       return list
-        .filter(item => tester(glob, item))
+        .filter((item) => tester(glob, item))
         .slice(0, transform.first)
-        .map(item => transformer(item, transform));
+        .map((item) => transformer(item, transform));
     } else if (isIntersectTransform(transform)) {
       const intersected: Type[] = [];
-      transform.sequence.forEach(int => {
-        const filtered = list.filter(item => tester(int.item, item))[0];
+      transform.sequence.forEach((int) => {
+        const filtered = list.filter((item) => tester(int.item, item))[0];
         if (filtered) {
           intersected.push(transformer(filtered, int));
         }
@@ -197,7 +197,7 @@ export const TransformResume = MakeTransformer<Resume>((resume, transform) => ({
   person: resume.person,
   categories: TransformCategories(resume.categories, transform.categories),
   skills: resume.skills, // TODO
-  recognitions: resume.recognitions // TODO
+  recognitions: resume.recognitions, // TODO
 }));
 
 export const TransformCategory = MakeTransformer<Category>(
@@ -206,7 +206,7 @@ export const TransformCategory = MakeTransformer<Category>(
     entities:
       transform.entities === undefined
         ? category.entities
-        : TransformEntities(category.entities, transform.entities)
+        : TransformEntities(category.entities, transform.entities),
   })
 );
 
@@ -222,7 +222,7 @@ export const TransformEntity = MakeTransformer<EntityInvolvements>(
     involvements:
       filter.involvements === undefined
         ? entity.involvements
-        : TransformInvolvements(entity.involvements, filter.involvements)
+        : TransformInvolvements(entity.involvements, filter.involvements),
   })
 );
 
@@ -237,7 +237,7 @@ export const TransformInvolvement = MakeTransformer<Involvement>(
       dates: filter.dates
         ? FilterDateRange(involvement.dates, filter.dates)
         : involvement.dates,
-      title: involvement.title
+      title: involvement.title,
     };
     if (involvement.short) ret.short = involvement.short;
     if (involvement.description) {
@@ -284,7 +284,7 @@ export const TransformInvolvements = MakeListTransformer<Involvement>(
 export const TransformProperty = MakeTransformer<InvolvementProperty>(
   (prop, xform) => ({
     name: prop.name,
-    value: xform.value ? TransformString(prop.value, xform.value) : prop.value
+    value: xform.value ? TransformString(prop.value, xform.value) : prop.value,
   })
 );
 
@@ -299,7 +299,7 @@ export const TransformSublisting = MakeTransformer<InvolvementSublisting>(
     list:
       xform.list === undefined
         ? list.list
-        : TransformStrings(list.list, xform.list)
+        : TransformStrings(list.list, xform.list),
   })
 );
 
@@ -377,21 +377,23 @@ export function InvolvementsByTag(
   entity: EntityInvolvements;
   category: Category;
 }[] {
-  const exploded = categories.flatMap(c =>
-    c.entities.flatMap(e =>
+  const exploded = categories.flatMap((c) =>
+    c.entities.flatMap((e) =>
       e.involvements
-        .filter(i => i.tags && i.tags.length > 0)
-        .map(i => ({ involvement: i, entity: e, category: c }))
+        .filter((i) => i.tags && i.tags.length > 0)
+        .map((i) => ({ involvement: i, entity: e, category: c }))
     )
   );
 
   if (typeof tags === "string") {
-    return exploded.filter(e => (e.involvement.tags || []).indexOf(tags) >= 0);
+    return exploded.filter(
+      (e) => (e.involvement.tags || []).indexOf(tags) >= 0
+    );
   }
 
   // eh, just do the O(n^2) for now, easier
-  return exploded.filter(e =>
-    (e.involvement.tags || []).some(tag => tags.indexOf(tag) >= 0)
+  return exploded.filter((e) =>
+    (e.involvement.tags || []).some((tag) => tags.indexOf(tag) >= 0)
   );
 
   // var byTag = new Map<string, {involvement: Involvement, entity: EntityInvolvements, category: Category}[]>();

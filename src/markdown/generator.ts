@@ -4,11 +4,11 @@ import {
   Category,
   EntityInvolvements,
   Involvement,
-  SortEntitiesDescending
+  SortEntitiesDescending,
 } from "../core/resume";
 
 export function toMarkdown(resume: Resume): string {
-  resume.categories.forEach(category =>
+  resume.categories.forEach((category) =>
     SortEntitiesDescending(category.entities)
   );
 
@@ -47,23 +47,24 @@ function involvementToMarkdown(involvement: Involvement): string {
     if (involvement.description) str += involvement.description;
     if (involvement.properties) {
       str += involvement.properties
-        .map(prop => "**" + prop.name + "**: " + prop.value)
+        .map((prop) => "**" + prop.name + "**: " + prop.value)
         .join("; ");
     }
   }
   if (involvement.accomplishments) {
-    str += "\n" + involvement.accomplishments.map(acc => "* " + acc).join("\n");
+    str +=
+      "\n" + involvement.accomplishments.map((acc) => "* " + acc).join("\n");
   }
   if (involvement.lists) {
     str +=
       "\n\n" +
       involvement.lists
-        .map(sublist => {
+        .map((sublist) => {
           return (
             "#### " +
             sublist.name +
             "\n" +
-            sublist.list.map(item => "* " + item).join("\n")
+            sublist.list.map((item) => "* " + item).join("\n")
           );
         })
         .join("\n\n");

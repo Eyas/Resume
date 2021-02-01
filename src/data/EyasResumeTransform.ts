@@ -21,9 +21,9 @@ export const Transform: XForm<Resume> = {
                       { item: /Distributed Systems/g },
                       { item: /Multicore/g },
                       { item: /Operating System/g },
-                      { item: /Interface/g }
-                    ]
-                  }
+                      { item: /Interface/g },
+                    ],
+                  },
                 },
                 {
                   item: /Membership/g,
@@ -31,54 +31,55 @@ export const Transform: XForm<Resume> = {
                     sequence: [
                       { item: /Phi Beta Kappa/g },
                       { item: /Tau Beta Pi/g },
-                      { item: /Eta Kappa Nu/g }
-                    ]
-                  }
-                }
-              ]
-            }
-          }
-        }
+                      { item: /Eta Kappa Nu/g },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        },
       },
       {
         item: "Industry Experience",
         name: { as: "Experience" },
         entities: {
-          filter: entity =>
-            entity.involvements.some(inv => inv.dates.start.year > 2013),
+          filter: (entity) =>
+            entity.involvements.some((inv) => inv.dates.start.year > 2013),
           involvements: {
-            filter: involvement => involvement.dates.start.year > 2013
-          }
-        }
+            filter: (involvement) => involvement.dates.start.year > 2013,
+          },
+        },
       },
       {
         item: "Industry Experience",
         name: { as: "Other Experience" },
         entities: {
-          filter: entity =>
-            entity.involvements.some(inv => inv.dates.start.year <= 2013),
+          filter: (entity) =>
+            entity.involvements.some((inv) => inv.dates.start.year <= 2013),
           involvements: {
-            filter: involvement => involvement.dates.start.year <= 2013
-          }
-        }
+            filter: (involvement) => involvement.dates.start.year <= 2013,
+          },
+        },
       },
       {
         item: "Education Experience",
         entities: {
-          filter: entity =>
-            entity.involvements.some(involvement =>
+          filter: (entity) =>
+            entity.involvements.some((involvement) =>
               DateRangesIntersect({ start: { year: 2013 } }, involvement.dates)
-            )
-        }
+            ),
+        },
       },
       {
         item: "Volunteer",
         entities: {
-          filter: entity =>
+          filter: (entity) =>
             entity.involvements.some(
-              involvement => (involvement.tags || []).indexOf("highlight") >= 0
+              (involvement) =>
+                (involvement.tags || []).indexOf("highlight") >= 0
             ),
-          first: 3
+          first: 3,
           // filter: (entity) => entity.involvements.some(involvement => involvement.dates.start.year > 2013),
           // filter: (entity) => entity.involvements.some(involvement => CompareDatesAscending(involvement.dates.start, { year: 2016, month: 6}) >= 0 )
           // involvements: {
@@ -86,8 +87,8 @@ export const Transform: XForm<Resume> = {
           //     description: false,
           //     accomplishments: { filter: None }
           // }
-        }
-      }
-    ]
-  }
+        },
+      },
+    ],
+  },
 };
