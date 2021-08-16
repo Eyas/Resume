@@ -29,25 +29,3 @@ Array.prototype.groupByFlatMap = function (
   });
   return g;
 };
-
-function getJSON(url: string): Promise<Object> {
-  return new Promise(function (resolve, reject) {
-    var request = new XMLHttpRequest();
-    request.open("GET", url, true);
-
-    request.onload = function () {
-      if (request.status >= 200 && request.status < 400) {
-        var data: Object = JSON.parse(request.responseText);
-        resolve(data);
-      } else {
-        reject(request.status);
-      }
-    };
-
-    request.onerror = function (ev) {
-      reject(ev);
-    };
-
-    request.send();
-  });
-}
