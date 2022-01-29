@@ -4,7 +4,7 @@
     "Eyas Sharaiha"
   ],
   "homepage": "https://github.com/Eyas/Resume/",
-  "version": "1.0.0",
+  "version": "1.0.7",
   "license": "MIT",
   "description": "My Resume in JSON, HTML, and Markdown",
   "keywords": [
@@ -37,6 +37,7 @@
     "fix": "eslint --ext .ts,.tsx src/ --fix"
   },
   "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "files": [
     "LICENSE",
     "lib/**/*",

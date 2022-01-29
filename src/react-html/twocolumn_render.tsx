@@ -62,7 +62,6 @@ export const Static: React.FC<{
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content={`Resume for ${resume.person.name}`} />
-        <link rel="stylesheet" type="text/css" href="./css/resume.css" />
         <link
           rel="stylesheet"
           type="text/css"

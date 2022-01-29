@@ -6,7 +6,9 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "jsx": "react",
-    "outDir": "../lib/"
+    "outDir": "../lib/",
+    "declaration": true,
+    "sourceMap": true
   },
   "include": ["./**/*"]
 }
