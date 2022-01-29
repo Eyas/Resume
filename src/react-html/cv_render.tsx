@@ -2,7 +2,7 @@ import { Resume, SortEntitiesDescending } from "../core/resume";
 import { RenderApproxDate, RenderDateRange } from "../render/render";
 import * as React from "react";
 
-export class Static extends React.Component<{ resume: Resume }, any> {
+export class Static extends React.Component<{ resume: Resume }> {
   render() {
     const resume = this.props.resume;
     return (
@@ -26,7 +26,7 @@ export class Static extends React.Component<{ resume: Resume }, any> {
   }
 }
 
-export class CurriculumVitae extends React.Component<{ resume: Resume }, any> {
+export class CurriculumVitae extends React.Component<{ resume: Resume }> {
   render() {
     const resume = this.props.resume;
     resume.categories.forEach((category) =>

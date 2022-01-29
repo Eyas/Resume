@@ -29,12 +29,12 @@ export type ListTransform<Type> =
 function isFilterTransform<Type>(
   xform: ListTransform<Type>
 ): xform is FilterTransform<Type> {
-  return xform.hasOwnProperty("filter");
+  return "filter" in xform;
 }
 function isIntersectTransform<Type>(
   xform: ListTransform<Type>
 ): xform is IntersectTransform<Type> {
-  return xform.hasOwnProperty("sequence");
+  return "sequence" in xform;
 }
 
 type Certain<T> = T extends null | undefined ? never : T;

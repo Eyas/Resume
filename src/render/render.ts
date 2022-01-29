@@ -16,8 +16,7 @@ const months: { [month: number]: string } = {
 };
 
 export function RenderApproxDate(date: ApproximateDate): string {
-  if (date.day) {
-  }
+  // if (date.day) {  }
   if (date.month) {
     return "" + months[date.month] + "\u00A0" + date.year;
   }

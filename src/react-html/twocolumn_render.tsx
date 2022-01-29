@@ -19,6 +19,7 @@ import { Transform } from "../data/EyasResumeTransform";
 import "../core/extensions";
 
 import * as React from "react";
+import { collate, group } from "../core/extensions";
 
 function assert<T>(input: T | undefined): T {
   if (!input) throw new Error("'undefined' unexpected.");
@@ -153,15 +154,19 @@ const CategoryRender: React.FunctionComponent<{ category: Category }> = ({
 const MiniCategory: React.FunctionComponent<{ category: Category }> = ({
   category,
 }) => {
-  const grouped = category.entities
-    .flatMap((invs) =>
-      invs.involvements.map((inv) => ({
-        entity: invs.short || invs.entity,
-        title: inv.short || inv.title,
-        dates: inv.dates,
-      }))
-    )
-    .groupBy((item) => `${item.title} at ${item.entity}`);
+  const grouped = group(
+    category.entities
+      .map((invs) =>
+        invs.involvements.map((inv) => ({
+          entity: invs.short || invs.entity,
+          title: inv.short || inv.title,
+          dates: inv.dates,
+        }))
+      )
+      .flat(),
+    (item) => `${item.title} at ${item.entity}`
+  );
+
   const exp_list = Object.getOwnPropertyNames(grouped).map((title) => ({
     title,
     dates: grouped[title].map((i) => i.dates),
@@ -216,13 +221,15 @@ export const TwoColumn: React.FunctionComponent<{ resume: Resume }> = ({
     other_experience.entities.push(...education_experience.entities);
   }
 
-  const listing_obj = education.entities
-    .flatMap((ent) => ent.involvements)
-    .flatMap((inv) => inv.lists || [])
-    .groupByFlatMap(
-      (g) => g.name,
-      (l) => l.list
-    );
+  const listing_obj = collate(
+    education.entities
+      .map((ent) => ent.involvements)
+      .flat()
+      .map((inv) => inv.lists || [])
+      .flat(),
+    (g) => g.name,
+    (l) => l.list
+  );
   const education_listings = Object.getOwnPropertyNames(listing_obj)
     .map((k) => ({ name: k, list: listing_obj[k] }))
     .filter((x) => x.list.length > 0);
