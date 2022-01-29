@@ -4,7 +4,7 @@ import * as React from "react";
 
 export class Static extends React.Component<{ resume: Resume }, any> {
   render() {
-    var resume = this.props.resume;
+    const resume = this.props.resume;
     return (
       <html>
         <head>

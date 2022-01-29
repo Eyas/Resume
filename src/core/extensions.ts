@@ -1,31 +1,32 @@
-interface Array<T> {
-  groupBy(f: (g: T) => string): { [group: string]: T[] };
-  groupByFlatMap<B>(
-    f: (g: T) => string,
-    m: (a: T) => B[]
-  ): { [group: string]: B[] };
+export function group<T>(
+  items: T[],
+  grouper: (a: T) => string
+): { [group: string]: T[] } {
+  const g: { [group: string]: T[] } = {};
+  for (const item of items) {
+    const groupKey = grouper(item);
+    if (groupKey in g) g[groupKey].push(item);
+    else g[groupKey] = [item];
+  }
+  return g;
 }
 
-Array.prototype.groupBy = function (grouper: (a: any) => string) {
-  var g: { [group: string]: any[] } = {};
-  this.forEach((item: any) => {
-    var grp = grouper(item);
-    if (g.hasOwnProperty(grp)) g[grp].push(item);
-    else g[grp] = [item];
-  });
-  return g;
-};
+export function collate<T, I>(
+  items: T[],
+  grouper: (a: T) => string,
+  mapper: (a: T) => I[]
+): { [group: string]: I[] } {
+  const g: { [group: string]: I[] } = {};
 
-Array.prototype.groupByFlatMap = function (
-  grouper: (a: any) => string,
-  mapper: (a: any) => any[]
-) {
-  var g: { [group: string]: any[] } = {};
-  this.forEach((item: any) => {
-    var grp = grouper(item);
-    var mapped = mapper(item);
-    if (g.hasOwnProperty(grp)) g[grp] = g[grp].concat(mapped);
-    else g[grp] = mapped;
-  });
+  for (const item of items) {
+    const groupKey = grouper(item);
+    const mapped = mapper(item);
+
+    if (groupKey in g) {
+      g[groupKey] = g[groupKey].concat(mapped);
+    } else {
+      g[groupKey] = mapped;
+    }
+  }
   return g;
-};
+}

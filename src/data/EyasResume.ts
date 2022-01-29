@@ -517,8 +517,7 @@ export const EyasResume: Resume = {
         {
           date: MakeDate(2012),
           description: "MIT Frederick Gardiner Fassett, Jr. Award",
-          more:
-            "given to three \u201Cindividual [...] of FSILG Community who [have] most unselfishly demonstrated the qualities of spirit, dedication, and service in furthering the ideals of MIT brotherhood and sisterhood.\u201D",
+          more: "given to three \u201Cindividual [...] of FSILG Community who [have] most unselfishly demonstrated the qualities of spirit, dedication, and service in furthering the ideals of MIT brotherhood and sisterhood.\u201D",
         },
         {
           date: MakeDate(2011),

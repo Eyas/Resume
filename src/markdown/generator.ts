@@ -12,7 +12,7 @@ export function toMarkdown(resume: Resume): string {
     SortEntitiesDescending(category.entities)
   );
 
-  var file: string = "";
+  let file = "";
   file +=
     resume.person.name +
     "\n" +
@@ -24,14 +24,14 @@ export function toMarkdown(resume: Resume): string {
 }
 
 function categoryToMarkdown(category: Category): string {
-  var str =
+  let str =
     category.name + "\n" + Array(category.name.length + 1).join("-") + "\n\n";
   str += category.entities.map(entityToMarkdown).join("\n\n");
   return str;
 }
 
 function entityToMarkdown(entity: EntityInvolvements): string {
-  var str = "## " + entity.entity + "\n";
+  let str = "## " + entity.entity + "\n";
   if (entity.location) str += entity.location + "\n";
   if (entity.entityDescription) str += entity.entityDescription + "\n";
   if (entity.location || entity.entityDescription) str += "\n";
@@ -40,7 +40,7 @@ function entityToMarkdown(entity: EntityInvolvements): string {
 }
 
 function involvementToMarkdown(involvement: Involvement): string {
-  var str =
+  let str =
     "### " + involvement.title + "\n" + RenderDateRange(involvement.dates);
   if (involvement.description || involvement.properties) {
     str += "\n";
