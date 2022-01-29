@@ -50,10 +50,10 @@ function Subtract(selected: Category, full: Category) {
   return remaining;
 }
 
-export const Static: React.FunctionComponent<{
+export const Static: React.FC<{
   resume: Resume;
-  Head: React.FunctionComponent<{ children: React.ReactNode }>;
-  Body: React.FunctionComponent<{ children: React.ReactNode }>;
+  Head: React.FC<{ children: React.ReactNode }>;
+  Body: React.FC<{ children: React.ReactNode }>;
 }> = ({ resume, Head, Body }) => {
   return (
     <>
@@ -81,7 +81,7 @@ export const Static: React.FunctionComponent<{
   );
 };
 
-const InvolvementRender: React.FunctionComponent<{
+const InvolvementRender: React.FC<{
   involvement: Involvement;
 }> = ({ involvement }) => {
   return (
@@ -118,9 +118,7 @@ const InvolvementRender: React.FunctionComponent<{
   );
 };
 
-const EntityRender: React.FunctionComponent<{ entity: EntityInvolvements }> = ({
-  entity,
-}) => {
+const EntityRender: React.FC<{ entity: EntityInvolvements }> = ({ entity }) => {
   return (
     <div className="entity">
       <div className="entityTitle">
@@ -138,9 +136,7 @@ const EntityRender: React.FunctionComponent<{ entity: EntityInvolvements }> = ({
   );
 };
 
-const CategoryRender: React.FunctionComponent<{ category: Category }> = ({
-  category,
-}) => {
+const CategoryRender: React.FC<{ category: Category }> = ({ category }) => {
   return (
     <section className="category">
       <h1>{category.name}</h1>
@@ -151,9 +147,7 @@ const CategoryRender: React.FunctionComponent<{ category: Category }> = ({
   );
 };
 
-const MiniCategory: React.FunctionComponent<{ category: Category }> = ({
-  category,
-}) => {
+const MiniCategory: React.FC<{ category: Category }> = ({ category }) => {
   const grouped = group(
     category.entities
       .map((invs) =>
@@ -187,9 +181,7 @@ const MiniCategory: React.FunctionComponent<{ category: Category }> = ({
   );
 };
 
-export const TwoColumn: React.FunctionComponent<{ resume: Resume }> = ({
-  resume,
-}) => {
+export const TwoColumn: React.FC<{ resume: Resume }> = ({ resume }) => {
   resume.categories.forEach((category) =>
     SortEntitiesDescending(category.entities)
   );
