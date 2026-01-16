@@ -4,5 +4,5 @@
     "editor.formatOnSave": true,
     "files.insertFinalNewline": false,
     "files.trimTrailingWhitespace": false,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "prettier.prettier-vscode"
 }

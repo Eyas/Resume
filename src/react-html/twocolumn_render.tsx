@@ -32,20 +32,20 @@ function Subtract(selected: Category, full: Category) {
       entity: e.short || e.entity,
       title: inv.title,
       dates: inv.dates,
-    }))
+    })),
   );
   const selected_exp = selected.entities.flatMap((e) =>
     e.involvements.map((inv) => ({
       entity: e.short || e.entity,
       title: inv.title,
-    }))
+    })),
   );
   const remaining = full_exp.filter(
     (o_item) =>
       !selected_exp.some(
         (t_item) =>
-          t_item.entity === o_item.entity && t_item.title === o_item.title
-      )
+          t_item.entity === o_item.entity && t_item.title === o_item.title,
+      ),
   );
   return remaining;
 }
@@ -106,13 +106,14 @@ const InvolvementRender: React.FC<{
           ))}
         </p>
       )}
-      {involvement.accomplishments && involvement.accomplishments.length > 0 && (
-        <ul>
-          {involvement.accomplishments.map((acc) => (
-            <li key={acc}>{acc}</li>
-          ))}
-        </ul>
-      )}
+      {involvement.accomplishments &&
+        involvement.accomplishments.length > 0 && (
+          <ul>
+            {involvement.accomplishments.map((acc) => (
+              <li key={acc}>{acc}</li>
+            ))}
+          </ul>
+        )}
     </div>
   );
 };
@@ -154,10 +155,10 @@ const MiniCategory: React.FC<{ category: Category }> = ({ category }) => {
           entity: invs.short || invs.entity,
           title: inv.short || inv.title,
           dates: inv.dates,
-        }))
+        })),
       )
       .flat(),
-    (item) => `${item.title} at ${item.entity}`
+    (item) => `${item.title} at ${item.entity}`,
   );
 
   const exp_list = Object.getOwnPropertyNames(grouped).map((title) => ({
@@ -182,32 +183,32 @@ const MiniCategory: React.FC<{ category: Category }> = ({ category }) => {
 
 export const TwoColumn: React.FC<{ resume: Resume }> = ({ resume }) => {
   resume.categories.forEach((category) =>
-    SortEntitiesDescending(category.entities)
+    SortEntitiesDescending(category.entities),
   );
   const person = resume.person;
 
   const main_categories = TransformCategories(
     resume.categories,
-    Transform.categories
+    Transform.categories,
   );
 
   const education = assert(SelectCategory(main_categories, "Education"));
   const experience = assert(SelectCategory(main_categories, "Experience"));
   const volunteer_highlights = assert(
-    SelectCategory(main_categories, "Volunteer")
+    SelectCategory(main_categories, "Volunteer"),
   );
   const other_volunteer = Subtract(
     volunteer_highlights,
-    assert(SelectCategory(resume.categories, "Volunteer"))
+    assert(SelectCategory(resume.categories, "Volunteer")),
   ).filter((element) => !element.dates.end || element.dates.end.year > 2009);
 
   let other_experience: Category;
   {
     other_experience = assert(
-      SelectCategory(main_categories, "Other Experience")
+      SelectCategory(main_categories, "Other Experience"),
     );
     const education_experience = assert(
-      SelectCategory(main_categories, "Education Experience")
+      SelectCategory(main_categories, "Education Experience"),
     );
     other_experience.entities.push(...education_experience.entities);
   }
@@ -219,14 +220,14 @@ export const TwoColumn: React.FC<{ resume: Resume }> = ({ resume }) => {
       .map((inv) => inv.lists || [])
       .flat(),
     (g) => g.name,
-    (l) => l.list
+    (l) => l.list,
   );
   const education_listings = Object.getOwnPropertyNames(listing_obj)
     .map((k) => ({ name: k, list: listing_obj[k] }))
     .filter((x) => x.list.length > 0);
 
   const side_projects = InvolvementsByTag(resume.categories, "project").filter(
-    (p) => p.involvement.dates.start.year >= 2015
+    (p) => p.involvement.dates.start.year >= 2017,
   );
 
   return (

@@ -269,6 +269,20 @@ export const EyasResume: Resume = {
       name: "Volunteer",
       entities: [
         {
+          entity: "Out in Tech Digital Corps",
+          url: "https://outintech.com/digital-corps/",
+          location: "New York, NY",
+          involvements: [
+            {
+              dates: { start: MakeDate(2017, 4), end: MakeDate(2021, 1) },
+              title: "Organizer",
+              description:
+                "Organizing volunteer engineers, designers, and other tech professionals to build websites and online presence for LGBTQ+ activists and organizations around the world.",
+              tags: ["highlight"],
+            },
+          ],
+        },
+        {
           entity: "iMentor",
           url: "https://imentor.org/",
           location: "New York, NY",
@@ -304,7 +318,6 @@ export const EyasResume: Resume = {
             {
               dates: { start: MakeDate(2016, 1), end: MakeDate(2016, 6) },
               title: "Club Instructor",
-              tags: ["highlight"],
               description:
                 "Teaching middle school girls programming using Scratch and Python at a school club.",
             },
@@ -315,7 +328,7 @@ export const EyasResume: Resume = {
           short: "MIT",
           involvements: [
             {
-              dates: { start: MakeDate(2013, 6) },
+              dates: { start: MakeDate(2013, 6), end: MakeDate(2020, 12) },
               title: "Educational Counselor",
               tags: ["highlight"],
               description:
@@ -366,6 +379,20 @@ export const EyasResume: Resume = {
         {
           entity: "Open Source Personal Projects",
           involvements: [
+            {
+              dates: { start: MakeDate(2021) },
+              title: "Developer",
+              description: "Crosswarped: iOS & Android crossword side project",
+              url: "https://crosswarped.com",
+              tags: ["project"],
+            },
+            {
+              dates: { start: MakeDate(2018) },
+              title: "Developer",
+              description: "schema-dts: Schema.org type definitions",
+              url: "https://github.com/google/schema-dts",
+              tags: ["project"],
+            },
             {
               dates: { start: MakeDate(2016), end: MakeDate(2016) },
               title: "Developer",
