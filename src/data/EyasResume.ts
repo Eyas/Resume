@@ -18,7 +18,7 @@ export const EyasResume: Resume = {
         place: "Amman, Jordan",
       },
       pronouns: "He/Him/His",
-      nationality: ["Jordanian"],
+      nationality: ["Jordanian", "US Citizen"],
       //tagline: "Software Engineer, Tech Enthusiast"
     },
   },
@@ -125,7 +125,18 @@ export const EyasResume: Resume = {
           involvements: [
             {
               dates: { start: MakeDate(2017, 7) },
-              title: "Software Engineer",
+              title: "Staff Software Engineer",
+              description: `Architecting experimentation-first data infrastructure for Google Maps.`,
+              accomplishments: [
+                `Designed experimentation & prototyping strategy to transform Geo Data Infrastructure to support rapid
+                 iteration in 100+ person organization, embedding within and contributing changes to several
+                 teams' core data services to land this vision.`,
+                `Reduced time to stand up a minimal demo from ~weeks to ~hours through technical & policy redesign
+                throughout the Geo Data stack.`,
+                `Leading 5-8 engineers building data experimentation infrastructure, including offline and
+                 live (A/B) experimentation, and cheap, low-overhead data sandboxing for prototyping &
+                 iteration, with O(100) weekly usage by engineers & data scientists.`,
+              ],
             },
           ],
         },
@@ -135,11 +146,11 @@ export const EyasResume: Resume = {
           involvements: [
             {
               dates: { start: MakeDate(2014, 7), end: MakeDate(2017, 7) },
-              title: "Software Developer",
+              title: "Senior Software Developer",
               description: `Built high-performance loosely-coupled distributed systems on a 7-engineer team. Developed
  server-side components connecting sell-side banks to their clients.`,
               accomplishments: [
-                `Lead technical direction for a 3 developer initiative to consolidate two major families of
+                `Led technical direction for a 3 developer initiative to consolidate two major families of
  components across asset classes. Implemented required changes for unified quoting libraries.`,
                 `Designed and built a randomized test client for venue connectors over the FIX protocol. Load tests
  and performs state explorations of server-side components. These explorations can either follow a
@@ -162,6 +173,7 @@ export const EyasResume: Resume = {
               accomplishments: [
                 "Built support for real-time collaborative editing in Word Online by developing inter-paragraph text merge strategies.",
               ],
+              tags: ["intern"],
             },
             {
               dates: { start: MakeDate(2012, 6), end: MakeDate(2012, 8) },
@@ -169,6 +181,7 @@ export const EyasResume: Resume = {
               accomplishments: [
                 "Extended OneNote Online to support editing, viewing, and collaborating across securely encrypted, password-protected sections.",
               ],
+              tags: ["intern"],
             },
           ],
         },
@@ -183,6 +196,7 @@ export const EyasResume: Resume = {
               accomplishments: [
                 "Built tools to facilitate event-driven programming for internal software; built load-testing framework for internal message bus; ran performance trials.",
               ],
+              tags: ["intern"],
             },
           ],
         },
@@ -269,6 +283,16 @@ export const EyasResume: Resume = {
       name: "Volunteer",
       entities: [
         {
+          entity: "MIT Arab Alumni Association",
+          involvements: [
+            {
+              dates: { start: MakeDate(2025, 6) },
+              title: "Board Member",
+              tags: ["highlight"],
+            },
+          ],
+        },
+        {
           entity: "Out in Tech Digital Corps",
           url: "https://outintech.com/digital-corps/",
           location: "New York, NY",
@@ -277,7 +301,7 @@ export const EyasResume: Resume = {
               dates: { start: MakeDate(2017, 4), end: MakeDate(2021, 1) },
               title: "Organizer",
               description:
-                "Organizing volunteer engineers, designers, and other tech professionals to build websites and online presence for LGBTQ+ activists and organizations around the world.",
+                "Organized volunteer engineers, designers, and other tech professionals to build websites and online presence for LGBTQ+ activists and organizations around the world.",
               tags: ["highlight"],
             },
           ],
@@ -330,7 +354,6 @@ export const EyasResume: Resume = {
             {
               dates: { start: MakeDate(2013, 6), end: MakeDate(2020, 12) },
               title: "Educational Counselor",
-              tags: ["highlight"],
               description:
                 "Recruiting, acting as a community resource, and interviewing candidates for the MIT freshman class.",
             },
@@ -415,6 +438,49 @@ export const EyasResume: Resume = {
               description: "Monadic observables in JS.",
               url: "https://github.com/Eyas/RamzLib",
               tags: ["project"],
+            },
+          ],
+        },
+        {
+          entity: "Selected Writings",
+          involvements: [
+            {
+              dates: {
+                start: MakeDate(2025, 12, 18),
+                end: MakeDate(2025, 12, 18),
+              },
+              title:
+                "Algorithmically Generated Crosswords: 'good enough' for an NP-Complete problem",
+              url: "https://blog.eyas.sh/2025/12/algorithmic-crosswords/",
+            },
+            {
+              dates: {
+                start: MakeDate(2023, 2, 1),
+                end: MakeDate(2023, 2, 1),
+              },
+              title: "Server Environments",
+              url: "https://blog.eyas.sh/2023/02/server-environments/",
+            },
+            {
+              dates: {
+                start: MakeDate(2020, 10, 4),
+                end: MakeDate(2020, 10, 4),
+              },
+              title: "Basic Concepts in Unity for Software Engineers",
+              url: "https://blog.eyas.sh/2020/10/unity-for-engineers-pt1-basic-concepts/",
+            },
+            {
+              dates: { start: MakeDate(2020, 3, 8), end: MakeDate(2020, 3, 8) },
+              title: "Data-Oriented Architecture",
+              url: "https://blog.eyas.sh/2020/03/data-oriented-architecture/",
+            },
+            {
+              dates: {
+                start: MakeDate(2018, 12, 21),
+                end: MakeDate(2018, 12, 21),
+              },
+              title: "Observables, Side-effects, and Subscriptions",
+              url: "https://blog.eyas.sh/2018/12/observables-side-effects-and-subscriptions/",
             },
           ],
         },
@@ -520,7 +586,7 @@ export const EyasResume: Resume = {
   ],
   skills: [
     {
-      name: "Programming",
+      name: "Languages",
       skills: [
         "C++",
         "TypeScript",
@@ -533,9 +599,16 @@ export const EyasResume: Resume = {
         "PHP",
       ],
     },
-    { name: "Web", skills: ["Angular", "HTML", "CSS"] },
-    { name: "Other", skills: ["SQL", "GameMaker"] },
-    { name: "Language", skills: ["Arabic (Native)", "English (Fluent)"] },
+    {
+      name: "Web & Frameworks",
+      skills: ["Angular", "React", "Next.js", "HTML", "CSS"],
+    },
+    {
+      name: "App Frameworks",
+      skills: ["Flutter", "React Native", "WinUI", "XAML"],
+    },
+    { name: "Other", skills: ["SQL", "Unity", "GameMaker"] },
+    { name: "Languages", skills: ["Arabic (Native)", "English (Fluent)"] },
   ],
   recognitions: [
     {

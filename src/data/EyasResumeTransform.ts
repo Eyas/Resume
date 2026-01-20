@@ -56,9 +56,14 @@ export const Transform: XForm<Resume> = {
         name: { as: "Other Experience" },
         entities: {
           filter: (entity) =>
-            entity.involvements.some((inv) => inv.dates.start.year <= 2013),
+            entity.involvements.some(
+              (inv) =>
+                inv.dates.start.year <= 2013 && !inv.tags?.includes("intern"),
+            ),
           involvements: {
-            filter: (involvement) => involvement.dates.start.year <= 2013,
+            filter: (involvement) =>
+              involvement.dates.start.year <= 2013 &&
+              !involvement.tags?.includes("intern"),
           },
         },
       },
@@ -67,7 +72,7 @@ export const Transform: XForm<Resume> = {
         entities: {
           filter: (entity) =>
             entity.involvements.some((involvement) =>
-              DateRangesIntersect({ start: { year: 2013 } }, involvement.dates)
+              DateRangesIntersect({ start: { year: 2013 } }, involvement.dates),
             ),
         },
       },
@@ -77,7 +82,7 @@ export const Transform: XForm<Resume> = {
           filter: (entity) =>
             entity.involvements.some(
               (involvement) =>
-                (involvement.tags || []).indexOf("highlight") >= 0
+                (involvement.tags || []).indexOf("highlight") >= 0,
             ),
           first: 3,
           // filter: (entity) => entity.involvements.some(involvement => involvement.dates.start.year > 2013),
@@ -87,6 +92,13 @@ export const Transform: XForm<Resume> = {
           //     description: false,
           //     accomplishments: { filter: None }
           // }
+        },
+      },
+      {
+        item: "Side Projects",
+        name: { as: "Selected Writings" },
+        entities: {
+          filter: /Writings/,
         },
       },
     ],

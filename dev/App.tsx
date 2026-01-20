@@ -11,12 +11,7 @@ function Body({ children }: PropsWithChildren) {
 }
 
 function App() {
-  return (
-    <div>
-      <h1>Component Playground</h1>
-      <Resume resume={ResumeData} Head={Head} Body={Body} />
-    </div>
-  );
+  return <Resume resume={ResumeData} Head={Head} Body={Body} />;
 }
 
 export default App;

@@ -200,18 +200,21 @@ export const TwoColumn: React.FC<{ resume: Resume }> = ({ resume }) => {
   const other_volunteer = Subtract(
     volunteer_highlights,
     assert(SelectCategory(resume.categories, "Volunteer")),
-  ).filter((element) => !element.dates.end || element.dates.end.year > 2009);
+  ).filter((element) => !element.dates.end || element.dates.end.year > 2015);
 
-  let other_experience: Category;
-  {
-    other_experience = assert(
-      SelectCategory(main_categories, "Other Experience"),
-    );
-    const education_experience = assert(
-      SelectCategory(main_categories, "Education Experience"),
-    );
-    other_experience.entities.push(...education_experience.entities);
-  }
+  // let other_experience: Category;
+  // {
+  //   other_experience = assert(
+  //     SelectCategory(main_categories, "Other Experience"),
+  //   );
+  //   const education_experience = assert(
+  //     SelectCategory(main_categories, "Education Experience"),
+  //   );
+  //   other_experience.entities.push(...education_experience.entities);
+  // }
+  const selected_writings = assert(
+    SelectCategory(main_categories, "Selected Writings"),
+  );
 
   const listing_obj = collate(
     education.entities
@@ -283,20 +286,6 @@ export const TwoColumn: React.FC<{ resume: Resume }> = ({ resume }) => {
           <CategoryRender category={experience} key={experience.name} />
         </article>
         <aside>
-          <h3>Skills</h3>
-          <p>
-            {resume.skills.map((skill) => (
-              <span key={skill.name}>
-                <strong>{skill.name}</strong>:{" "}
-                {skill.skills.map((sk) => (
-                  <span className="skill" key={sk}>
-                    {sk}
-                  </span>
-                ))}
-              </span>
-            ))}
-          </p>
-          <MiniCategory category={other_experience} />
           <h3>Side Projects</h3>
           <ul>
             {side_projects.map((p, idx) => (
@@ -310,6 +299,31 @@ export const TwoColumn: React.FC<{ resume: Resume }> = ({ resume }) => {
               </li>
             ))}
           </ul>
+          <h3>Selected Writings (blog.eyas.sh)</h3>
+          <ul>
+            {selected_writings.entities.map((e) =>
+              e.involvements.map((inv) => (
+                <li key={e.entity + "_" + inv.title}>
+                  {inv.url ? <a href={inv.url}>{inv.title}</a> : inv.title}
+                  {inv.dates.start && <> ({RenderYearRange(inv.dates)})</>}
+                </li>
+              )),
+            )}
+          </ul>
+          <h3>Skills</h3>
+          <p>
+            {resume.skills.map((skill) => (
+              <span key={skill.name}>
+                <strong>{skill.name}</strong>:&nbsp;
+                {skill.skills.map((sk) => (
+                  <span className="skill" key={sk}>
+                    {sk}
+                  </span>
+                ))}
+              </span>
+            ))}
+          </p>
+          {/* <MiniCategory category={other_experience} /> */}
         </aside>
       </div>
       <div className="content">
